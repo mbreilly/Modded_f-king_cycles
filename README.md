@@ -106,20 +106,20 @@ SETTINGS › Mods for the stock behaviour).
 
 Every knob of every machine, with its defaults, is in **[docs/MACHINES.md](docs/MACHINES.md)**.
 
-**Extras.** Added machines have up to four more parameters: hold `MACHINES` and turn `PITCH`, `DECAY`, `COLOR`,
-`SHAPE`. At 0 (the default) each machine plays its plain sound. They save with the sound and take p-locks.
+**Extras and the knob layer.** Added machines have up to four more parameters. **Double-tap `PUNCH`** (the LED
+blinks) to turn on the knob layer, then turn `PITCH`, `DECAY`, `COLOR`, `SHAPE` for Extra 1–4; the other knobs play
+the filter and insert effect (below). Double-tap `PUNCH` again to leave. Punch itself moves to a long press (half a
+second). At 0 (the default) each machine plays its plain sound. Extras save with the sound and take p-locks. Holding
+`MACHINES` and turning a knob does the same, and SETTINGS › Mods › `Knb Lyr` = MACH puts the layer on the open
+MACHINES screen instead of `PUNCH`.
 
 **Drum machine extras** follow the real machines: **Accent** (accented hits up to 6 dB louder, like the 909's TOTAL
 ACCENT knob; plain hits unchanged) and **Drift** (each hit a little different in pitch, up to ±25 cents, and level,
 about ±1 dB, like the parts of a real drum machine), plus tuning, decay and tone mods.
 
-**Knob layer.** Double-tap `PUNCH` (the LED blinks) and the knobs act as if `MACHINES` were held, so you can play
-the extras, filter and insert effect with both hands. Double-tap again to leave. Punch itself moves to a long press
-(half a second). Prefer the old way? SETTINGS › Mods › `Knb Lyr` = MACH.
-
 ## What else changes on the Cycles
 
-**Filter on every track.** Hold `MACHINES` and turn:
+**Filter on every track.** On the knob layer (double-tap `PUNCH`), turn:
 
 | Knob | Does |
 |---|---|
@@ -129,8 +129,8 @@ the extras, filter and insert effect with both hands. Double-tap again to leave.
 | `DELAY` | Envelope amount (centre = none) |
 | `REVERB` | Envelope decay, 5 ms–10 s |
 
-**Insert effect on every track,** after the filter: `MACHINES` + `SWING` picks OFF / DRV (drive) / CRS (bitcrush) /
-FLD (wavefold) / RNG (ring mod) / RES (resonator) / RAT (RAT-pedal style distortion), `MACHINES` + `CHANCE` sets the
+**Insert effect on every track,** after the filter: on the knob layer, `SWING` picks OFF / DRV (drive) / CRS (bitcrush) /
+FLD (wavefold) / RNG (ring mod) / RES (resonator) / RAT (RAT-pedal style distortion), `CHANCE` sets the
 amount. Both save with the sound and take p-locks.
 
 **Settings › Mods** (a new ninth row of SETTINGS):

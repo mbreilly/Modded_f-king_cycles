@@ -2,8 +2,9 @@
 
 Machines 1–6 are Elektron's own KICK, SNARE, METAL, PERC, TONE and CHORD, unchanged. Machines 7–25 are added.
 
-Main knobs are the usual COLOR / SHAPE / SWEEP / CONTOUR (MIDI CC 16–19). **Extras** are played with MACHINES held
-(or the knob layer, double-tap PUNCH): PITCH / DECAY / COLOR / SHAPE become Extra 1–4 (CC 20–23, NRPN 1:40–1:43).
+Main knobs are the usual COLOR / SHAPE / SWEEP / CONTOUR (MIDI CC 16–19). **Extras** are played on the knob layer:
+double-tap PUNCH (LED blinks) and PITCH / DECAY / COLOR / SHAPE become Extra 1–4 (CC 20–23, NRPN 1:40–1:43). Holding
+MACHINES works too, and SETTINGS › Mods › Knb Lyr can move the layer to the MACHINES screen.
 Every extra defaults to 0, which is the machine's plain sound.
 
 ## 7 · 909BD
@@ -18,10 +19,10 @@ TR-909 kick from analog circuit models (DMDaudio model909, MIT), tuned against r
 | SHAPE | BD Shape | 64 |
 | SWEEP | BD Sweep | 64 |
 | CONTOUR | Sweep Time | 64 |
-| MACHINES + PITCH | Accent | 0 |
-| MACHINES + DECAY | Tune Decay | 0 |
-| MACHINES + COLOR | Click | 0 |
-| MACHINES + SHAPE | Tone | 0 |
+| Layer + PITCH | Accent | 0 |
+| Layer + DECAY | Tune Decay | 0 |
+| Layer + COLOR | Click | 0 |
+| Layer + SHAPE | Tone | 0 |
 
 ## 8 · 808BD
 
@@ -35,9 +36,9 @@ CONTOUR is the **Accent** level of accented hits, as on the 808. **Drift** gives
 | SHAPE | BD Drop | 64 |
 | SWEEP | Drop Time | 64 |
 | CONTOUR | Accent | 0 |
-| MACHINES + PITCH | Drift | 0 |
-| MACHINES + DECAY | Tail | 0 |
-| MACHINES + COLOR | Click | 0 |
+| Layer + PITCH | Drift | 0 |
+| Layer + DECAY | Tail | 0 |
+| Layer + COLOR | Click | 0 |
 
 ## 9 · RUMBL
 
@@ -49,10 +50,10 @@ A rumble kick: a sine kick with pitch drop, held at full level for a moment, fed
 | SHAPE | Damp | 40 |
 | SWEEP | Drive | 40 |
 | CONTOUR | Hold | 0 |
-| MACHINES + PITCH | Sweep | 0 |
-| MACHINES + DECAY | Sweep Time | 0 |
-| MACHINES + COLOR | Rumble Level | 0 |
-| MACHINES + SHAPE | Tail Pitch | 0 |
+| Layer + PITCH | Sweep | 0 |
+| Layer + DECAY | Sweep Time | 0 |
+| Layer + COLOR | Rumble Level | 0 |
+| Layer + SHAPE | Tail Pitch | 0 |
 
 ## 10 · 909
 
@@ -66,10 +67,10 @@ The TR-909 kit apart from the kick, in one machine: SHAPE (Voice) picks LT, MT, 
 | SHAPE | Voice (LT / MT / HT / RIM / CLP / CH / OH / RD / CR / SD) | 0 |
 | SWEEP | Sweep/ Spread | 64 |
 | CONTOUR | Time/ Burst | 64 |
-| MACHINES + PITCH | Accent | 0 |
-| MACHINES + DECAY | Range/ Tail | 0 |
-| MACHINES + COLOR | Drift | 0 |
-| MACHINES + SHAPE | Tone | 0 |
+| Layer + PITCH | Accent | 0 |
+| Layer + DECAY | Range/ Tail | 0 |
+| Layer + COLOR | Drift | 0 |
+| Layer + SHAPE | Tone | 0 |
 
 ## 11 · 606
 
@@ -83,10 +84,10 @@ A TR-606 kit in one machine (after Matthew Fecher's TR-606 analysis); SHAPE pick
 | SHAPE | Voice (BD / SD / LT / HT / CH / OH / CY) | 0 |
 | SWEEP | Sweep | 64 |
 | CONTOUR | Noise | 64 |
-| MACHINES + PITCH | Drift | 0 |
-| MACHINES + DECAY | Long Decay | 0 |
-| MACHINES + COLOR | Sweep | 0 |
-| MACHINES + SHAPE | Accent Level | 0 |
+| Layer + PITCH | Drift | 0 |
+| Layer + DECAY | Long Decay | 0 |
+| Layer + COLOR | Sweep | 0 |
+| Layer + SHAPE | Accent Level | 0 |
 
 ## 12 · 808
 
@@ -100,10 +101,10 @@ The TR-808 hi-hat and cymbal in one machine: six square oscillators through band
 | SHAPE | Voice HPF | 32 |
 | SWEEP | Res/Hi Decay | 64 |
 | CONTOUR | Noise/ Spread | 0 |
-| MACHINES + PITCH | Metal Tune | 0 |
-| MACHINES + DECAY | Drift | 0 |
-| MACHINES + COLOR | Filter/ Curve | 0 |
-| MACHINES + SHAPE | Accent Level | 0 |
+| Layer + PITCH | Metal Tune | 0 |
+| Layer + DECAY | Drift | 0 |
+| Layer + COLOR | Filter/ Curve | 0 |
+| Layer + SHAPE | Accent Level | 0 |
 
 ## 13 · METL2
 
@@ -115,10 +116,10 @@ Modal metal: a mallet or noise exciter into 8 damped resonators whose ratios mor
 | SHAPE | Bright | 80 |
 | SWEEP | Position | 20 |
 | CONTOUR | Exciter | 10 |
-| MACHINES + PITCH | Dent | 0 |
-| MACHINES + DECAY | Scrape | 0 |
-| MACHINES + COLOR | Hi Damp | 0 |
-| MACHINES + SHAPE | Drive | 0 |
+| Layer + PITCH | Dent | 0 |
+| Layer + DECAY | Scrape | 0 |
+| Layer + COLOR | Hi Damp | 0 |
+| Layer + SHAPE | Drive | 0 |
 
 ## 14 · BIAS
 
@@ -130,10 +131,10 @@ A percussion and drone voice ported from [100demons/bias](https://github.com/100
 | SHAPE | Morph | 43 |
 | SWEEP | Spread | 16 |
 | CONTOUR | Fold | 24 |
-| MACHINES + PITCH | Liquid | 0 |
-| MACHINES + DECAY | Liq Time | 0 |
-| MACHINES + COLOR | Strike | 0 |
-| MACHINES + SHAPE | Drive | 0 |
+| Layer + PITCH | Liquid | 0 |
+| Layer + DECAY | Liq Time | 0 |
+| Layer + COLOR | Strike | 0 |
+| Layer + SHAPE | Drive | 0 |
 
 ## 15 · ACID
 
@@ -147,10 +148,10 @@ Slide: make a trig longer than the gap to the next trig and the note glides into
 | SHAPE | Reso | 90 |
 | SWEEP | Env Mod | 80 |
 | CONTOUR | Drive | 0 |
-| MACHINES + PITCH | Slide Time | 0 |
-| MACHINES + DECAY | Filter FM | 0 |
-| MACHINES + COLOR | Muffler | 0 |
-| MACHINES + SHAPE | Accent | 0 |
+| Layer + PITCH | Slide Time | 0 |
+| Layer + DECAY | Filter FM | 0 |
+| Layer + COLOR | Muffler | 0 |
+| Layer + SHAPE | Accent | 0 |
 
 ## 16 · GROWL
 
@@ -162,10 +163,10 @@ A dark, growling bass: three detuned saws that drift slowly, a sub, a noise laye
 | SHAPE | Growl Rate | 72 |
 | SWEEP | Growl Depth | 64 |
 | CONTOUR | Tone | 60 |
-| MACHINES + PITCH | Sub Level | 0 |
-| MACHINES + DECAY | Attack | 0 |
-| MACHINES + COLOR | Noise | 0 |
-| MACHINES + SHAPE | Drive | 0 |
+| Layer + PITCH | Sub Level | 0 |
+| Layer + DECAY | Attack | 0 |
+| Layer + COLOR | Noise | 0 |
+| Layer + SHAPE | Drive | 0 |
 
 ## 17 · MACRO
 
@@ -177,10 +178,10 @@ A dark, growling bass: three detuned saws that drift slowly, a sub, a noise laye
 | SHAPE | Model | 0 |
 | SWEEP | Color | 64 |
 | CONTOUR | Env Timbre | 0 |
-| MACHINES + PITCH | Attack | 0 |
-| MACHINES + DECAY | Env Color | 0 |
-| MACHINES + COLOR | Lofi Bits | 0 |
-| MACHINES + SHAPE | Lofi Rate | 0 |
+| Layer + PITCH | Attack | 0 |
+| Layer + DECAY | Env Color | 0 |
+| Layer + COLOR | Lofi Bits | 0 |
+| Layer + SHAPE | Lofi Rate | 0 |
 
 ## 18 · VACF
 
@@ -192,10 +193,10 @@ A virtual-analog voice: a variable-shape oscillator and a sub into two state-var
 | SHAPE | Reso | 40 |
 | SWEEP | Env Mod | 60 |
 | CONTOUR | Wave (SAW / SQR / PLS) | 0 |
-| MACHINES + PITCH | Sync | 0 |
-| MACHINES + DECAY | Detune | 0 |
-| MACHINES + COLOR | Sub | 0 |
-| MACHINES + SHAPE | Drive | 0 |
+| Layer + PITCH | Sync | 0 |
+| Layer + DECAY | Detune | 0 |
+| Layer + COLOR | Sub | 0 |
+| Layer + SHAPE | Drive | 0 |
 
 ## 19 · XMOD
 
@@ -207,10 +208,10 @@ Cross-modulation: a carrier at the note and a modulator at a musical ratio, comb
 | SHAPE | Mod Ratio (11 named values) | 40 |
 | SWEEP | Mod Wave (SIN / TRI / SAW / SQR) | 0 |
 | CONTOUR | Algo (XFD / FLD / DIO / RNG / XOR / CMP) | 50 |
-| MACHINES + PITCH | Car Wave (SIN / TRI / SAW / SQR) | 0 |
-| MACHINES + DECAY | Mod Env | 0 |
-| MACHINES + COLOR | Detune | 0 |
-| MACHINES + SHAPE | Crush | 0 |
+| Layer + PITCH | Car Wave (SIN / TRI / SAW / SQR) | 0 |
+| Layer + DECAY | Mod Env | 0 |
+| Layer + COLOR | Detune | 0 |
+| Layer + SHAPE | Crush | 0 |
 
 ## 20 · DX
 
@@ -222,10 +223,10 @@ Six-operator FM like a DX7: the 32 classic algorithms, per-operator envelopes, f
 | SHAPE | Bright | 64 |
 | SWEEP | Env Time | 64 |
 | CONTOUR | Algo (33 named values) | 0 |
-| MACHINES + PITCH | Feedback | 0 |
-| MACHINES + DECAY | Op6 Ratio | 0 |
-| MACHINES + COLOR | Vel Sens | 0 |
-| MACHINES + SHAPE | Detune | 0 |
+| Layer + PITCH | Feedback | 0 |
+| Layer + DECAY | Op6 Ratio | 0 |
+| Layer + COLOR | Vel Sens | 0 |
+| Layer + SHAPE | Detune | 0 |
 
 ## 21 · ATMOS
 
@@ -237,10 +238,10 @@ A dark pad: a 4-note chord of detuned saw pairs under a low-pass that drifts slo
 | SHAPE | Chord (OCT / 5TH / MIN / MI7 / MI9 / M11 / SU2 / SU4 / MAJ / MA7 / DRK / CLU) | 3 |
 | SWEEP | Drift | 64 |
 | CONTOUR | Space | 70 |
-| MACHINES + PITCH | Swell | 0 |
-| MACHINES + DECAY | Air | 0 |
-| MACHINES + COLOR | Wobble | 0 |
-| MACHINES + SHAPE | Width | 0 |
+| Layer + PITCH | Swell | 0 |
+| Layer + DECAY | Air | 0 |
+| Layer + COLOR | Wobble | 0 |
+| Layer + SHAPE | Width | 0 |
 
 ## 22 · SAMPLER
 
@@ -252,10 +253,10 @@ Plays a sample you sent with Elektron Transfer (see the README, Samples). One sa
 | SHAPE | End | 127 |
 | SWEEP | Mode (FWD / REV / LOP / PNG) | 0 |
 | CONTOUR | Lofi | 0 |
-| MACHINES + PITCH | Fine | 0 |
-| MACHINES + DECAY | Attack | 0 |
-| MACHINES + COLOR | Loop Start | 0 |
-| MACHINES + SHAPE | Drive | 0 |
+| Layer + PITCH | Fine | 0 |
+| Layer + DECAY | Attack | 0 |
+| Layer + COLOR | Loop Start | 0 |
+| Layer + SHAPE | Drive | 0 |
 
 ## 23 · GRANULAR
 
@@ -267,10 +268,10 @@ Granular playback of the track's sample: up to 8 grains under a Hann window.
 | SHAPE | Size | 64 |
 | SWEEP | Density | 64 |
 | CONTOUR | Spray | 0 |
-| MACHINES + PITCH | Spread | 0 |
-| MACHINES + DECAY | Window | 0 |
-| MACHINES + COLOR | Scan | 0 |
-| MACHINES + SHAPE | Reverse | 0 |
+| Layer + PITCH | Spread | 0 |
+| Layer + DECAY | Window | 0 |
+| Layer + COLOR | Scan | 0 |
+| Layer + SHAPE | Reverse | 0 |
 
 ## 24 · WAVETABLE
 
@@ -282,10 +283,10 @@ Turns the track's sample into a wavetable: frames of 2,048 samples, one period p
 | SHAPE | Warp | 0 |
 | SWEEP | Env | 0 |
 | CONTOUR | Env Speed | 64 |
-| MACHINES + PITCH | Sub | 0 |
-| MACHINES + DECAY | Detune | 0 |
-| MACHINES + COLOR | Crush | 0 |
-| MACHINES + SHAPE | Drive | 0 |
+| Layer + PITCH | Sub | 0 |
+| Layer + DECAY | Detune | 0 |
+| Layer + COLOR | Crush | 0 |
+| Layer + SHAPE | Drive | 0 |
 
 ## 25 · EMPTY
 
