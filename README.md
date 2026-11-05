@@ -214,7 +214,7 @@ cmake --build build --config Release
 ```
 
 (Linux needs the JUCE dependencies: `libasound2-dev libjack-jackd2-dev libfreetype6-dev libfontconfig1-dev
-libx11-dev libxcomposite-dev libxcursor-dev libxext-dev libxinerama-dev libxrandr-dev libxrender-dev
+libx11-dev libxcomposite-dev libxcursor-dev libxext-dev libxi-dev libxinerama-dev libxrandr-dev libxrender-dev
 libglu1-mesa-dev mesa-common-dev`.)
 
 ## How the firmware is built
