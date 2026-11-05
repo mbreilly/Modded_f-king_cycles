@@ -18,6 +18,9 @@ the official OS file you download from Elektron. The patcher checks that file an
 > firmware has been played on real hardware, but use it at your own risk. Back up your projects and samples with
 > Elektron Transfer before flashing. The official OS can always be put back (see [Going back](#going-back-to-the-official-os)).
 
+**Manual:** the full owner's manual (49 pages, every machine, every button, the plug-in, and how the firmware
+manages the CPU) is **[docs/Modded_f-king_cycles-Manual.pdf](docs/Modded_f-king_cycles-Manual.pdf)**.
+
 ## Contents
 
 - [Build the firmware](#build-the-firmware)

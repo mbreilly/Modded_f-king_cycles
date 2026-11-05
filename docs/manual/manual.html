@@ -1,0 +1,1194 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Modded_f-king_cycles Manual</title><style>@page {
+  size: A4;
+  margin: 20mm 17mm 18mm 17mm;
+  @top-left { content: "MODDED_F-KING_CYCLES · OWNER'S MANUAL"; font: 600 7pt Inter; letter-spacing: .12em; color: #8a8f96; }
+  @top-right { content: string(chapter); font: 600 7pt Inter; letter-spacing: .12em; color: #8a8f96; text-transform: uppercase; }
+  @bottom-right { content: counter(page); font: 600 8pt Inter; color: #2e363f; }
+  @bottom-left { content: "Modded_f-king_cycles 1.0 · Model:Cycles OS 1.13 · First edition, November 2026"; font: 400 7pt Inter; color: #a0a5ab; }
+}
+@page cover { margin: 0; @top-left { content: none } @top-right { content: none } @bottom-right { content: none } @bottom-left { content: none } }
+@page toc { @top-right { content: "Contents"; } }
+
+:root { --ink: #1d2228; --steel: #2e363f; --amber: #e8a33d; --amber-d: #b8781a; --line: #d9dde2; --tint: #f4f5f7; --xtint: #fdf4e6; }
+html { font-family: Inter, sans-serif; font-size: 9pt; line-height: 1.45; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 6pt; orphans: 3; widows: 3; }
+b, strong { font-weight: 650; }
+a { color: inherit; text-decoration: none; }
+
+/* cover */
+.cover { page: cover; width: 210mm; height: 297mm; background: #1f252c; color: #eef0f2; position: relative; overflow: hidden; }
+.cover .band { position: absolute; left: 0; top: 0; width: 9mm; height: 297mm; background: var(--amber); }
+.cover .grid { position: absolute; right: 22mm; top: 34mm; display: grid; grid-template-columns: 22mm 22mm; gap: 5mm; }
+.cover .sq { width: 22mm; height: 22mm; border-radius: 5mm; background: #2e363f; border: 1.2pt solid #46505b; }
+.cover .sq.a { background: var(--amber); border-color: var(--amber); }
+.cover .t { position: absolute; left: 26mm; top: 120mm; right: 22mm; }
+.cover .kicker { font: 600 9pt Inter; letter-spacing: .3em; color: var(--amber); margin-bottom: 6mm; }
+.cover h1 { font: 800 40pt/1.02 Inter; margin: 0 0 6mm; letter-spacing: -.02em; }
+.cover .sub { font: 400 13pt/1.4 Inter; color: #c3c8ce; max-width: 130mm; }
+.cover .meta { position: absolute; left: 26mm; bottom: 26mm; right: 22mm; font: 400 8.5pt/1.6 Inter; color: #9aa1a9; border-top: .6pt solid #46505b; padding-top: 5mm; display: flex; justify-content: space-between; }
+.cover .meta b { color: #eef0f2; font-weight: 600; }
+
+/* headings */
+h1.ch .tt { string-set: chapter content(text); }
+h1.ch { page-break-before: always; font: 800 22pt/1.1 Inter; letter-spacing: -.01em; margin: 0 0 4mm; color: var(--steel); }
+h1.ch .chn { display: block; font: 700 8pt Inter; letter-spacing: .25em; color: var(--amber-d); margin-bottom: 2mm; }
+h1.ch + .lede { font-size: 10.5pt; color: #4a525b; margin-bottom: 6mm; border-left: 2.5pt solid var(--amber); padding-left: 4mm; }
+h2 { font: 700 12.5pt/1.2 Inter; color: var(--steel); margin: 7mm 0 2.5mm; page-break-after: avoid; }
+h3 { font: 700 10.5pt/1.2 Inter; margin: 5mm 0 2mm; page-break-after: avoid; color: var(--ink); }
+h4 { font: 650 9pt Inter; margin: 4mm 0 1.5mm; page-break-after: avoid; color: var(--steel); }
+
+/* toc */
+.toc { page: toc; page-break-before: always; }
+.toc h1 { font: 800 22pt Inter; color: var(--steel); margin: 0 0 8mm; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0; }
+.toc li a { display: block; }
+.toc li.c > a { font: 650 9.5pt Inter; padding: 1.6mm 0 .6mm; border-top: .5pt solid var(--line); margin-top: 1.5mm; }
+.toc li.s > a { font: 400 8.2pt Inter; color: #4a525b; padding: .2mm 0 .2mm 8mm; }
+.toc li a::after { content: target-counter(attr(href url), page); float: right; }
+.toc li.c > a::after { color: var(--amber-d); }
+.toc .cn { display: inline-block; width: 8mm; color: var(--amber-d); }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 8.3pt; page-break-inside: auto; }
+thead { display: table-header-group; }
+tr { page-break-inside: avoid; }
+th { text-align: left; font: 650 7pt Inter; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--steel); padding: 1.6mm 2mm; }
+td { padding: 1.4mm 2mm; border-bottom: .5pt solid var(--line); vertical-align: top; }
+tbody tr:nth-child(even) td { background: #fafbfc; }
+td.k { white-space: nowrap; font-weight: 650; width: 28mm; }
+td.p { font-weight: 600; width: 30mm; }
+td.d { width: 11mm; text-align: center; color: #6b737c; }
+table.knobs tr.x td { background: var(--xtint) !important; }
+.hold { font-size: 6.6pt; letter-spacing: .04em; background: var(--steel); color: #fff; border-radius: 1mm; padding: .2mm 1mm; }
+.scr { font: 600 6.6pt "DejaVu Sans Mono", monospace; color: var(--amber-d); border: .5pt solid #e5c58f; border-radius: .8mm; padding: 0 .8mm; margin-left: 1mm; white-space: nowrap; }
+.dim { color: #b5bac0; }
+table.matrix { font-size: 7.4pt; }
+table.matrix td { padding: 1mm 1.5mm; }
+table.combos td:first-child { white-space: nowrap; font-weight: 650; width: 44mm; }
+table.combos td.w { width: 34mm; color: #4a525b; }
+table.mlist td { padding: 1.1mm 2mm; }
+table.mlist td.n { width: 7mm; font-weight: 700; color: var(--amber-d); text-align: right; }
+table.mlist td.mn { font-weight: 650; }
+table.mlist td.c { color: #6b737c; }
+table.mlist .gap { width: 6mm; background: none !important; border: 0; }
+.key { display: inline-block; font: 650 7pt Inter; letter-spacing: .03em; border: .7pt solid #8a929b; border-bottom-width: 1.4pt; border-radius: 1.2mm; padding: 0 1.3mm; background: #fff; white-space: nowrap; }
+
+/* machine pages */
+section.machine { page-break-inside: avoid; margin-bottom: 5mm; }
+section.machine h3 { display: flex; align-items: baseline; gap: 2.5mm; font-size: 12pt; border-bottom: 1.2pt solid var(--steel); padding-bottom: 1.5mm; margin-top: 4mm; }
+section.machine h3 .num { font: 800 12pt Inter; color: var(--amber-d); }
+section.machine h3 .cat { font: 600 7pt Inter; letter-spacing: .12em; text-transform: uppercase; color: #6b737c; margin-left: auto; }
+.badge { font: 700 6.5pt Inter; letter-spacing: .1em; text-transform: uppercase; background: var(--amber); color: #1d2228; border-radius: 1mm; padding: .4mm 1.5mm; }
+.intro { margin-bottom: 2mm; }
+.note { font-size: 8pt; color: #4a525b; padding-left: 3mm; border-left: 1.5pt solid var(--line); }
+.origin { font-size: 7pt; color: #8a8f96; margin-top: -1mm; }
+
+/* boxes */
+.box { border: .7pt solid var(--line); background: var(--tint); border-radius: 2mm; padding: 3mm 4mm; margin: 3mm 0 4mm; page-break-inside: avoid; }
+.box.warn { background: #fff6f3; border-color: #f0c8bb; }
+.box.tip { background: var(--xtint); border-color: #efd6ac; }
+.box h4 { margin-top: 0; }
+.box p:last-child, .box ul:last-child { margin-bottom: 0; }
+ul, ol.steps { margin: 0 0 6pt; padding-left: 5mm; }
+li { margin-bottom: 1.2mm; }
+ol.steps li::marker { font-weight: 700; color: var(--amber-d); }
+.two { columns: 2; column-gap: 7mm; }
+.two > * { break-inside: avoid; }
+.small { font-size: 7.8pt; color: #4a525b; }
+.legend { font-size: 7.6pt; color: #4a525b; margin: -1mm 0 3mm; }
+.legend span.sw { display: inline-block; width: 3mm; height: 2.4mm; background: var(--xtint); border: .5pt solid #efd6ac; vertical-align: -.3mm; margin-right: 1mm; }
+.pb { page-break-before: always; }
+.diagram { margin: 3mm 0 5mm; }
+
+.holdmap { border: .7pt solid var(--line); border-radius: 2mm; padding: 3mm 3mm 2mm; margin: 0 0 4mm; background: var(--tint); page-break-inside: avoid; }
+.hm-t { font: 650 8.5pt Inter; margin-bottom: 2mm; }
+table.hm { margin: 0; table-layout: fixed; }
+table.hm td { border: 0; background: none !important; text-align: center; padding: 1mm .5mm; }
+table.hm td.sep { width: 3mm; border-left: .7pt dashed #b9bfc6; }
+.kn { width: 9mm; height: 9mm; border-radius: 50%; margin: 0 auto 1.2mm; background: #3a434d; border: 1.2pt solid #1d2228; position: relative; }
+.kn::after { content: ""; position: absolute; left: 4.1mm; top: .6mm; width: .7mm; height: 3mm; background: #fff; border-radius: .3mm; }
+.kn.a { border-color: var(--amber-d); box-shadow: 0 0 0 1pt var(--amber); }
+.kl { font: 650 6.4pt Inter; letter-spacing: .04em; color: #6b737c; }
+.kf { font: 700 8pt Inter; color: var(--ink); }
+.ks { font: 500 6.4pt Inter; color: var(--amber-d); }
+.hm-l { display: flex; justify-content: space-between; font: 600 6.8pt Inter; color: #6b737c; margin-top: 1mm; padding: 0 2mm; }
+
+.kn.f { background: #4a3a2a; border-color: var(--amber-d); }
+figure.shot { margin: 3mm 0 5mm; page-break-inside: avoid; }
+figure.shot img { width: 100%; border-radius: 2mm; border: .7pt solid #1d2228; display: block; }
+figure.shot.half img { width: 78%; margin: 0 auto; }
+figure.shot figcaption { font-size: 7.6pt; color: #4a525b; margin-top: 1.5mm; }
+table.cpu td { padding: 1mm 2mm; }
+code { font: 7.8pt "DejaVu Sans Mono", monospace; }
+li.sub { margin-left: 5mm; list-style: circle; }
+table.mlist { page-break-inside: avoid; }
+</style></head><body><div class="cover">
+  <div class="band"></div>
+  <div class="grid"><div class="sq a"></div><div class="sq"></div><div class="sq"></div><div class="sq a"></div></div>
+  <div class="t">
+    <div class="kicker">OWNER'S MANUAL · FIRST EDITION · FIRMWARE 1.0</div>
+    <h1>Modded_f-king_cycles</h1>
+    <div class="sub">The guide to the 25-machine firmware for the Elektron Model:Cycles, and the Modded_f-king_cycles plug-in.</div>
+  </div>
+  <div class="meta">
+    <div><b>Firmware</b><br>Model:Cycles OS 1.13, modded<br>25 machines · filter and FX on every track · sampler</div>
+    <div><b>Plug-in</b><br>Modded_f-king_cycles<br>VST3 / AU / standalone · macOS, Windows, Linux</div>
+    <div><b>Edition</b><br>November 2026<br>By <a href="https://soundcloud.com/m_reilly">m_reilly</a></div>
+  </div>
+</div>
+
+<nav class="toc">
+  <h1>Contents</h1>
+  <ol>
+    <li class="c"><a href="#ch1"><span class="cn">1</span>Introduction</a></li>
+    <li class="s"><a href="#c1-what">What is in this firmware</a></li>
+    <li class="s"><a href="#c1-conv">Conventions</a></li>
+    <li class="s"><a href="#c1-build">Building the firmware</a></li>
+    <li class="s"><a href="#c1-safe">Installing, and getting back to the official OS</a></li>
+    <li class="c"><a href="#ch2"><span class="cn">2</span>Quick reference</a></li>
+    <li class="s"><a href="#c2-combos">Every button combination</a></li>
+    <li class="s"><a href="#c2-list">The 25 machines</a></li>
+    <li class="s"><a href="#c2-knobs">Main knobs of the added machines</a></li>
+    <li class="s"><a href="#c2-extras">Extra parameters of the added machines</a></li>
+    <li class="c"><a href="#ch3"><span class="cn">3</span>Everyday use</a></li>
+    <li class="s"><a href="#c3-mach">Choosing a machine</a></li>
+    <li class="s"><a href="#c3-layer">The knob layer (PUNCH double tap)</a></li>
+    <li class="s"><a href="#c3-browser">The sound browser</a></li>
+    <li class="s"><a href="#c3-lp">Level and pan as numbers</a></li>
+    <li class="s"><a href="#c3-boot">Boot animation</a></li>
+    <li class="s"><a href="#c3-lfo">LFO polarity</a></li>
+    <li class="s"><a href="#c3-trk">Track buttons and drones</a></li>
+    <li class="s"><a href="#c3-eq">Master EQ (GATE double tap)</a></li>
+    <li class="c"><a href="#ch4"><span class="cn">4</span>Filter and insert FX on every track</a></li>
+    <li class="s"><a href="#c4-filter">The filter</a></li>
+    <li class="s"><a href="#c4-fx">Insert FX</a></li>
+    <li class="c"><a href="#ch5"><span class="cn">5</span>Extra parameters</a></li>
+    <li class="c"><a href="#ch6"><span class="cn">6</span>Machine reference</a></li>
+    <li class="s"><a href="#c6-stock">1–6 · Stock machines</a></li>
+    <li class="s"><a href="#m-7">7–9 · Kicks: 909BD, 808BD, RUMBL</a></li>
+    <li class="s"><a href="#m-10">10–14 · Drums and percussion: 909, 606, 808, METL2, BIAS</a></li>
+    <li class="s"><a href="#m-15">15–16 · Bass: ACID, GROWL</a></li>
+    <li class="s"><a href="#m-17">17–21 · Synths and pad: MACRO, VACF, XMOD, DX, ATMOS</a></li>
+    <li class="s"><a href="#m-22">22–24 · Sample: SAMPLER, GRANULAR, WAVETABLE</a></li>
+    <li class="s"><a href="#m-25">25 · Utility: EMPTY</a></li>
+    <li class="c"><a href="#ch7"><span class="cn">7</span>Sampling</a></li>
+    <li class="s"><a href="#c7-transfer">The Transfer setting</a></li>
+    <li class="s"><a href="#c7-send">Sending and loading a sample</a></li>
+    <li class="c"><a href="#ch8"><span class="cn">8</span>Settings</a></li>
+    <li class="s"><a href="#c8-usb">USB Out: 2CH or 6CH</a></li>
+    <li class="s"><a href="#c8-sc">Sidechain</a></li>
+    <li class="s"><a href="#c8-trk">Trk Trg</a></li>
+    <li class="s"><a href="#c8-mclk">Mch Clk and Knb Lyr</a></li>
+    <li class="s"><a href="#c8-cpulim">CPU Lim</a></li>
+    <li class="s"><a href="#c8-fxidle">Delay and reverb rest</a></li>
+    <li class="s"><a href="#c8-cpu">CPU monitor</a></li>
+    <li class="c"><a href="#ch9"><span class="cn">9</span>MIDI implementation</a></li>
+    <li class="c"><a href="#ch10"><span class="cn">10</span>The Modded_f-king_cycles plug-in</a></li>
+    <li class="s"><a href="#c10-install">Installing</a></li>
+    <li class="s"><a href="#c10-device">Setting up the Model:Cycles</a></li>
+    <li class="s"><a href="#c10-ui">The window</a></li>
+    <li class="s"><a href="#c10-pages">Track, FX, mixer and setup pages</a></li>
+    <li class="s"><a href="#c10-sample">The SAMPLE window</a></li>
+    <li class="s"><a href="#c10-proj">Projects</a></li>
+    <li class="s"><a href="#c10-audio">Audio streaming and multi-out</a></li>
+    <li class="s"><a href="#c10-sync">Sync, recall and automation</a></li>
+    <li class="s"><a href="#c10-live">Ableton Live and Push 2</a></li>
+    <li class="s"><a href="#c10-limits">Limits</a></li>
+    <li class="c"><a href="#ch11"><span class="cn">11</span>How the firmware is made</a></li>
+    <li class="s"><a href="#c11-patch">Patching your own OS</a></li>
+    <li class="s"><a href="#c11-machines">Adding machines</a></li>
+    <li class="s"><a href="#c11-cpuman">CPU management</a></li>
+    <li class="s"><a href="#c11-drums">Tuning the drum machines</a></li>
+    <li class="s"><a href="#c11-proof">Testing</a></li>
+    <li class="c"><a href="#ch12"><span class="cn">12</span>Appendix</a></li>
+    <li class="s"><a href="#c12-cpu">CPU budget</a></li>
+    <li class="s"><a href="#c12-trouble">Troubleshooting</a></li>
+    <li class="s"><a href="#c12-credits">Credits and licences</a></li>
+  </ol>
+</nav>
+
+<!-- 1 -->
+<h1 class="ch" id="ch1"><span class="chn">CHAPTER 1</span><span class="tt">Introduction</span></h1>
+<p class="lede">Modded_f-king_cycles 1.0 turns the Model:Cycles into a 25-machine instrument: 19 new voices next to
+Elektron's six, from circuit-modelled 909, 808 and 606 drums to acid and FM basses, pads and a sampler, with a filter and
+an insert effect on every track, four extra parameters per machine, a sidechain, a master EQ, switchable 6-channel USB
+audio, and a plug-in that brings it all into your DAW.</p>
+
+<h2 id="c1-what">What is in this firmware</h2>
+<p>The firmware is Elektron's Model:Cycles OS 1.13 with these modifications, and nothing else:</p>
+<table>
+<thead><tr><th>Mod</th><th>What you get</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td><b>19 added machines</b></td><td>909BD, 808BD, RUMBL, 909, 606, 808, METL2, BIAS, ACID, GROWL, MACRO, VACF, XMOD, DX, ATMOS, SAMPLER, GRANULAR, WAVETABLE and EMPTY, after Elektron's six (25 in total).</td><td>Ch. 6</td></tr>
+<tr><td><b>Machine selection</b></td><td>A MACHINES list with each machine's icon and name; press LEVEL/DATA to load (Mch Clk); machines that would overload the CPU are greyed out.</td><td>Ch. 3, 8</td></tr>
+<tr><td><b>Knob layer</b></td><td>Double-tap PUNCH and the knobs play the extras, the filter and the insert FX; the PUNCH LED blinks. Punch itself moves to a long press.</td><td>Ch. 3, 8</td></tr>
+<tr><td><b>Extra parameters</b></td><td>Up to four more parameters per added machine, on the knob layer's PITCH / DECAY / COLOR / SHAPE. The drum machines get Accent and Drift, after the real 909, 808 and 606.</td><td>Ch. 5</td></tr>
+<tr><td><b>Per-track filter</b></td><td>LP / HP / BP and 24 dB LP24 / HP24 with resonance and an envelope on every track, logarithmic cutoff.</td><td>Ch. 4</td></tr>
+<tr><td><b>Insert FX</b></td><td>One effect per track: drive, bitcrush, fold, ring modulator, resonator, RAT distortion.</td><td>Ch. 4</td></tr>
+<tr><td><b>Sampler</b></td><td>Send samples with Elektron Transfer; play them on SAMPLER, GRANULAR and WAVETABLE.</td><td>Ch. 7</td></tr>
+<tr><td><b>USB audio 2CH / 6CH</b></td><td>SETTINGS › Mods › USB Out: the stereo mix, or the six tracks on six USB channels, with overload recovery.</td><td>Ch. 8</td></tr>
+<tr><td><b>Sidechain</b></td><td>One track ducks the others on every trig (the kick pumping the bass), saved with the project.</td><td>Ch. 8</td></tr>
+<tr><td><b>Master EQ</b></td><td>A DJ-style LOW / MID / HIGH EQ with kills on the whole mix: double-tap GATE.</td><td>Ch. 3</td></tr>
+<tr><td><b>LFO polarity</b></td><td>FUNC + LFO › Pol: BI (stock) or UNI per track, so the LFO only moves one way.</td><td>Ch. 3</td></tr>
+<tr><td><b>Trk Trg</b></td><td>Track buttons can select a track without playing it.</td><td>Ch. 3, 8</td></tr>
+<tr><td><b>CPU management</b></td><td>A CPU charge per machine and a budget on the MACHINES list (CPU Lim); the send delay and reverb rest when nothing is sent to them; the machines that play run from fast internal memory; a CPU monitor with each track's share.</td><td>Ch. 8, 11</td></tr>
+<tr><td><b>Screens</b></td><td>A three-line sound browser with scrolling names, level and pan as numbers, and a boot animation.</td><td>Ch. 3</td></tr>
+<tr><td><b>MIDI for everything</b></td><td>Every added parameter on a CC and an NRPN; sidechain, USB 2CH / 6CH, samples, master EQ and projects by NRPN; GET sends the whole loaded sound back; the selected track and the loaded machine are sent out. The stock OS ignores every NRPN it receives; this firmware takes them in.</td><td>Ch. 9</td></tr>
+</tbody></table>
+
+<h2 id="c1-conv">Conventions</h2>
+<table class="combos"><thead><tr><th>Written as</th><th>Means</th></tr></thead><tbody>
+<tr><td><span class="key">LAYER</span> + <span class="key">PITCH</span></td><td>With the knob layer on (double-tap PUNCH, the PUNCH LED blinks), turn PITCH. Holding MACHINES while you turn does the same.</td></tr>
+<tr><td><span class="key">FUNC</span> + <span class="key">LEVEL/DATA</span></td><td>Hold FUNC and turn (or press) the LEVEL/DATA encoder.</td></tr>
+<tr><td>SETTINGS › Device › CPU</td><td>Open SETTINGS, select the Device row, then the CPU row. LEVEL/DATA scrolls and presses.</td></tr>
+<tr><td>Extra 1–4</td><td>The four extra parameters of a machine, on the knob layer's PITCH, DECAY, COLOR, SHAPE.</td></tr>
+<tr><td><span class="scr">ACC</span></td><td>The short name the screen shows for a parameter.</td></tr>
+</tbody></table>
+
+<h2 id="c1-build">Building the firmware</h2>
+<p>The firmware is never distributed as a file: you build it on your computer from Elektron's official OS file, with the
+patcher in the <b>Modded_f-king_cycles</b> repository. You need Python 3.8 or later and nothing else.</p>
+<div class="box">
+<h4>Build</h4>
+<ol class="steps">
+<li>Download <b>model-cycles_OS1.13.syx</b> from elektron.se (Model:Cycles › Support › Downloads; unzip it if needed).</li>
+<li>Download <b>Modded_f-king_cycles-firmware-patcher.zip</b> from the repository's latest release and unzip it.</li>
+<li>In a terminal, in that folder: <code>python3 patch.py path/to/model-cycles_OS1.13.syx</code> (on Windows, <code>py</code> instead of <code>python3</code>).</li>
+</ol>
+<p>The patcher checks that your file is the official one, applies the mods, checks the result against its expected
+fingerprint and writes <b>modded-f-king-cycles.syx</b> next to your file. If anything does not match, it stops and
+writes nothing.</p>
+</div>
+
+<h2 id="c1-safe">Installing, and getting back to the official OS</h2>
+<p>Only the main OS is changed: the bootloader and the startup menu stay exactly as Elektron made them, so the official
+OS can always be put back. Back up your projects and samples with Elektron Transfer first.</p>
+<p><b>Over USB:</b> open Elektron Transfer, connect the Cycles and drop <b>modded-f-king-cycles.syx</b> on it, as for an
+official OS update.</p>
+<div class="box">
+<h4>Or through the startup menu</h4>
+<ol class="steps">
+<li>Connect a MIDI interface's <b>MIDI OUT</b> to the Model:Cycles' <b>MIDI IN</b> (stereo TRS jack or the DIN adaptor). The startup menu does not listen on USB.</li>
+<li>Power off. Hold <span class="key">FUNC</span>, power on, release, then press <span class="key">TRIG 4</span> (OS UPGRADE). The screen shows READY TO RECEIVE.</li>
+<li>Send the .syx to the interface's port with any SysEx tool. The screen moves to RECEIVING, then UPDATING FLASH. Do not switch off during the update (about 5–7 minutes).</li>
+<li>The Cycles restarts by itself when it is done.</li>
+</ol>
+<p>To go back to the stock firmware, send Elektron's official OS 1.13 file the same way. Before that, set any track that
+uses an added machine (7–25) back to one of the six original machines, so your projects open cleanly on the stock OS.</p>
+</div>
+<div class="box warn"><p><b>Experimental firmware.</b> Every part of it is tested in emulation, running the Model:Cycles' own code
+(Chapter 11), and has been played on real hardware, but it is not made or supported by Elektron. Use it at your own
+risk, and back up your projects before flashing.</p></div>
+
+<!-- 2 -->
+<h1 class="ch" id="ch2"><span class="chn">CHAPTER 2</span><span class="tt">Quick reference</span></h1>
+<p class="lede">Every key combination the firmware adds or changes, the machine list, and what each knob does on each
+added machine.</p>
+
+<div class="holdmap"><div class="hm-t">The knob layer (double-tap <span class="key">PUNCH</span>), or <span class="key">MACHINES</span> held, turns the knobs into…</div><table class="hm"><tr><td><div class="kn a"></div><div class="kl">PITCH</div><div class="kf">Extra 1</div><div class="ks">CC 20</div></td><td><div class="kn a"></div><div class="kl">DECAY</div><div class="kf">Extra 2</div><div class="ks">CC 21</div></td><td><div class="kn a"></div><div class="kl">COLOR</div><div class="kf">Extra 3</div><div class="ks">CC 22</div></td><td><div class="kn a"></div><div class="kl">SHAPE</div><div class="kf">Extra 4</div><div class="ks">CC 23</div></td><td class="sep"></td><td><div class="kn s"></div><div class="kl">SWEEP</div><div class="kf">Cutoff</div><div class="ks">CC 74</div></td><td><div class="kn s"></div><div class="kl">CONTOUR</div><div class="kf">Reso</div><div class="ks">CC 71</div></td><td><div class="kn s"></div><div class="kl">DELAY</div><div class="kf">Env</div><div class="ks">CC 24</div></td><td><div class="kn s"></div><div class="kl">REVERB</div><div class="kf">Env Decay</div><div class="ks">CC 25</div></td><td><div class="kn s"></div><div class="kl">LFO SPEED</div><div class="kf">Type</div><div class="ks">CC 26</div></td><td class="sep"></td><td><div class="kn f"></div><div class="kl">SWING</div><div class="kf">FX Type</div><div class="ks">CC 27</div></td><td><div class="kn f"></div><div class="kl">CHANCE</div><div class="kf">FX Amt</div><div class="ks">CC 28</div></td></tr></table><div class="hm-l"><span>Extras · added machines (Ch. 5)</span><span>Filter · every track (Ch. 4)</span><span>Insert FX · every track</span></div></div>
+<h2 id="c2-combos">Every button combination</h2>
+<table class="combos"><thead><tr><th>Press</th><th class="w">Where</th><th>Does</th></tr></thead><tbody>
+<tr><td><span class="key">PUNCH</span> twice, quickly</td><td class="w">Any track (Knb Lyr PUNCH, the default)</td><td>Knob layer on or off: the knobs play the extras, filter and insert FX. The PUNCH LED blinks while it is on.</td></tr>
+<tr><td><span class="key">PUNCH</span> held ½ s</td><td class="w">Any track (Knb Lyr PUNCH)</td><td>Punch on or off (with TRK held: all six tracks). A single short press does nothing.</td></tr>
+<tr><td>Layer + <span class="key">PITCH</span> / <span class="key">DECAY</span> / <span class="key">COLOR</span> / <span class="key">SHAPE</span></td><td class="w">Added machines</td><td>Extra 1 / 2 / 3 / 4 (CC 20–23).</td></tr>
+<tr><td>Layer + <span class="key">SWEEP</span></td><td class="w">Every track</td><td>Filter Cutoff, 20 Hz–20 kHz (CC 74).</td></tr>
+<tr><td>Layer + <span class="key">CONTOUR</span></td><td class="w">Every track</td><td>Filter Reso (CC 71).</td></tr>
+<tr><td>Layer + <span class="key">DELAY</span></td><td class="w">Every track</td><td>Filter Env amount, bipolar (CC 24).</td></tr>
+<tr><td>Layer + <span class="key">REVERB</span></td><td class="w">Every track</td><td>Filter Env Decay, 5 ms–10 s (CC 25).</td></tr>
+<tr><td>Layer + <span class="key">LFO SPEED</span></td><td class="w">Every track</td><td>Filter Type: OFF / LP / HP / BP / LP24 / HP24 (CC 26).</td></tr>
+<tr><td>Layer + <span class="key">SWING</span></td><td class="w">Every track</td><td>Insert FX Type: OFF / DRV / CRS / FLD / RNG / RES / RAT (CC 27).</td></tr>
+<tr><td>Layer + <span class="key">CHANCE</span></td><td class="w">Every track</td><td>Insert FX Amount, 0–127 (CC 28).</td></tr>
+<tr><td><span class="key">MACHINES</span> held + any of the knobs above</td><td class="w">Any track</td><td>The same parameters as the layer, while MACHINES is held.</td></tr>
+<tr><td><span class="key">MACHINES</span></td><td class="w">Any track</td><td>Opens the MACHINES list; turn LEVEL/DATA to choose one of 25 machines.</td></tr>
+<tr><td><span class="key">LEVEL/DATA</span> (press)</td><td class="w">MACHINES list, Mch Clk ON</td><td>Loads the machine under the “&gt;” and closes the list. Turning alone only moves the cursor; the loaded machine keeps its box.</td></tr>
+<tr><td>Knobs while the MACHINES list is open</td><td class="w">Knb Lyr MACH</td><td>The layer's parameters. Press MACHINES to leave.</td></tr>
+<tr><td>Hold trig + <span class="key">LEVEL/DATA</span></td><td class="w">MACHINES list</td><td>Locks a machine on that trig (stock behaviour; the locked line is framed).</td></tr>
+<tr><td><span class="key">FUNC</span> + <span class="key">MACHINES</span></td><td class="w">Any track</td><td>Sound browser, three lines, long names scroll. On a SAMPLER / GRANULAR / WAVETABLE track, choosing a sample file loads it.</td></tr>
+<tr><td><span class="key">LEVEL/DATA</span> (turn)</td><td class="w">Main screen</td><td>Track level, shown as 0–127.</td></tr>
+<tr><td><span class="key">FUNC</span> + <span class="key">LEVEL/DATA</span></td><td class="w">Main screen</td><td>Track pan, shown as −64 to 63.</td></tr>
+<tr><td><span class="key">FUNC</span> + <span class="key">PITCH</span></td><td class="w">MACRO</td><td>Lo-fi: left = sample rate (46K…4K), right = bits (12B…2B), centre = off. On other machines it still steps the note in semitones.</td></tr>
+<tr><td><span class="key">PUNCH</span> held ½ s</td><td class="w">ACID</td><td>Off = saw, on = square.</td></tr>
+<tr><td><span class="key">FUNC</span> + <span class="key">LFO</span> › Pol</td><td class="w">Any track</td><td>LFO polarity: BI (stock) or UNI; press LEVEL/DATA to switch.</td></tr>
+<tr><td><span class="key">GATE</span> twice, quickly</td><td class="w">Any track</td><td>Master EQ layer on or off: PITCH / DECAY / COLOR = LOW / MID / HIGH. The GATE LED blinks while it is on.</td></tr>
+<tr><td><span class="key">GATE</span> held ½ s</td><td class="w">Any track</td><td>GATE on or off (a single short press does nothing).</td></tr>
+<tr><td><span class="key">GATE</span> on, <span class="key">STOP</span> / <span class="key">PLAY</span></td><td class="w">ATMOS</td><td>Drone: the track plays by itself while the sequencer runs; STOP fades it out with DECAY, PLAY brings it back.</td></tr>
+<tr><td><span class="key">T1</span>…<span class="key">T6</span></td><td class="w">Trk Trg OFF</td><td>Selects the track without playing it.</td></tr>
+<tr><td><span class="key">TRK</span> + <span class="key">T1</span>…<span class="key">T6</span></td><td class="w">Trk Trg OFF</td><td>Selects the track and plays it (the reverse of the stock OS).</td></tr>
+<tr><td>Trig LEN longer than the gap</td><td class="w">ACID</td><td>Slide into the next note instead of retriggering.</td></tr>
+<tr><td>SETTINGS › Mods › USB Out, press <span class="key">LEVEL/DATA</span></td><td class="w">Settings</td><td>Toggles 2CH (stereo mix) and 6CH (six tracks). The computer sees the Cycles reconnect.</td></tr>
+<tr><td>SETTINGS › Mods › SC rows</td><td class="w">Settings</td><td>Sidechain: source, depth, attack, hold, release; Duck T1–T6 (Ch. 8).</td></tr>
+<tr><td>SETTINGS › Mods › Trk Trg / Mch Clk / Knb Lyr</td><td class="w">Settings</td><td>Track buttons select only; press to load a machine; PUNCH (default) or MACH for the knob layer.</td></tr>
+<tr><td>SETTINGS › Mods › CPU Lim</td><td class="w">Settings</td><td>The limit for greying out machines: 70 % (default), 75 … 95, OFF, 60, 65.</td></tr>
+<tr><td>SETTINGS › Device › Transfer</td><td class="w">Settings</td><td>CYC (normal) or SMP (Elektron Transfer sees a Model:Samples, to send samples). Back to CYC at each power-on.</td></tr>
+<tr><td>SETTINGS › Device › CPU</td><td class="w">Settings</td><td>Opens the CPU monitor. Turn LEVEL/DATA right for each track's share, left to go back.</td></tr>
+<tr><td>Hold <span class="key">FUNC</span> at power-on, then <span class="key">TRIG 4</span></td><td class="w">Startup</td><td>Startup menu, OS UPGRADE over MIDI IN (recovery).</td></tr>
+</tbody></table>
+
+<h2 id="c2-list">The 25 machines</h2>
+<table class="mlist"><thead><tr><th>#</th><th>Machine</th><th>Type</th><th class="gap"></th><th>#</th><th>Machine</th><th>Type</th></tr></thead><tbody><tr><td class="n">1</td><td class="mn">KICK</td><td class="c">Stock</td><td class="gap"></td><td class="n">14</td><td class="mn">BIAS</td><td class="c">Percussion</td></tr><tr><td class="n">2</td><td class="mn">SNARE</td><td class="c">Stock</td><td class="gap"></td><td class="n">15</td><td class="mn">ACID</td><td class="c">Bass</td></tr><tr><td class="n">3</td><td class="mn">METAL</td><td class="c">Stock</td><td class="gap"></td><td class="n">16</td><td class="mn">GROWL</td><td class="c">Bass</td></tr><tr><td class="n">4</td><td class="mn">PERC</td><td class="c">Stock</td><td class="gap"></td><td class="n">17</td><td class="mn">MACRO</td><td class="c">Synth</td></tr><tr><td class="n">5</td><td class="mn">TONE</td><td class="c">Stock</td><td class="gap"></td><td class="n">18</td><td class="mn">VACF</td><td class="c">Synth</td></tr><tr><td class="n">6</td><td class="mn">CHORD</td><td class="c">Stock</td><td class="gap"></td><td class="n">19</td><td class="mn">XMOD</td><td class="c">Synth</td></tr><tr><td class="n">7</td><td class="mn">909BD</td><td class="c">Kick</td><td class="gap"></td><td class="n">20</td><td class="mn">DX</td><td class="c">Synth</td></tr><tr><td class="n">8</td><td class="mn">808BD</td><td class="c">Kick</td><td class="gap"></td><td class="n">21</td><td class="mn">ATMOS</td><td class="c">Pad</td></tr><tr><td class="n">9</td><td class="mn">RUMBL</td><td class="c">Kick</td><td class="gap"></td><td class="n">22</td><td class="mn">SAMPLER</td><td class="c">Sample</td></tr><tr><td class="n">10</td><td class="mn">909</td><td class="c">Drums</td><td class="gap"></td><td class="n">23</td><td class="mn">GRANULAR</td><td class="c">Sample</td></tr><tr><td class="n">11</td><td class="mn">606</td><td class="c">Drums</td><td class="gap"></td><td class="n">24</td><td class="mn">WAVETABLE</td><td class="c">Sample</td></tr><tr><td class="n">12</td><td class="mn">808</td><td class="c">Hats & cymbal</td><td class="gap"></td><td class="n">25</td><td class="mn">EMPTY</td><td class="c">Utility</td></tr><tr><td class="n">13</td><td class="mn">METL2</td><td class="c">Metal</td><td class="gap"></td><td></td><td></td><td></td></tr></tbody></table>
+
+<h2 id="c2-knobs" class="pb">Main knobs of the added machines</h2>
+<p class="legend">The stock machines (1–6) keep Elektron's knobs. CC numbers are those the Model:Cycles uses for every machine.</p>
+<table class="matrix"><thead><tr><th>#</th><th>Machine</th><th>COLOR · CC 16</th><th>SHAPE · CC 17</th><th>SWEEP · CC 18</th><th>CONTOUR · CC 19</th></tr></thead><tbody><tr><td><b>7</b></td><td><b>909BD</b></td><td>BD Attack</td><td>BD Shape</td><td>BD Sweep</td><td>Sweep Time</td></tr><tr><td><b>8</b></td><td><b>808BD</b></td><td>BD Tone</td><td>BD Drop</td><td>Drop Time</td><td>Accent</td></tr><tr><td><b>9</b></td><td><b>RUMBL</b></td><td>Tail</td><td>Damp</td><td>Drive</td><td>Hold</td></tr><tr><td><b>10</b></td><td><b>909</b></td><td>Tone/ Noise</td><td>Voice</td><td>Sweep/ Spread</td><td>Time/ Burst</td></tr><tr><td><b>11</b></td><td><b>606</b></td><td>Tone</td><td>Voice</td><td>Sweep</td><td>Noise</td></tr><tr><td><b>12</b></td><td><b>808</b></td><td>Color/ Tone</td><td>Voice HPF</td><td>Res/Hi Decay</td><td>Noise/ Spread</td></tr><tr><td><b>13</b></td><td><b>METL2</b></td><td>Struct</td><td>Bright</td><td>Position</td><td>Exciter</td></tr><tr><td><b>14</b></td><td><b>BIAS</b></td><td>Harm</td><td>Morph</td><td>Spread</td><td>Fold</td></tr><tr><td><b>15</b></td><td><b>ACID</b></td><td>Cutoff</td><td>Reso</td><td>Env Mod</td><td>Drive</td></tr><tr><td><b>16</b></td><td><b>GROWL</b></td><td>Detune</td><td>Growl Rate</td><td>Growl Depth</td><td>Tone</td></tr><tr><td><b>17</b></td><td><b>MACRO</b></td><td>Timbre</td><td>Model</td><td>Color</td><td>Env Timbre</td></tr><tr><td><b>18</b></td><td><b>VACF</b></td><td>Cutoff</td><td>Reso</td><td>Env Mod</td><td>Wave</td></tr><tr><td><b>19</b></td><td><b>XMOD</b></td><td>Timbre</td><td>Mod Ratio</td><td>Mod Wave</td><td>Algo</td></tr><tr><td><b>20</b></td><td><b>DX</b></td><td>Patch</td><td>Bright</td><td>Env Time</td><td>Algo</td></tr><tr><td><b>21</b></td><td><b>ATMOS</b></td><td>Color</td><td>Chord</td><td>Drift</td><td>Space</td></tr><tr><td><b>22</b></td><td><b>SAMPLER</b></td><td>Start</td><td>End</td><td>Mode</td><td>Lofi</td></tr><tr><td><b>23</b></td><td><b>GRANULAR</b></td><td>Position</td><td>Size</td><td>Density</td><td>Spray</td></tr><tr><td><b>24</b></td><td><b>WAVETABLE</b></td><td>Position</td><td>Warp</td><td>Env</td><td>Env Speed</td></tr><tr><td><b>25</b></td><td><b>EMPTY</b></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+
+<h2 id="c2-extras" class="pb">Extra parameters of the added machines</h2>
+<p class="legend">Double-tap PUNCH for the knob layer and turn the knob (or hold MACHINES and turn). Short screen names in amber. Default 0 is always the machine's plain sound.</p>
+<table class="matrix"><thead><tr><th>#</th><th>Machine</th><th>+ PITCH · CC 20</th><th>+ DECAY · CC 21</th><th>+ COLOR · CC 22</th><th>+ SHAPE · CC 23</th></tr></thead><tbody><tr><td><b>7</b></td><td><b>909BD</b></td><td>Accent <span class="scr">ACC</span></td><td>Tune Decay <span class="scr">TDEC</span></td><td>Click <span class="scr">CLIK</span></td><td>Tone <span class="scr">TONE</span></td></tr><tr><td><b>8</b></td><td><b>808BD</b></td><td>Drift <span class="scr">DRFT</span></td><td>Tail <span class="scr">TAIL</span></td><td>Click <span class="scr">CLIK</span></td><td><span class="dim">—</span></td></tr><tr><td><b>9</b></td><td><b>RUMBL</b></td><td>Sweep <span class="scr">SWP</span></td><td>Sweep Time <span class="scr">STIM</span></td><td>Rumble Level <span class="scr">RLVL</span></td><td>Tail Pitch <span class="scr">TPIT</span></td></tr><tr><td><b>10</b></td><td><b>909</b></td><td>Accent <span class="scr">ACC</span></td><td>Range/ Tail <span class="scr">TAIL</span></td><td>Drift <span class="scr">DRFT</span></td><td>Tone <span class="scr">TONE</span></td></tr><tr><td><b>11</b></td><td><b>606</b></td><td>Drift <span class="scr">DRFT</span></td><td>Long Decay <span class="scr">LONG</span></td><td>Sweep <span class="scr">SWP</span></td><td>Accent Level <span class="scr">ACC</span></td></tr><tr><td><b>12</b></td><td><b>808</b></td><td>Metal Tune <span class="scr">TUNE</span></td><td>Drift <span class="scr">DRFT</span></td><td>Filter/ Curve <span class="scr">FCRV</span></td><td>Accent Level <span class="scr">ACC</span></td></tr><tr><td><b>13</b></td><td><b>METL2</b></td><td>Dent <span class="scr">DENT</span></td><td>Scrape <span class="scr">SCRP</span></td><td>Hi Damp <span class="scr">HDMP</span></td><td>Drive <span class="scr">DRV</span></td></tr><tr><td><b>14</b></td><td><b>BIAS</b></td><td>Liquid <span class="scr">LIQ</span></td><td>Liq Time <span class="scr">LQTM</span></td><td>Strike <span class="scr">STRK</span></td><td>Drive <span class="scr">DRV</span></td></tr><tr><td><b>15</b></td><td><b>ACID</b></td><td>Slide Time <span class="scr">SLID</span></td><td>Filter FM <span class="scr">FFM</span></td><td>Muffler <span class="scr">MUFF</span></td><td>Accent <span class="scr">ACC</span></td></tr><tr><td><b>16</b></td><td><b>GROWL</b></td><td>Sub Level <span class="scr">SUB</span></td><td>Attack <span class="scr">ATK</span></td><td>Noise <span class="scr">NOIS</span></td><td>Drive <span class="scr">DRV</span></td></tr><tr><td><b>17</b></td><td><b>MACRO</b></td><td>Attack <span class="scr">ATK</span></td><td>Env Color <span class="scr">ENVC</span></td><td>Lofi Bits <span class="scr">BITS</span></td><td>Lofi Rate <span class="scr">RATE</span></td></tr><tr><td><b>18</b></td><td><b>VACF</b></td><td>Sync <span class="scr">SYNC</span></td><td>Detune <span class="scr">DET</span></td><td>Sub <span class="scr">SUB</span></td><td>Drive <span class="scr">DRV</span></td></tr><tr><td><b>19</b></td><td><b>XMOD</b></td><td>Car Wave <span class="scr">CWAV</span></td><td>Mod Env <span class="scr">MENV</span></td><td>Detune <span class="scr">DET</span></td><td>Crush <span class="scr">CRSH</span></td></tr><tr><td><b>20</b></td><td><b>DX</b></td><td>Feedback <span class="scr">FB</span></td><td>Op6 Ratio <span class="scr">OP6R</span></td><td>Vel Sens <span class="scr">VELS</span></td><td>Detune <span class="scr">DET</span></td></tr><tr><td><b>21</b></td><td><b>ATMOS</b></td><td>Swell <span class="scr">SWEL</span></td><td>Air <span class="scr">AIR</span></td><td>Wobble <span class="scr">WOBL</span></td><td>Width <span class="scr">WIDE</span></td></tr><tr><td><b>22</b></td><td><b>SAMPLER</b></td><td>Fine <span class="scr">FINE</span></td><td>Attack <span class="scr">ATK</span></td><td>Loop Start <span class="scr">LPST</span></td><td>Drive <span class="scr">DRV</span></td></tr><tr><td><b>23</b></td><td><b>GRANULAR</b></td><td>Spread <span class="scr">SPRD</span></td><td>Window <span class="scr">WIN</span></td><td>Scan <span class="scr">SCAN</span></td><td>Reverse <span class="scr">REV</span></td></tr><tr><td><b>24</b></td><td><b>WAVETABLE</b></td><td>Sub <span class="scr">SUB</span></td><td>Detune <span class="scr">DET</span></td><td>Crush <span class="scr">CRSH</span></td><td>Drive <span class="scr">DRV</span></td></tr><tr><td><b>25</b></td><td><b>EMPTY</b></td><td><span class="dim">—</span></td><td><span class="dim">—</span></td><td><span class="dim">—</span></td><td><span class="dim">—</span></td></tr></tbody></table>
+
+<h1 class="ch" id="ch3"><span class="chn">CHAPTER 3</span><span class="tt">Everyday use</span></h1>
+<p class="lede">The screens you meet all the time: the MACHINES list, the sound browser and the level and pan readouts.</p>
+
+<h2 id="c3-mach">Choosing a machine</h2>
+<p>Select a track and press <span class="key">MACHINES</span>. The screen shows the machine's small icon on the left
+(K, S, M, P, T, C, or the bars, saw-teeth, waves and static icons of the added types), four machine names on the right
+with a “&gt;” in front of the selected one, arrows at the right edge, and a counter (for example 09/25) in the title
+bar. Turn <span class="key">LEVEL/DATA</span> to move through the 25 machines; the arrows go hollow at either end.</p>
+<p><b>Click to load (Mch Clk ON, the default).</b> Turning LEVEL/DATA only moves the “&gt;”; the machine that is
+loaded keeps its line in an inverted box. <b>Press LEVEL/DATA</b> to load the machine under the “&gt;”, and the screen
+closes as usual. Closing the screen any other way changes nothing, so a bump of the encoder while you work no longer
+changes the machine. Hold <span class="key">TRK</span> while you press and all six tracks move by the same number of
+steps, as TRK + turn does on the stock OS. With Mch Clk OFF, turning loads at once, as stock.</p>
+<p>A machine can be locked on a trig as on the stock OS: hold the trig and turn LEVEL/DATA (this always works at once,
+Mch Clk or not). The locked machine's line is framed.</p>
+<p>Names can be up to 11 characters on this screen, so SAMPLER and WAVETABLE are spelled out in full.</p>
+<p><b>CPU budget (greyed-out machines).</b> Each machine has a fixed CPU charge (its heaviest measured cost; see the
+appendix), and each track adds its filter and insert FX. A machine that would take the six tracks over the limit set in
+SETTINGS › Mods › CPU Lim is shown <b>greyed out</b> (half-lit) and the “&gt;” skips it. While the list is open, the title
+shows the <b>total load in %</b> with the machine under the “&gt;” on this track: the rest of the OS (about 31 %), 8 % more
+while the computer reads the USB audio, the master EQ when it is not flat, 8 % less while the delay and reverb rest, and
+the six tracks. It follows the CPU page closely, so a new project reads about 31 %. You are never locked: a machine that does
+not raise the load is always allowed, so an older, heavy project can always be lightened. With TRK held (all six
+tracks), the load counts that machine six times. A machine locked on a trig is not checked.</p>
+<p><b>EMPTY</b> is the last machine: silence at almost no CPU. A new project, or a cleared kit, puts EMPTY on all six
+tracks, so you start with the whole budget free.</p>
+
+<h2 id="c3-layer">The knob layer (PUNCH double tap)</h2>
+<p>The extras, the filter and the insert FX are played from the <b>knob layer</b>, so both hands stay free. It is
+the default way (SETTINGS › Mods › Knb Lyr = PUNCH):</p>
+<ol class="steps">
+<li><b>Double-tap <span class="key">PUNCH</span></b> (two short presses, well under half a second apart). The PUNCH LED
+starts to blink, once a second.</li>
+<li>Turn the knobs: PITCH, DECAY, COLOR and SHAPE give Extra 1–4, SWEEP / CONTOUR / DELAY / REVERB / LFO SPEED the
+filter, SWING / CHANCE the insert FX (Chapter 2). Holding MACHINES and turning a knob does the same. P-locks work the same: hold a trig and
+turn.</li>
+<li><b>Double-tap PUNCH again</b> to leave. The LED goes back to showing punch.</li>
+</ol>
+<ul>
+<li><b>Punch moves to a long press:</b> hold PUNCH about half a second to switch punch on or off (TRK + PUNCH held:
+all six tracks). It works with the layer on too. A single short press does nothing, so a double tap never flips
+punch. On ACID, the drum machines and the other machines where PUNCH is the accent or the wave, use the long
+press.</li>
+<li><span class="key">FUNC</span> + <span class="key">PUNCH</span> works as stock.</li>
+<li>The layer is not saved: it is off at power-on.</li>
+<li>The blinking LED is the same LED at the same brightness as punch: the Cycles' LEDs are simply on or off, so it
+can never be brighter than stock.</li>
+<li>Prefer the MACHINES screen? Set <b>SETTINGS › Mods › Knb Lyr</b> to <b>MACH</b>: then the knobs give the layer
+while the MACHINES list is open (press MACHINES again to leave), and PUNCH works exactly as stock (Chapter 8).</li>
+</ul>
+
+<h2 id="c3-browser">The sound browser</h2>
+<p>Press <span class="key">FUNC</span> + <span class="key">MACHINES</span> to open the sound (preset) browser.</p>
+<ul>
+<li><b>Three lines at once</b>, in a small font, so you see what comes before and after. The “&gt;” follows the cursor, the loaded sound is highlighted and folders are marked with a square. On a SAMPLER, GRANULAR or WAVETABLE track, the sample file the track plays is highlighted the same way.</li>
+<li><b>Long names scroll</b>: a selected name that is too long for the screen scrolls left, one character every 0.17 s, with a 0.5 s pause at the end. Short names stay still.</li>
+<li><b>Samples</b>: files sent with Elektron Transfer appear in the browser too. On a SAMPLER, GRANULAR or WAVETABLE track, choosing one loads it on that track (Chapter 7).</li>
+</ul>
+
+<h2 id="c3-lp">Level and pan as numbers</h2>
+<p>On the main screen, turning <span class="key">LEVEL/DATA</span> shows the track level (0–127) in digits in place of the
+loudspeaker icon, and <span class="key">FUNC</span> + <span class="key">LEVEL/DATA</span> shows the pan (−64 to 63). The
+number disappears 3–4 seconds after you stop. LEVEL/DATA moves in steps of 1, so every value is reachable. Changes by
+MIDI or by loading a project show nothing.</p>
+
+<h2 id="c3-boot">Boot animation</h2>
+<p>At power-on the screen shows the logo (four rounded squares popping in), then “modded f**king” and “cycles 1.0”
+typing themselves on two lines, instead of the tile animation. 1.0 is this firmware's version. The finished screen holds
+about a second longer than the stock animation. Holding FUNC at power-on still opens the startup menu.</p>
+
+<h2 id="c3-lfo">LFO polarity</h2>
+<p>Press <span class="key">FUNC</span> + <span class="key">LFO</span> to open LFO Setup. After Rst, Fde and Sph it has
+a fourth row, <b>Pol</b>: scroll down with LEVEL/DATA and press it to switch the selected track between <b>BI</b>
+(the stock LFO, the default) and <b>UNI</b>.</p>
+<p>In UNI the triangle, sine, square, saw and random waves are squeezed to the 0…1 range: with a positive DEP the
+parameter only rises from where you set it, with a negative DEP it only falls. An LFO on the filter opens it and never
+closes it below the knob. EXP and RMP already worked that way and are unchanged.</p>
+<ul>
+<li>Pol is set per track and remembered at power-off (it is a setting of the machine, not of the sound). The plug-in
+sets it too (NRPN 1:56).</li>
+<li>Cost: under 0.1 % of the CPU.</li>
+</ul>
+
+<h2 id="c3-trk">Track buttons and drones</h2>
+<p><b>Trk Trg.</b> On the stock OS a track button (T1–T6) selects the track and plays its sound. Set
+<b>SETTINGS › Mods › Trk Trg</b> to <b>OFF</b> and a track button only selects the track: the screen and lights follow,
+nothing sounds and no MIDI note goes out. To play a track in this mode, hold <span class="key">TRK</span> and press its
+button. TRK + RETRIG + track still plays with the retrig rate. The setting is remembered at power-off. ON is the default.</p>
+<p><b>Drones.</b> ATMOS is a drone machine: with <span class="key">GATE</span> on it sounds by itself while
+the sequencer plays, with no trig in the pattern. Press <span class="key">STOP</span> and it fades out with its
+DECAY and its Space tail; press <span class="key">PLAY</span> and it comes back. A trig on a droning track retunes
+it without a gap. Notes played while the sequencer is stopped (keyboard, step preview) behave as with GATE off.</p>
+
+<h2 id="c3-eq">Master EQ (GATE double tap)</h2>
+<p>A DJ-mixer EQ on the whole mix (the six tracks and the delay and reverb returns), just before the master volume
+and the USB copy. It plays from a knob layer of its own:</p>
+<ol>
+<li>Double-tap <span class="key">GATE</span>. The GATE LED blinks once a second and the screen shows MASTER EQ with the
+three bands (value in dB and a bar).</li>
+<li>Turn <b>PITCH</b> = LOW, <b>DECAY</b> = MID, <b>COLOR</b> = HIGH. Centre (64) = 0 dB, with a notch so you can find it;
+full left = the band is killed; full right = +6 dB. The bands cross at 250 Hz and 2.5 kHz and add back to the exact mix when flat.</li>
+<li>Double-tap GATE again to leave. Double-tapping PUNCH switches to the PUNCH knob layer instead (only one layer at a time).</li>
+</ol>
+<ul>
+<li><b>GATE moves to a long press:</b> hold GATE about half a second to switch it on or off (this is how you start a drone).
+A single short press does nothing. FUNC + GATE works as stock.</li>
+<li>On the EQ layer, SHAPE, SWEEP and CONTOUR do nothing (so a stray turn changes nothing); LEVEL/DATA and the keys keep their normal job.</li>
+<li>The EQ is saved with the project. By MIDI: NRPN 1:63 / 1:64 / 1:65 on the FX channel (LOW / MID / HIGH); the plug-in's FX page has the three bands and KILL buttons.</li>
+<li>Cost: nothing while all three bands are at 64; up to 3.9 % of a block when in use, counted in the CPU Lim budget.</li>
+</ul>
+
+<!-- 4 -->
+<h1 class="ch" id="ch4"><span class="chn">CHAPTER 4</span><span class="tt">Filter and insert FX on every track</span></h1>
+<p class="lede">Every track, on every machine, has its own resonant filter with an envelope and an insert effect
+after it, all set from the knob layer (double-tap PUNCH) or with MACHINES held. The signal runs machine → filter → insert FX → sidechain → level, pan and sends.</p>
+
+<h2 id="c4-filter">The filter</h2>
+
+<table class="combos"><thead><tr><th>Layer +</th><th class="w">Parameter</th><th>Range and use</th></tr></thead><tbody>
+<tr><td><span class="key">LFO SPEED</span></td><td class="w"><b>Filter Type</b> · CC 26</td><td>OFF (default) / LP (low-pass) / HP (high-pass) / BP (band-pass), all 12 dB per octave, and LP24 / HP24, steeper 24 dB per octave versions like Ableton's filter (they use a little more CPU, only on the tracks set to them). OFF leaves the sound untouched and costs nothing.</td></tr>
+<tr><td><span class="key">SWEEP</span></td><td class="w"><b>Filter Cutoff</b> · CC 74</td><td>0–126 = 20 Hz to 20 kHz on a logarithmic curve, about 13 steps per octave, like Ableton's filters. On LP, 127 (the default) is fully open: the track passes through exactly as with Type OFF. On HP, 0 is fully open.</td></tr>
+<tr><td><span class="key">CONTOUR</span></td><td class="w"><b>Filter Reso</b> · CC 71</td><td>0–127, from flat (Butterworth) up to a strong peak, about +18 to +25 dB above the passband at 127. The rest of the sound keeps its level and its low end. The peak saturates softly like an analog filter, growling instead of whistling. A strong Filter Env can sweep right to the top without the filter cutting out. Works on every type.</td></tr>
+<tr><td><span class="key">DELAY</span></td><td class="w"><b>Filter Env</b> · CC 24</td><td>How far the envelope moves the cutoff: left of centre lowers it, right raises it, centre (64) = no envelope.</td></tr>
+<tr><td><span class="key">REVERB</span></td><td class="w"><b>Env Decay</b> · CC 25</td><td>How fast the envelope returns, 5 ms to 10 s. It restarts on each note.</td></tr>
+</tbody></table>
+<ul>
+<li>The five filter parameters save with the sound and take p-locks, LFO and velocity like any other parameter.</li>
+<li>One layout everywhere: on the layer, PITCH, DECAY, COLOR, SHAPE play the machine's extras (added machines; on the stock machines they stay the normal knobs), while SWEEP, CONTOUR, DELAY, REVERB play the filter on every track and LFO SPEED picks its type. Leave the layer and DELAY and REVERB are the sends again.</li>
+</ul>
+<p class="small">Reso at 127 on a loud track can reach full scale; turn the track's level down a little if it clips. The filter costs about 1 % of a block per filtered track.</p>
+<div class="box tip"><p><b>Try this.</b> Type LP, Cutoff about 60, Reso 90, Env +40 and Env Decay 30 on a TONE or VACF track for a
+quick acid pluck. Type HP with a high cutoff on a hat track thins it without touching the machine's own knobs.</p></div>
+
+<h2 id="c4-fx">Insert FX</h2>
+<p>One effect per track, after the filter. It only affects its own track: a drive on the kick takes nothing from the others.</p>
+<table class="combos"><thead><tr><th>Layer +</th><th class="w">Parameter</th><th>Range and use</th></tr></thead><tbody>
+<tr><td><span class="key">SWING</span></td><td class="w"><b>FX Type</b> · CC 27</td><td>OFF (default), DRV, CRS, FLD, RNG, RES, RAT. OFF leaves the track exactly as without the mod.</td></tr>
+<tr><td><span class="key">CHANCE</span></td><td class="w"><b>FX Amount</b> · CC 28</td><td>0–127, default 64. It glides without clicks and can be modulated.</td></tr>
+</tbody></table>
+<table><thead><tr><th>Type</th><th>Effect</th><th>What Amount does</th><th>CPU per track</th></tr></thead><tbody>
+<tr><td><b>DRV</b></td><td>Drive</td><td>Gain up to ×16 into a cubic soft clipper, with level compensation.</td><td>1.0 %</td></tr>
+<tr><td><b>CRS</b></td><td>Bitcrush</td><td>Fewer bits and a lower sample rate together.</td><td>0.2 %</td></tr>
+<tr><td><b>FLD</b></td><td>Wavefold</td><td>Gain up to ×8 into a phase folder: metallic, hollow overtones.</td><td>0.5 %</td></tr>
+<tr><td><b>RNG</b></td><td>Ring modulator</td><td>Blend of a 300 Hz ring modulation: bell-like, inharmonic.</td><td>0.6 %</td></tr>
+<tr><td><b>RES</b></td><td>Resonator</td><td>Two resonant bands, 240 Hz and 2.6 kHz, from a light colour to near self-oscillation at 127; the low band is weighted ×4. Soft-limited, never hard-clipped.</td><td>1.8 %</td></tr>
+<tr><td><b>RAT</b></td><td>RAT distortion</td><td>After the ProCo RAT pedal: up to ×256 of gain in the mids but twelve times less in the lows, so a kick keeps its round low end while the attack turns square; the top darkens as the gain rises. Dense and mid-heavy, much harder than DRV.</td><td>2.1 %</td></tr>
+</tbody></table>
+<ul>
+<li>Both settings save with the sound and take p-locks. An LFO cannot jump the FX Type (an LFO on <i>None</i> leaves it alone); FX Amount can be modulated.</li>
+<li>Off the layer, SWING and CHANCE are the stock trig settings. VOL + DIST is unchanged.</li>
+<li>Sounds saved on the stock OS load with FX OFF, Amount 64.</li>
+<li>Six tracks of RES cost about 13 % of a block; with the filter at its worst on all six as well, about 20 %.</li>
+</ul>
+<div class="box tip"><p><b>Try this.</b> DRV at 70 on a 909BD for a harder, rounder kick; RES at 110 on a hat track for metallic ringing; CRS on a
+pad for lo-fi grit; RNG on a DX bell for a broken, clangorous tone; RAT at 100 on a kick for a square, overdriven attack with the low end intact.</p></div>
+
+<!-- 5 -->
+<h1 class="ch" id="ch5"><span class="chn">CHAPTER 5</span><span class="tt">Extra parameters</span></h1>
+<p class="lede">The Model:Cycles has four sound knobs per machine. The knob layer (double-tap PUNCH, or MACHINES held)
+adds up to four more on every added machine: PITCH, DECAY, COLOR and SHAPE turn into Extra 1 to 4.</p>
+<ul>
+<li><b>Default 0 = the plain sound.</b> With every extra at 0, each machine plays exactly its own sound, sample for sample.</li>
+<li><b>They behave like normal parameters:</b> they save with the sound, take p-locks (on the layer, hold a trig and turn), and answer MIDI on CC 20–23 or NRPN 1:40–1:43.</li>
+<li><b>The screen names them</b> with a short label (for example <span class="scr">SLID</span>, <span class="scr">FFM</span>, <span class="scr">MUFF</span>, <span class="scr">ACC</span> on ACID) while you turn.</li>
+<li>List-type knobs show names, not numbers: MACRO models, the 606 and 909 voices, DX patches, ATMOS chords, METL2 materials and the SAMPLER mode.</li>
+<li>The stock machines have no extras (all their parameters already have a knob).</li>
+<li>An extra costs CPU only while it is above 0 (up to about 2k instructions per voice).</li>
+</ul>
+<p>The full list is in the quick-reference matrix (Chapter 2) and in each machine's table (Chapter 6, shaded rows).</p>
+<p>For the drum machines, the extras follow the real machines and their classic hardware mods:</p>
+<ul>
+<li><b>Accent</b> (909BD, 909) makes accented hits (PUNCH on) up to 6 dB louder, like turning up the 909's TOTAL ACCENT knob; plain hits are unchanged, and a loud accent rounds off softly under full scale instead of clipping. On 808BD the accent level is CONTOUR, as on the 808; on the 606 and 808, Accent Level.</li>
+<li><b>Drift</b> (808BD, 909, 606, 808) gives every hit a slightly different pitch (up to ±25 cents) and level (about ±1 dB), as the parts of a real drum machine drift from hit to hit. At 0 every hit is identical.</li>
+<li><b>Hardware mods:</b> the 909 kick and tom tuning mods on 909BD and 909, the R153/R147 mod on the 808 hat, and the R163, Samore and Analog Solutions mods on the 606.</li>
+</ul>
+<p>On ACID the extras are Devil Fish style modifications.</p>
+
+<!-- 6 -->
+<h1 class="ch" id="ch6"><span class="chn">CHAPTER 6</span><span class="tt">Machine reference</span></h1>
+<p class="lede">Each added machine with its knobs, its defaults and its extras. Shaded rows are the extras (knob layer, or
+MACHINES held). PITCH, FINE, the keys, DECAY, PUNCH and GATE work as on the stock machines unless a table says otherwise.</p>
+<p class="legend"><span class="sw"></span>Extra parameter, knob layer · Default = value of a fresh sound</p>
+
+<h2 id="c6-stock">1–6 · Stock machines</h2>
+<p>KICK, SNARE, METAL, PERC, TONE and CHORD are Elektron's own engines, unchanged. Their COLOR, SHAPE, SWEEP and CONTOUR work
+exactly as described in the Model:Cycles manual. They have no extras; the per-track filter works on them.</p>
+
+<section class="machine" id="m-7">
+<h3><span class="num">07</span> 909BD <span class="cat">Kick</span></h3>
+<p class="intro">TR-909 kick from analog circuit models, tuned against recordings of real 909s. The extras follow the 909&#x27;s own accent and classic kick mods.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">BD Attack</td><td class="d">64</td><td>Attack click: 64 sounds like an original 909 at its usual setting, 127 = the 909&#x27;s full attack, 0 = none. The top of the click is softened.</td></tr><tr><td class="k">SHAPE</td><td class="p">BD Shape</td><td class="d">64</td><td>Waveshape of the kick.</td></tr><tr><td class="k">SWEEP</td><td class="p">BD Sweep</td><td class="d">64</td><td>Pitch sweep depth.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Sweep Time</td><td class="d">64</td><td>Pitch sweep time.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Accent <span class="scr">ACC</span></td><td class="d">0</td><td>Accented hits (PUNCH on) up to 6 dB louder, like turning up the 909&#x27;s TOTAL ACCENT; plain hits are unchanged. Loud accents round off softly under full scale instead of clipping.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Tune Decay <span class="scr">TDEC</span></td><td class="d">0</td><td>Pitch envelope decay extended up to 4× (a longer, boomier pitch drop).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Click <span class="scr">CLIK</span></td><td class="d">0</td><td>Attack transient level.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Tone <span class="scr">TONE</span></td><td class="d">0</td><td>Tilt EQ: darker, lows up and highs down.</td></tr></tbody></table>
+
+<p class="origin">Source: DMDaudio model909 (MIT) · CPU 4.3 / 9.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-8">
+<h3><span class="num">08</span> 808BD <span class="cat">Kick</span></h3>
+<p class="intro">TR-808 kick from a circuit model, tuned against recordings of real 808s. A new hit rings on top of the old tail instead of cutting it (no click on fast hits). DECAY 64 fades out in about 1.5 s like a classic 808, 0 in 0.1 s, 127 in about 4 s. CONTOUR is the 808&#x27;s accent level.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">BD Tone</td><td class="d">64</td><td>Tone.</td></tr><tr><td class="k">SHAPE</td><td class="p">BD Drop</td><td class="d">64</td><td>Pitch drop depth.</td></tr><tr><td class="k">SWEEP</td><td class="p">Drop Time</td><td class="d">64</td><td>Pitch drop time.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Accent</td><td class="d">0</td><td>Accent level: accented hits (PUNCH on) up to +6 dB, as on the 808. 0 = no accent.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit gets a slightly different pitch (up to ±25 cents) and level (about ±1 dB), like the parts of a real drum machine drifting from hit to hit. 0 = every hit identical.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Tail <span class="scr">TAIL</span></td><td class="d">0</td><td>Decay stretched up to near-infinite.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Click <span class="scr">CLIK</span></td><td class="d">0</td><td>A second click on the attack.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own TR-808 circuit model (MIT) · CPU 1.8 / 4.5 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-9">
+<h3><span class="num">09</span> RUMBL <span class="cat">Kick</span></h3>
+<p class="intro">A rumble kick: a sine kick with pitch drop, held at full level for a moment, fed into a dark 4-line feedback delay network. Its own envelopes: the rumble outlives the kick. C4 at PITCH 64 = a 52 Hz (G#1) kick. DECAY = kick body, 60 ms to 3 s.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Tail</td><td class="d">64</td><td>Rumble length (t60), 0.15 to 6 s.</td></tr><tr><td class="k">SHAPE</td><td class="p">Damp</td><td class="d">40</td><td>Rumble low-pass, 41 Hz to 1.2 kHz.</td></tr><tr><td class="k">SWEEP</td><td class="p">Drive</td><td class="d">40</td><td>Kick + rumble into the soft clipper, ×0.5 to ×4 (the only knob meant to distort).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Hold</td><td class="d">0</td><td>The kick body stays at full level for 0–500 ms before DECAY starts; the rumble is fed longer and the tail gets bigger.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sweep <span class="scr">SWP</span></td><td class="d">0</td><td>Pitch drop: 0 = 2.5 octaves, up to 5.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Sweep Time <span class="scr">STIM</span></td><td class="d">0</td><td>How fast the pitch drops: 0 = the quick original drop (20 ms), up to a long 135 ms zap.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Rumble Level <span class="scr">RLVL</span></td><td class="d">0</td><td>0 = standard, up to ×3.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Tail Pitch <span class="scr">TPIT</span></td><td class="d">0</td><td>0 = long rolling loops; up = shorter loops, higher metallic ring.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT) · CPU 5.8 / 9.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-10">
+<h3><span class="num">10</span> 909 <span class="cat">Drums</span></h3>
+<p class="intro">The TR-909 kit apart from the kick, in one machine: SHAPE picks the voice on each trig (lock it per step): low, mid and high tom, rim shot, clap, closed and open hat, ride, crash and snare. Each part keeps ringing when another is hit (a clap does not cut a tom, a hat does not cut the crash), as on the real 909. The knobs go to the voice of the last trig.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Tone/ Noise</td><td class="d">64</td><td>Toms: noise in the tom · rim/clap: tone · hats: band-pass centre · ride: bell ↔ wash · crash: low ↔ high band.</td></tr><tr><td class="k">SHAPE</td><td class="p">Voice</td><td class="d">0</td><td>LT MT HT RIM CLP CH OH RD CR SD (shown by name).</td></tr><tr><td class="k">SWEEP</td><td class="p">Sweep/ Spread</td><td class="d">64</td><td>Toms: pitch sweep depth · clap: spread · hats: high-pass · ride: bell pitch · crash: swell length.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Time/ Burst</td><td class="d">64</td><td>Toms: pitch sweep time · clap: burst · hats and cymbals: noise in the metal.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Accent <span class="scr">ACC</span></td><td class="d">0</td><td>Accented hits (PUNCH on) up to 6 dB louder, like turning up the 909&#x27;s TOTAL ACCENT; plain hits are unchanged. Loud accents round off softly under full scale instead of clipping.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Range/ Tail <span class="scr">TAIL</span></td><td class="d">0</td><td>Toms: wider pitch drop (tuning mod) · clap: longer tail, rim: longer ring · hats/cymbals: Long Decay (up to ×15).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit gets a slightly different pitch (up to ±25 cents) and level (about ±1 dB), like the parts of a real drum machine drifting from hit to hit. 0 = every hit identical.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Tone <span class="scr">TONE</span></td><td class="d">0</td><td>Toms, rim, clap and snare: tilt EQ, darker to brighter. No effect on the hats.</td></tr></tbody></table>
+<p class="note">SD (Voice 9) is the 909 snare: two tuned shells with a pitch bend and a snappy noise path, tuned against recordings of real 909 snares (about 178 Hz at C4). On the SD, COLOR is SNAPPY, SWEEP the shell bend, CONTOUR the shell decay and DECAY the snappy length (the 909&#x27;s TONE knob).</p>
+<p class="origin">Source: DMDaudio model909 (MIT) for the toms, rim and clap; Modded_f-king_cycles&#x27; own code for the hats and cymbals · CPU 8.3 / 20.5 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-11">
+<h3><span class="num">11</span> 606 <span class="cat">Drums</span></h3>
+<p class="intro">A TR-606 kit in one machine; SHAPE picks the voice on each trig (lock it per step). No clap. PITCH tunes (64 = the 606), DECAY sets the decay (÷6 to ×6; the screen reads −64 to +63, 0 = the 606), PUNCH is the accent (+3 dB). Tuned against recordings of a real 606.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Tone</td><td class="d">64</td><td>BD click tone · SD wire tone · toms noise tone · hats/cymbal band-pass centre. Reads −64 to +63 on the screen, 0 = the 606.</td></tr><tr><td class="k">SHAPE</td><td class="p">Voice</td><td class="d">0</td><td>BD SD LT HT CH OH CY (shown by name).</td></tr><tr><td class="k">SWEEP</td><td class="p">Sweep</td><td class="d">64</td><td>BD pitch drop · SD shell bend · tom glide · hats/cymbal high-pass.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Noise</td><td class="d">64</td><td>BD click level · SD snappy · tom stick noise · noise in the metal.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit gets a slightly different pitch (up to ±25 cents) and level (about ±1 dB), like the parts of a real drum machine drifting from hit to hit. 0 = every hit identical.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Long Decay <span class="scr">LONG</span></td><td class="d">0</td><td>Decay stretched up to ×15 (the R163 kick mod: an 808-length boom).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Sweep <span class="scr">SWP</span></td><td class="d">0</td><td>Extra pitch envelope: kick (Samore mod), toms (Analog Solutions mod), snare bend.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Accent Level <span class="scr">ACC</span></td><td class="d">0</td><td>0–64: unaccented hits rise to accent level. 64–127: every hit up to +6 dB.</td></tr></tbody></table>
+<p class="note">The extras act on the voice SHAPE currently selects.</p>
+<p class="origin">Source: Modded_f-king_cycles&#x27; own code, after Matthew Fecher&#x27;s TR-606 analysis (MIT) · CPU 6.2 / 9.5 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-12">
+<h3><span class="num">12</span> 808 <span class="cat">Hats & cymbal</span></h3>
+<p class="intro">The TR-808 hi-hat and cymbal in one machine: six square oscillators through band-pass and high-pass filters. SHAPE picks the voice on each trig: 0–63 the hat, 64–127 the cymbal, and within each half it is that voice&#x27;s high-pass. The hat and the cymbal each keep ringing when the other is hit. The cymbal plays 32 steps longer than DECAY (DECAY 32 = a closed-ish hat).</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Color/ Tone</td><td class="d">64</td><td>Hat: colour of the metal (band-pass) · cymbal: low ↔ high band. Reads −64 to +63 on the screen, 0 = the 808.</td></tr><tr><td class="k">SHAPE</td><td class="p">Voice HPF</td><td class="d">32</td><td>0–63 hat, 64–127 cymbal; within each half, the high-pass cutoff (32 and 96 = the old default).</td></tr><tr><td class="k">SWEEP</td><td class="p">Res/Hi Decay</td><td class="d">64</td><td>Hat: filter resonance · cymbal: decay of the high band.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Noise/ Spread</td><td class="d">0</td><td>Hat: noise added · cymbal: spread of its two bands (64 = the old default).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Metal Tune <span class="scr">TUNE</span></td><td class="d">0</td><td>Retunes the cowbell oscillator pair (more metallic).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit a slightly different level (about ±1 dB), like a real 808.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Filter/ Curve <span class="scr">FCRV</span></td><td class="d">0</td><td>Hat: band-pass and high-pass down by up to 1.5 octaves (R153/R147 mod) · cymbal: from exponential toward a linear decay, louder longer tail.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Accent Level <span class="scr">ACC</span></td><td class="d">0</td><td>Accented hits (PUNCH on) up to +6 dB, as on the 808.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own TR-808 circuit model (MIT) · CPU 5.0 / 16 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-13">
+<h3><span class="num">13</span> METL2 <span class="cat">Metal</span></h3>
+<p class="intro">Modal metal: a mallet or noise exciter into 8 damped resonators whose ratios morph across six materials. Its own envelopes: DECAY = damping, the lowest mode ringing 50 ms to 10 s.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Struct</td><td class="d">70</td><td>String → pipe → sheet → plate → bell → bar, continuous.</td></tr><tr><td class="k">SHAPE</td><td class="p">Bright</td><td class="d">80</td><td>Exciter low-pass 520 Hz to 13 kHz and level of the upper modes.</td></tr><tr><td class="k">SWEEP</td><td class="p">Position</td><td class="d">20</td><td>Struck at 2 % (all modes) to 50 % (odd modes only).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Exciter</td><td class="d">10</td><td>Hard mallet to a 40 ms noise burst.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Dent <span class="scr">DENT</span></td><td class="d">0</td><td>Each mode detuned by its own fixed amount, up to ±1 semitone.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Scrape <span class="scr">SCRP</span></td><td class="d">0</td><td>Noise keeps exciting the modes while the note is held.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Hi Damp <span class="scr">HDMP</span></td><td class="d">0</td><td>Upper modes die sooner.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>×1 to ×8 into the soft clipper.</td></tr></tbody></table>
+
+<p class="origin">Source: After the modal resonators of Rings and Plaits by Émilie Gillet (MIT); written from scratch · CPU 6.5 / 9.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-14">
+<h3><span class="num">14</span> BIAS <span class="cat">Percussion</span></h3>
+<p class="intro">A percussion and drone voice: six oscillators with their own decays and an unlimited wavefolder, all on an internal clock locked to the pitch. From deep toms and kicks to bells, metal and buzzing drones. PITCH and FINE tune it (two octaves below the note, as the original); DECAY runs from 10 ms to 4 s, 127 drones; GATE holds the envelopes at half level while the note is held.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Harm</td><td class="d">40</td><td>Harmonics: one tone, a second one over the first quarter, then four upper partials.</td></tr><tr><td class="k">SHAPE</td><td class="p">Morph</td><td class="d">43</td><td>Oscillator shape: sine, triangle, saw, square, and blends; snaps onto each pure shape.</td></tr><tr><td class="k">SWEEP</td><td class="p">Spread</td><td class="d">16</td><td>Partial ratios from harmonic 1-2-3-4-5-6 to inharmonic 1-2-3-5-7-11.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Fold</td><td class="d">24</td><td>Wavefolder threshold; above 96, pulses at the folded peaks.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Liquid <span class="scr">LIQ</span></td><td class="d">0</td><td>Pitch drop on the hit, 0 to +36 semitones (0 = PUNCH gives the original&#x27;s +24 drop).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Liq Time <span class="scr">LQTM</span></td><td class="d">0</td><td>Length of the pitch drop: 0 = 25 ms, otherwise 5 to 150 ms.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Strike <span class="scr">STRK</span></td><td class="d">0</td><td>A noise burst on the attack.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>Gain ×1 to ×16 into the output limiter.</td></tr></tbody></table>
+<p class="note">Lighter than the original: internal clock 12–24 kHz, shapes snapped, 512-point tables and quiet oscillators skipped, about 30 % less CPU at the defaults.</p>
+<p class="origin">Source: Ported from 100demons&#x27; bias 2.0 (MIT): a clean-room voice after the published description of the Noise Engineering Basimilus Iteritas Alia (no Noise Engineering code) · CPU 2.5 / 6.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-15">
+<h3><span class="num">15</span> ACID <span class="cat">Bass</span><span class="badge">Devil Fish</span></h3>
+<p class="intro">A TB-303 style bass: saw or square into a resonant filter with its own envelope, slides from your trigs, and a drive, tuned against a Behringer TD-3. The four extras are Devil Fish style modifications.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Cutoff</td><td class="d">40</td><td>Filter cutoff, down to 100 Hz.</td></tr><tr><td class="k">SHAPE</td><td class="p">Reso</td><td class="d">90</td><td>Resonance.</td></tr><tr><td class="k">SWEEP</td><td class="p">Env Mod</td><td class="d">80</td><td>Filter envelope depth.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Drive</td><td class="d">0</td><td>From warmth to a crunchy growl.</td></tr><tr><td class="k">DECAY</td><td class="p">Decay</td><td class="d"></td><td>Filter envelope (200 ms to 2 s) and amp decay.</td></tr><tr><td class="k">PUNCH</td><td class="p">Wave</td><td class="d"></td><td>Off = saw, on = square.</td></tr><tr><td class="k">GATE</td><td class="p">Gate</td><td class="d"></td><td>On: the note holds while the trig lasts, then decays with DECAY.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Slide Time <span class="scr">SLID</span></td><td class="d">0</td><td>0 = the stock 50 ms slide, up to a 1 s glide.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Filter FM <span class="scr">FFM</span></td><td class="d">0</td><td>Devil Fish: the oscillator modulates the cutoff, up to ±3 octaves. Metallic sidebands, a growl that follows the note. Try 40, then full with a low cutoff.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Muffler <span class="scr">MUFF</span></td><td class="d">0</td><td>Devil Fish: soft clipping after the VCA (gain ×1 to ×8). Loud attacks are squashed and the note gets louder and fatter (about +13 dB at the top), with peaks capped. Try 80.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Accent <span class="scr">ACC</span></td><td class="d">0</td><td>303 accent driven by velocity: cutoff jump, louder hit and the stacked “wow” on close accents.</td></tr></tbody></table>
+<p class="note">Slide: make a trig longer (LEN 1.06, 1/8 … INF) than the gap to the next trig and the note glides into the next one instead of retriggering.</p><p class="note">TD-3 tuning: a gentle low cut after the filter (150 Hz, up to 300 Hz with RESO) so the fundamental no longer swamps the harmonics, the square high for 44 % of the cycle, and the cutoff reaching down to 100 Hz. Closer to the TD-3: about 2.5 dB average harmonic error on the saw and 2.7 dB on the square.</p>
+<p class="origin">Source: After Robin Schmidt&#x27;s Open303 (MIT), rewritten in integer code; Devil Fish ideas after Robin Whittle&#x27;s TB-303 mod · CPU 5.5 / 9.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-16">
+<h3><span class="num">16</span> GROWL <span class="cat">Bass</span></h3>
+<p class="intro">A dark, growling bass: three detuned saws that drift slowly, a sub, a noise layer and a drive into a dark low-pass, with a fast growl (4 to 32 Hz) on the filter, the level and, at high depth, the pitch. DECAY, PUNCH, GATE and velocity: the OS amp envelope, as on TONE.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Detune</td><td class="d">40</td><td>Spread of the two side saws, 2.5 to 60 cents: slow beating low down, a wide chorus at the top.</td></tr><tr><td class="k">SHAPE</td><td class="p">Growl Rate</td><td class="d">72</td><td>4 to 32 Hz (about 13 Hz at 72); restarts at each note.</td></tr><tr><td class="k">SWEEP</td><td class="p">Growl Depth</td><td class="d">64</td><td>0 = none. Opens and closes the filter (up to ±2 octaves) and the level (to −12 dB); the top quarter wobbles the pitch too (±1.5 semitones).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Tone</td><td class="d">60</td><td>Low-pass cutoff, about 30 Hz to 6 kHz, half key tracking.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sub Level <span class="scr">SUB</span></td><td class="d">0</td><td>Sine one octave below the note; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Attack <span class="scr">ATK</span></td><td class="d">0</td><td>0 = none; up = a fade-in after each trig, 1.3 ms to 3 s.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Noise <span class="scr">NOIS</span></td><td class="d">0</td><td>White noise into the drive and the filter; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>0 = warm; up to ×16 into a soft knee (hard clipping), before the filter.</td></tr></tbody></table>
+<p class="note">Best between C1 and C2. Try SHAPE 110 and SWEEP 90 for a fast 23 Hz snarl, or Drive 100 with Tone low for a dark, saturated sub.</p>
+<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT) · CPU 4.8 / 7.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-17">
+<h3><span class="num">17</span> MACRO <span class="cat">Synth</span></h3>
+<p class="intro">A macro-oscillator with 47 synthesis models: classic and sync waves, triple oscillators, swarm, filtered waves, vowels and formants, FM, physical models, drums, wavetables and noise. DECAY, GATE and PUNCH work as on TONE.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Timbre</td><td class="d">64</td><td>First Braids parameter; what it does depends on the model.</td></tr><tr><td class="k">SHAPE</td><td class="p">Model</td><td class="d">0</td><td>Picks one of the 47 models (0–46), shown as a 3-letter name. Lock it on a step to change model per step.</td></tr><tr><td class="k">SWEEP</td><td class="p">Color</td><td class="d">64</td><td>Second Braids parameter; depends on the model.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Env Timbre</td><td class="d">0</td><td>Lets the amp envelope open the timbre: each note starts brighter and closes as it fades.</td></tr><tr><td class="k">FUNC + PITCH</td><td class="p">Lo-fi</td><td class="d"></td><td>Centre = off. Left: sample rate down from 48 kHz to about 4 kHz (46K…4K). Right: 12 bits down to 2 (12B…2B).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Attack <span class="scr">ATK</span></td><td class="d">0</td><td>A fade-in at the start of each note, 1 ms to 2 s.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Env Color <span class="scr">ENVC</span></td><td class="d">0</td><td>Envelope amount on the second parameter (Color).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Lofi Bits <span class="scr">BITS</span></td><td class="d">0</td><td>Bit reduction on its own knob.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Lofi Rate <span class="scr">RATE</span></td><td class="d">0</td><td>Sample-rate reduction on its own knob.</td></tr></tbody></table>
+<p class="note">Models in order: CSW MRF SSQ SNT BUZ QSB SSB QSY SSY · 3SW 3SQ 3TR 3SN 3RM · SWM CMB TOY · FLP FPK FBP FHP · VSM VOW FOF HRM · FM FBM CFM · PLK BOW BLW FLT BEL DRM · KCK CYM SNR · WTB WMP WLN WPP · NOI TPK CLK CLD PRT QPS.</p>
+<p class="origin">Source: Braids by Émilie Gillet (MIT), compiled unchanged · CPU 4.0 / 15 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-18">
+<h3><span class="num">18</span> VACF <span class="cat">Synth</span></h3>
+<p class="intro">A virtual-analog voice: a variable-shape oscillator and a sub into two state-variable filters, with a filter envelope, hard sync, a detuned second oscillator and drive. DECAY, PUNCH and GATE: the OS amp envelope.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Cutoff</td><td class="d">50</td><td>−2 to +8 octaves from the note (follows the keyboard).</td></tr><tr><td class="k">SHAPE</td><td class="p">Reso</td><td class="d">40</td><td>None to self-oscillation.</td></tr><tr><td class="k">SWEEP</td><td class="p">Env Mod</td><td class="d">60</td><td>Filter envelope 0 to +5 octaves, decaying with DECAY.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Wave</td><td class="d">0</td><td>0–63 saw → square, 64–127 square → narrow pulse.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sync <span class="scr">SYNC</span></td><td class="d">0</td><td>Oscillator hard-synced and swept 0 to +36 semitones.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Detune <span class="scr">DET</span></td><td class="d">0</td><td>A second oscillator 0 to +40 cents (reese).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Sub <span class="scr">SUB</span></td><td class="d">0</td><td>Triangle one octave down, up to 0.8.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>Input gain ×0.85 to ×5.85 into the first clipper.</td></tr></tbody></table>
+
+<p class="origin">Source: After the Plaits virtual-analog VCF engine by Émilie Gillet (MIT); written from scratch · CPU 6.8 / 14.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-19">
+<h3><span class="num">19</span> XMOD <span class="cat">Synth</span></h3>
+<p class="intro">Cross-modulation: a carrier at the note and a modulator at a musical ratio, combined by six algorithms that CONTOUR morphs through. Waves are deliberately not band-limited. DECAY, PUNCH and GATE: the OS amp envelope.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Timbre</td><td class="d">40</td><td>The algorithm&#x27;s amount (fade, fold gain, ring drive, XOR bits, comparator mix).</td></tr><tr><td class="k">SHAPE</td><td class="p">Mod Ratio</td><td class="d">40</td><td>1/4, 1/2, 1, 3/2, 2, 5/2, 3, 4, 5, 6, 7.</td></tr><tr><td class="k">SWEEP</td><td class="p">Mod Wave</td><td class="d">0</td><td>Sine → triangle → saw → square.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Algo</td><td class="d">50</td><td>Crossfade → fold → diode ring → ring → XOR → comparator.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Car Wave <span class="scr">CWAV</span></td><td class="d">0</td><td>Carrier wave: sine → triangle → saw → square.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Mod Env <span class="scr">MENV</span></td><td class="d">0</td><td>Timbre jumps up at each trig and decays (a quarter of DECAY).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Detune <span class="scr">DET</span></td><td class="d">0</td><td>Modulator 0 to +1 semitone.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Crush <span class="scr">CRSH</span></td><td class="d">0</td><td>Sample-and-hold 1–32 and 17 down to 5 bits.</td></tr></tbody></table>
+
+<p class="origin">Source: After the Warps cross-modulation algorithms by Émilie Gillet (MIT); written from scratch · CPU 5.1 / 7.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-20">
+<h3><span class="num">20</span> DX <span class="cat">Synth</span></h3>
+<p class="intro">Six-operator FM like a DX7: the 32 classic algorithms, per-operator envelopes, feedback, and a bank of 32 dark sounds of its own (no Yamaha patches). C4 at PITCH 64. DECAY, PUNCH and GATE: the OS amp envelope; the end of the note releases the operator envelopes.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Patch</td><td class="d">0</td><td>One of 32 sounds, shown by name. Metal: BEL TUB GNG ANV CLG PIP SHD CHN · basses: BAS SUB RBS GRW · leads: SAW SQR · brass: BRS STB HRN · keys and pads: ORG PAD DRN · drums: HIT KIK SNR HAT CYM TOM · noise and FX: ZAP SIR NOI SCR BLD VOX.</td></tr><tr><td class="k">SHAPE</td><td class="p">Bright</td><td class="d">64</td><td>Level of the modulators, −18 to +18 dB around the patch. Reads −64 to +63 on the screen, 0 = as the patch.</td></tr><tr><td class="k">SWEEP</td><td class="p">Env Time</td><td class="d">64</td><td>Every envelope ×4 faster (−64) to ×4 slower (+63); reads −64 to +63 on the screen, 0 = as the patch.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Algo</td><td class="d">0</td><td>PAT = the patch&#x27;s own algorithm, A1–A32 = DX7 algorithms 1–32.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Feedback <span class="scr">FB</span></td><td class="d">0</td><td>0 = the patch&#x27;s; up adds up to 7 steps of operator feedback.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Op6 Ratio <span class="scr">OP6R</span></td><td class="d">0</td><td>0 = the patch&#x27;s; up sweeps operator 6 from ½ to 32× the note, continuously.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Vel Sens <span class="scr">VELS</span></td><td class="d">0</td><td>0 = the patch&#x27;s; up makes soft notes darker (the modulators follow velocity).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Detune <span class="scr">DET</span></td><td class="d">0</td><td>0 = none; up spreads the six operators by up to ±24 cents.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own 6-operator FM (MIT); the 32 DX7 algorithms in Plaits&#x27; encoding (Émilie Gillet, MIT) · CPU 6.5 / 10.5 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-21">
+<h3><span class="num">21</span> ATMOS <span class="cat">Pad</span></h3>
+<p class="intro">A dark pad: a 4-note chord of detuned saw pairs under a dark low-pass that drifts slowly at random, with its own diffuse plate tail, nothing above about 7 kHz. Own envelope: DECAY is the release (127 = holds). GATE on = a drone with no trigs while the sequencer plays (STOP releases it, PLAY starts it again).</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">PITCH</td><td class="p">Pitch</td><td class="d"></td><td>Root of the chord: PITCH 64 + C4 = C3.</td></tr><tr><td class="k">COLOR</td><td class="p">Color</td><td class="d">72</td><td>Low-pass 110 Hz to 6.6 kHz: very dark at 72, 18 dB/oct when dark, opening to 12 dB/oct.</td></tr><tr><td class="k">SHAPE</td><td class="p">Chord</td><td class="d">3</td><td>OCT 5TH MIN MI7 MI9 M11 SU2 SU4 MAJ MA7 DRK CLU, shown by name (default MI7). CLU: a low root under a b7/octave/b9 cluster.</td></tr><tr><td class="k">SWEEP</td><td class="p">Drift</td><td class="d">64</td><td>Slow random swings (10 to 16 s each) of the cutoff (up to ±1.5 octaves) and the level (to −3 dB); 0 = still.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Space</td><td class="d">70</td><td>Plate tail: 0 = dry, up = longer (about 1 to 12 s) and wetter (to 60 %).</td></tr><tr><td class="k">DECAY</td><td class="p">Release</td><td class="d">90</td><td>Release after the note, 10 ms to 30 s (about 3 s at 90); 127 = holds forever.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Swell <span class="scr">SWEL</span></td><td class="d">0</td><td>Fade-in: 0 = 20 ms, about 1.5 s at 50, 10 s at 127.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Air <span class="scr">AIR</span></td><td class="d">0</td><td>Breathy noise under the same filter; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Wobble <span class="scr">WOBL</span></td><td class="d">0</td><td>Tape-like pitch wobble, 0.2 to 4 Hz, up to ±30 cents; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Width <span class="scr">WIDE</span></td><td class="d">0</td><td>Detune of each saw pair, 6 to 40 cents. The track is mono, so width becomes beating.</td></tr></tbody></table>
+<p class="note">Recipes: dark pad: defaults, play a minor chord root around A2–D3. LF drone: GATE on, CLU, COLOR 55, Width 70, Swell 50. Slow filter swell: SWEEP 110–127 and wait 20 s.</p><p class="note">With COLOR, Air and SWEEP all at 127 it is bright and hissy by design (white noise through an open filter).</p>
+<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT); plate after Jon Dattorro&#x27;s published figure · CPU 10.2 / 16.5 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-22">
+<h3><span class="num">22</span> SAMPLER <span class="cat">Sample</span></h3>
+<p class="intro">Plays a sample you sent with Elektron Transfer (see Sampling). One sample per track, up to about 71 s. PITCH transposes (64 = as recorded) and so does the trig note (C4 = as recorded), −48 to +36 semitones. DECAY, GATE and PUNCH: the OS amp envelope, as on TONE.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Start</td><td class="d">0</td><td>Start point.</td></tr><tr><td class="k">SHAPE</td><td class="p">End</td><td class="d">127</td><td>Where the sample stops playing (127 = its end), always at least a little after Start.</td></tr><tr><td class="k">SWEEP</td><td class="p">Mode</td><td class="d">0</td><td>FWD (forward), REV (reverse), LOP (loop), PNG (ping-pong).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Lofi</td><td class="d">0</td><td>Sample rate divided by up to 16, down to 2 bits.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Fine <span class="scr">FINE</span></td><td class="d">0</td><td>Fine tune, 0 to +1 semitone.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Attack <span class="scr">ATK</span></td><td class="d">0</td><td>Fade-in at the start of each note.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Loop Start <span class="scr">LPST</span></td><td class="d">0</td><td>Loop start for LOP and PNG (0 = at Start).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>Gain up to ×8 into a soft clip.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own sampler; sample transfer after Model-TG (MIT) · CPU 2.6 / 4.5 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-23">
+<h3><span class="num">23</span> GRANULAR <span class="cat">Sample</span></h3>
+<p class="intro">Granular playback of the track&#x27;s sample: up to 8 grains under a Hann-shaped window. DECAY, GATE and PUNCH: the OS amp envelope (the windows shape the grains, the envelope shapes the note).</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Position</td><td class="d">0</td><td>Where in the sample the grains are read.</td></tr><tr><td class="k">SHAPE</td><td class="p">Size</td><td class="d">64</td><td>Grain size, 5 to 500 ms.</td></tr><tr><td class="k">SWEEP</td><td class="p">Density</td><td class="d">64</td><td>From one grain every four lengths up to four overlapping.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Spray</td><td class="d">0</td><td>Random position offset, up to ±¼ of the sample.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Spread <span class="scr">SPRD</span></td><td class="d">0</td><td>Random pitch per grain, up to ±12 semitones.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Window <span class="scr">WIN</span></td><td class="d">0</td><td>From a smooth Hann window to hard edges.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Scan <span class="scr">SCAN</span></td><td class="d">0</td><td>The position moves forward on its own, up to 2× real time, and wraps.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Reverse <span class="scr">REV</span></td><td class="d">0</td><td>Share of grains played backwards.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own granular engine · CPU 4.5 / 8.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-24">
+<h3><span class="num">24</span> WAVETABLE <span class="cat">Sample</span></h3>
+<p class="intro">Turns the track&#x27;s sample into a wavetable: frames of 2,048 samples, one period per frame (a short sample is one frame). The phase restarts on each trig. DECAY, GATE and PUNCH: the OS amp envelope.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR</td><td class="p">Position</td><td class="d">0</td><td>Frame, crossfading into the next one.</td></tr><tr><td class="k">SHAPE</td><td class="p">Warp</td><td class="d">0</td><td>Hard sync: the frame is read 1 to 4 times per period.</td></tr><tr><td class="k">SWEEP</td><td class="p">Env</td><td class="d">0</td><td>A decaying envelope moves the position on each trig, up to the whole table.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Env Speed</td><td class="d">64</td><td>Speed of that envelope.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sub <span class="scr">SUB</span></td><td class="d">0</td><td>Triangle one octave down.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Detune <span class="scr">DET</span></td><td class="d">0</td><td>A second oscillator up to +50 cents.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Crush <span class="scr">CRSH</span></td><td class="d">0</td><td>16 down to 4 bits.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>×1 to ×8 into a soft knee.</td></tr></tbody></table>
+
+<p class="origin">Source: Modded_f-king_cycles&#x27; own wavetable engine · CPU 3.3 / 6.0 % of a block (defaults / charge)</p>
+</section>
+<section class="machine" id="m-25">
+<h3><span class="num">25</span> EMPTY <span class="cat">Utility</span></h3>
+<p class="intro">Silence, at almost no CPU. A new project (or a cleared kit) puts EMPTY on all six tracks, so you start with the whole CPU budget free; pick the machines you want from there.</p>
+<table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
+<tbody><tr><td class="k">COLOR–CONTOUR</td><td class="p">Unused</td><td class="d"></td><td>No knob does anything.</td></tr></tbody></table>
+<p class="note">Always the last machine in the list. Its charge is 0, so it is never greyed out.</p>
+<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT) · CPU 0.4 / 0 % of a block (defaults / charge)</p>
+</section>
+
+<!-- 7 -->
+<h1 class="ch" id="ch7"><span class="chn">CHAPTER 7</span><span class="tt">Sampling</span></h1>
+<p class="lede">SAMPLER, GRANULAR and WAVETABLE play your own samples. You send them with Elektron Transfer and pick them
+in the sound browser.</p>
+
+<h2 id="c7-transfer">The Transfer setting</h2>
+<p><b>SETTINGS › Device › Transfer</b> has two values. The Device page now reads USB, LCD, LED, Contrast, <b>Transfer</b>, CPU.</p>
+<table><thead><tr><th>Value</th><th>What the computer sees</th><th>Use it for</th></tr></thead><tbody>
+<tr><td><b>CYC</b></td><td>A Model:Cycles, exactly as stock.</td><td>Normal use, backups, OS updates.</td></tr>
+<tr><td><b>SMP</b></td><td>A Model:Samples (product, name and command list of a Model:Samples).</td><td>Sending samples with Elektron Transfer. Samples are sent mono, as to a Model:Samples.</td></tr>
+</tbody></table>
+<p>Turn LEVEL/DATA on the row to switch. The setting returns to <b>CYC</b> at every power-on.</p>
+<div class="box warn"><p><b>Never update the OS while Transfer is on SMP.</b> Switch back to CYC (or restart the Cycles) before any firmware update.</p></div>
+
+<h2 id="c7-send">Sending and loading a sample</h2>
+<ol class="steps">
+<li>Connect the Cycles over USB and set SETTINGS › Device › Transfer to <b>SMP</b>.</li>
+<li>Open Elektron Transfer. It finds a “Model:Samples”. Drag your WAV files onto it.</li>
+<li>On the Cycles, select a track and choose <b>SAMPLER</b>, <b>GRANULAR</b> or <b>WAVETABLE</b> in the MACHINES list.</li>
+<li>Press <span class="key">FUNC</span> + <span class="key">MACHINES</span>, find the sample file in the browser and load it. A window says <i>Sample on track N</i>. Other messages: <i>Sample not found</i>, <i>Not a sample</i>, <i>Read error</i>.</li>
+<li>The sound is now named <b>SMP</b> followed by eight characters (the sample's fingerprint). Save the sound or the project: the name is how the Cycles finds the sample again.</li>
+</ol>
+<ul>
+<li><b>Recall:</b> when a project opens, the Cycles starts, the pattern changes, or you pick one of these machines on a track, the track reloads its sample from the name, one file at a time. The track is silent while its sample loads.</li>
+<li><b>One sample per track</b>, up to about 71 seconds (6.5 MB) each, 48 kHz 16-bit mono. Two tracks using the same file share it without reading it again.</li>
+<li>On any other machine the browser behaves as stock (“Error loading preset” if you pick a sample).</li>
+<li>The three machines read the same sample slot: switch a track from SAMPLER to GRANULAR or WAVETABLE and it keeps its sample.</li>
+</ul>
+<div class="box tip"><p><b>Ideas.</b> SAMPLER in LOP with Lofi for a gritty loop; GRANULAR with Scan at 30 and Spray up for a moving pad; a
+single-cycle or vocal sample in WAVETABLE with Env and Warp for evolving bass.</p></div>
+
+<!-- 8 -->
+<h1 class="ch" id="ch8"><span class="chn">CHAPTER 8</span><span class="tt">Settings</span></h1>
+<p class="lede">SETTINGS gains a ninth row, <b>Mods</b> (puzzle-piece icon), after Device. Its page (Mod / Setup) has USB Out, the sidechain, Trk Trg, Mch Clk, Knb Lyr and CPU Lim; the names are short so that each one fits the screen. The Device page gains
+Transfer (Chapter 7) and CPU.</p>
+
+<h2 id="c8-usb">USB Out: 2CH or 6CH</h2>
+<p><b>SETTINGS › Mods › USB Out</b>. Press <span class="key">LEVEL/DATA</span> to switch:</p>
+<table><thead><tr><th>Mode</th><th>USB audio to the computer</th></tr></thead><tbody>
+<tr><td><b>2CH</b> (default)</td><td>The stereo main mix, exactly as stock. The stock USB driver runs untouched.</td></tr>
+<tr><td><b>6CH</b></td><td>Each track on its own USB channel: mono, before pan, without delay and reverb.</td></tr>
+</tbody></table>
+<ul>
+<li>When you switch, the computer sees the Cycles disconnect and come back about a second later with 2 or 6 inputs. Audio over USB stops during the switch.</li>
+<li>The setting is remembered: power off in 6CH and the Cycles starts in 6CH.</li>
+<li>It can also be switched from the computer: NRPN 1:47 on the FX channel (0 = 2CH, 1 = 6CH), which is what the plug-in's 2CH / 6CH buttons send. Any other value is ignored.</li>
+<li><b>Overload recovery:</b> if the CPU goes past 100 %, the 6-channel stream would stay garbled. This firmware skips ahead and recovers; an overload makes one small click, as on the main outputs.</li>
+<li>USB MODE (SETTINGS › Device › USB) must be Audio + MIDI for USB audio.</li>
+</ul>
+
+<h2 id="c8-sc">Sidechain</h2>
+<p>One track (the source) ducks the volume of the others every time it triggers, then lets them come back: the
+classic kick-pumps-the-bass effect, inside the Cycles. The settings are rows of <b>SETTINGS › Mods</b>, after USB Out.
+They are <b>saved with the project</b>: saving a project stores them, and loading it brings them back. A project
+saved on the stock OS opens with SC Src on OFF.</p>
+<table><thead><tr><th>Row</th><th>Values</th><th>Default</th><th>What it does</th></tr></thead><tbody>
+<tr><td><b>SC Src</b></td><td>OFF, T1–T6</td><td>OFF</td><td>The track whose trigs duck the others. OFF: no sidechain, the sound is untouched.</td></tr>
+<tr><td><b>SC Amt</b></td><td>0–100 %, steps of 5</td><td>80</td><td>How far the volume drops at the bottom (100 = silence).</td></tr>
+<tr><td><b>SC Atk</b></td><td>0, 1, 2, 5, 10, 20, 50 ms</td><td>1</td><td>How fast it drops after the trig.</td></tr>
+<tr><td><b>SC Hold</b></td><td>0, 10, 20, 40, 80, 160 ms</td><td>20</td><td>How long it stays down.</td></tr>
+<tr><td><b>SC Rel</b></td><td>10–800 ms</td><td>150</td><td>How long it takes to come back (the pump).</td></tr>
+<tr><td><b>Duck T1–T6</b></td><td>ON / OFF (SRC for the source)</td><td>ON</td><td>Which tracks are ducked. The source never is.</td></tr>
+</tbody></table>
+<ul>
+<li>On SC Src, Depth, Atk, Hold and Rel: press <span class="key">LEVEL/DATA</span> to edit (the value is framed), turn
+<span class="key">LEVEL/DATA</span> to change it, press again to keep it. On Duck T1–T6 a press switches ON / OFF.</li>
+<li>The ducking happens after the per-track filter and before level, pan and the sends, so what a track sends to the
+delay and reverb ducks too.</li>
+<li>A new trig during the release ducks again from where the level is: no click.</li>
+<li>A muted source track does not trigger anything. For pumping without hearing the trigger, use a source track with its
+level at 0: it still triggers.</li>
+<li>MIDI: every sidechain setting has an NRPN on the FX channel, 1:50 to 1:55 (Chapter 9), which is how the plug-in
+sets them. A change by MIDI shows in the menu at once and is saved half a second after the last one.</li>
+<li>Cost: about 0.1 % of the CPU with SC Src on OFF; about 2.3 % at most with five tracks ducked.</li>
+</ul>
+
+<h2 id="c8-trk">Trk Trg</h2>
+<p><b>SETTINGS › Mods › Trk Trg</b>. Press <span class="key">LEVEL/DATA</span> to switch:</p>
+<table><thead><tr><th>Value</th><th>Track buttons T1–T6</th><th>TRK + track button</th></tr></thead><tbody>
+<tr><td><b>ON</b> (default)</td><td>Select the track and play it (stock).</td><td>Select without playing (stock).</td></tr>
+<tr><td><b>OFF</b></td><td>Select the track only: no sound, no MIDI note, nothing recorded in live recording.</td><td>Select and play (and record in live recording).</td></tr>
+</tbody></table>
+<p>The setting is saved at once and kept at power-off, next to USB Out.</p>
+
+<h2 id="c8-mclk">Mch Clk and Knb Lyr</h2>
+<p>Two rows of <b>SETTINGS › Mods</b>, after Trk Trg. Press <span class="key">LEVEL/DATA</span> to switch each one. Both
+are saved at once and kept at power-off.</p>
+<table><thead><tr><th>Row</th><th>Value</th><th>What it does</th></tr></thead><tbody>
+<tr><td rowspan="2"><b>Mch Clk</b></td><td><b>ON</b> (default)</td><td>On the MACHINES list, turning LEVEL/DATA moves the cursor; pressing it loads the machine (Chapter 3).</td></tr>
+<tr><td><b>OFF</b></td><td>Turning loads the machine at once, as stock.</td></tr>
+<tr><td rowspan="2"><b>Knb Lyr</b></td><td><b>PUNCH</b> (default)</td><td>Double-tap PUNCH for the knob layer (LED blinks); hold PUNCH ½ s for punch.</td></tr>
+<tr><td><b>MACH</b></td><td>The knobs give the layer while the MACHINES list is open; PUNCH works as stock.</td></tr>
+</tbody></table>
+<p>In both Knb Lyr modes, holding MACHINES and turning a knob still works.</p>
+
+<h2 id="c8-cpulim">CPU Lim</h2>
+<p><b>SETTINGS › Mods › CPU Lim</b>, the last row, after Knb Lyr: the limit for greying out machines on the MACHINES list
+(Chapter 3). <b>70 %</b> (default), 75, 80, 85, 90, 95, OFF, 60, 65; LEVEL/DATA goes round. The limit is the
+<b>total</b> load, as on the CPU page: the rest of the OS (about 31 %), USB audio to the computer (8 %) and the six
+tracks. The peak runs about 15 points above the average on the device, so 70 % keeps the peaks near 85 %; at 80 % and up,
+expect peaks near 100 % when three or four tracks hit on the same step. OFF never greys anything out.</p>
+<p>The budget only greys out choices on the list; it never stops a sound. A machine allowed while the delay and reverb
+rest stays loaded if you then raise a send: the load can then pass the limit by up to 8 %.</p>
+
+<h2 id="c8-fxidle">Delay and reverb rest (automatic)</h2>
+<p>The stock OS computes the send delay and reverb on every block, even with nothing sent to them: about 10 % of the
+CPU. This firmware stops them by itself and starts them again when they are needed. There is nothing to set.</p>
+<ul>
+<li>They stop after about 11 seconds in which no track sends them anything (every DELAY and REVERB send at 0, or the
+sending tracks silent) and their own tails have died away.</li>
+<li>They start again on the very block where a playing track sends them sound: no click and no delay. The delay picks up
+where it stopped, so a few old repeats may come back with the first new ones.</li>
+<li>While they rest, the CPU page reads about 8–10 points lower and the MACHINES budget gives 8 % back.</li>
+<li>Volume + Dist is also skipped for two neighbouring tracks (1–2, 3–4 or 5–6) that are both silent or on EMPTY:
+about 1.7 % less per silent pair. Tracks that play sound exactly as before.</li>
+</ul>
+<p class="small">Measured on the device with a busy six-track kit: sends at 0, CPU 80 % and peak 91 %, against 89 % and
+103 % with them running. With the sends up nothing changes.</p>
+
+<h2 id="c8-cpu">CPU monitor</h2>
+<p><b>SETTINGS › Device › CPU</b> opens a full-screen page with two bars: <b>CPU</b>, the share of the processor the audio
+takes (a running average), and <b>PEAK</b>, the worst block since the page opened. It updates twice a second; leave it as you leave any settings page.</p>
+<p><b>Each track's share:</b> turn <span class="key">LEVEL/DATA</span> right for the tracks page: <b>T1</b>–<b>T6</b>
+(the machine on each track, T1–T3 on the left and T4–T6 on the right), <b>TRACKS</b> (their sum), <b>OTHER</b> (the
+track filters and insert FX, mixer, delay, reverb and outputs) and <b>TOTAL</b> (the CPU figure), in tenths of a
+percent. Turn left to go back to CPU and PEAK. The page opens on CPU and PEAK each time.</p>
+<p>Use it when you stack heavy machines: several 909 or 808 tracks with many parts ringing,
+MACRO on a heavy model, ATMOS with Space, or RES on every track can approach the limit. Past 100 % the OS drops voices and you hear clicks. See the CPU budget in the appendix.</p>
+
+<!-- 9 -->
+<h1 class="ch" id="ch9"><span class="chn">CHAPTER 9</span><span class="tt">MIDI implementation</span></h1>
+<p class="lede">Every parameter of every machine is reachable by MIDI. Tracks 1–6 use their track channels; the FX
+channel carries the send effects and the USB switch. Enable Receive CC/NRPN in SETTINGS › MIDI CONFIG › SYNC.</p>
+<p>The stock Model:Cycles OS ignores every NRPN it receives. This firmware takes them in, so every NRPN below works from a DAW or the plug-in. NRPN values go on CC 6 (data MSB), 0–127.</p>
+
+<h2>Added by this firmware</h2>
+<table><thead><tr><th>Parameter</th><th>CC</th><th>NRPN</th><th>Channel</th></tr></thead><tbody>
+<tr><td>Extra 1 / 2 / 3 / 4 (layer + PITCH / DECAY / COLOR / SHAPE)</td><td>20 / 21 / 22 / 23</td><td>1:40 – 1:43</td><td>Track</td></tr>
+<tr><td>Filter Cutoff</td><td>74</td><td>1:20</td><td>Track</td></tr>
+<tr><td>Filter Reso</td><td>71</td><td>1:21</td><td>Track</td></tr>
+<tr><td>Filter Env</td><td>24</td><td>1:44</td><td>Track</td></tr>
+<tr><td>Filter Env Decay</td><td>25</td><td>1:45</td><td>Track</td></tr>
+<tr><td>Filter Type (0 OFF, 1 LP, 2 HP, 3 BP, 4 LP24, 5 HP24)</td><td>26</td><td>1:46</td><td>Track</td></tr>
+<tr><td>Insert FX Type (0 OFF, 1 DRV, 2 CRS, 3 FLD, 4 RNG, 5 RES, 6 RAT)</td><td>27</td><td>1:48</td><td>Track</td></tr>
+<tr><td>Insert FX Amount</td><td>28</td><td>1:49</td><td>Track</td></tr>
+<tr><td>USB Out (0 = 2CH, 1 = 6CH)</td><td>—</td><td>1:47</td><td>FX</td></tr>
+<tr><td>SC Src (0 OFF, 1–6 = T1–T6)</td><td>—</td><td>1:50</td><td>FX</td></tr>
+<tr><td>Duck T1–T6 (0–63, one bit per track, T1 = 1, T2 = 2, T3 = 4 …)</td><td>—</td><td>1:51</td><td>FX</td></tr>
+<tr><td>SC Amt (0–100 %, steps of 5)</td><td>—</td><td>1:52</td><td>FX</td></tr>
+<tr><td>SC Atk (0–6: 0, 1, 2, 5, 10, 20, 50 ms)</td><td>—</td><td>1:53</td><td>FX</td></tr>
+<tr><td>SC Hold (0–5: 0, 10, 20, 40, 80, 160 ms)</td><td>—</td><td>1:54</td><td>FX</td></tr>
+<tr><td>SC Rel (0–13: 10, 20, 30, 50, 75, 100, 150, 200, 250, 300, 400, 500, 600, 800 ms)</td><td>—</td><td>1:55</td><td>FX</td></tr>
+<tr><td>LFO Pol (0–63, one bit per track in UNI, T1 = 1, T2 = 2 …)</td><td>—</td><td>1:56</td><td>FX</td></tr>
+<tr><td>GET: any value asks the machine to send the loaded sound back (every track's CCs and NRPNs, the sidechain and Pol), ending with 1:58 = 0</td><td>—</td><td>1:57</td><td>FX</td></tr>
+<tr><td>Sample choice for SAMPLER / GRANULAR / WAVETABLE tracks (1:59–1:61 the sample's fingerprint and track, 1:62 asks for every track's sample)</td><td>—</td><td>1:59 – 1:62</td><td>FX</td></tr>
+<tr><td>Master EQ LOW / MID / HIGH (0–127, 64 = 0 dB, 0 = kill)</td><td>—</td><td>1:63 – 1:65</td><td>FX</td></tr>
+<tr><td>Project list: any value asks for the list of projects</td><td>—</td><td>1:66 (in)</td><td>FX</td></tr>
+<tr><td>Project list answer: slot 0–95 of a project, then its name one character at a time</td><td>—</td><td>1:67, 1:68 (out)</td><td>FX</td></tr>
+<tr><td>Current project slot + 1 (0 = not saved); ends the list, and is sent again when the project changes</td><td>—</td><td>1:69 (out)</td><td>FX</td></tr>
+<tr><td>Load project in slot 0–95, with the Cycles' own questions</td><td>—</td><td>1:70 (in)</td><td>FX</td></tr>
+<tr><td>Current project has unsaved changes (0 / 1), sent before each 1:69 and when it changes</td><td>—</td><td>1:71 (out)</td><td>FX</td></tr>
+<tr><td>Load project in slot 0–95 without saving the current one</td><td>—</td><td>1:72 (in)</td><td>FX</td></tr>
+<tr><td>Save the current project in its slot, then load slot 0–95</td><td>—</td><td>1:73 (in)</td><td>FX</td></tr>
+<tr><td>Selected track, sent by the machine (0–5 = T1–T6) whenever you change track, so the plug-in follows</td><td>119 (out)</td><td>—</td><td>FX</td></tr>
+<tr><td>Machine loaded on the MACHINES list, sent by the machine with that track's values, so the plug-in follows</td><td>70 (out)</td><td>—</td><td>Track</td></tr>
+</tbody></table>
+
+<h2>Standard Model:Cycles CCs (unchanged)</h2>
+<table><thead><tr><th>Parameter</th><th>CC</th><th>Parameter</th><th>CC</th></tr></thead><tbody>
+<tr><td>Machine (1–25)</td><td>70</td><td>Track Level</td><td>95</td></tr>
+<tr><td>Pitch</td><td>65</td><td>Volume + Dist</td><td>7</td></tr>
+<tr><td>Decay</td><td>80</td><td>Pan</td><td>10</td></tr>
+<tr><td>Color / Shape / Sweep / Contour</td><td>16 / 17 / 18 / 19</td><td>Delay send / Reverb send</td><td>12 / 13</td></tr>
+<tr><td>Punch / Gate</td><td>66 / 67</td><td>Mute</td><td>94</td></tr>
+<tr><td>Note / Swing / Chance</td><td>3 / 15 / 14</td><td>LFO Speed, Mult, Fade, Dest</td><td>102 – 105</td></tr>
+<tr><td>LFO Wave, Start Phase, Mode, Depth</td><td>106 – 109</td><td>Delay Time, Feedback (FX)</td><td>85, 86</td></tr>
+<tr><td></td><td></td><td>Reverb Size, Tone (FX)</td><td>87, 88</td></tr>
+</tbody></table>
+<p class="small">On the added machines CC 16–19 reach COLOR, SHAPE, SWEEP and CONTOUR just as on the stock ones. A stock
+Model:Cycles ignores CC 20–28. The Model:Cycles does not send p-locks and LFO moves as CCs.</p>
+
+<!-- 10 -->
+<h1 class="ch" id="ch10"><span class="chn">CHAPTER 10</span><span class="tt">The Modded_f-king_cycles plug-in</span></h1>
+<p class="lede">The Modded_f-king_cycles plug-in is a VST3 / AU instrument (plus a standalone app) that does for the Model:Cycles what
+Overbridge does for other Elektron machines: it finds the device, mirrors every parameter in your DAW, records hardware
+knob moves as automation, recalls the sound with the project, syncs the sequencer, and plays the device's USB audio on
+its own outputs, one per track in 6CH. It knows the 25 machines of this firmware with their screen names, their extras, the
+filter, the insert FX, the LFO polarity, the sidechain and the master EQ; it reads the loaded sound back with GET, shows
+and loads samples, and lists and loads the Cycles' projects.</p>
+
+<figure class="shot"><img src="img/ui-track.png" alt="Track page">
+<figcaption>A track page: track rail on the left with the PROJECT picker under it, the toggles and GET along the top, MACHINE, EXTRAS and TRIG on the left
+half, MIX, FILTER, TRACK FX and LFO on the right. Knob and extra names follow the machine (here 909BD: BD Attack, BD Shape,
+BD Sweep, Sweep Time; Accent, Tune Decay, Click, Tone).</figcaption></figure>
+
+<h2 id="c10-install">Installing</h2>
+<p>Download the zip for your system from the latest release of the Modded_f-king_cycles repository. Each zip holds
+the VST3, the standalone app and, on macOS, the AU.</p>
+<table><thead><tr><th>System</th><th>Install</th></tr></thead><tbody>
+<tr><td><b>macOS</b> (universal: Apple Silicon and Intel)</td><td>Copy <b>Modded_f-king_cycles.vst3</b> to ~/Library/Audio/Plug-Ins/VST3/ and <b>Modded_f-king_cycles.component</b> to ~/Library/Audio/Plug-Ins/Components/.</td></tr>
+<tr><td><b>Windows</b></td><td>Copy <b>Modded_f-king_cycles.vst3</b> to C:\Program Files\Common Files\VST3\.</td></tr>
+<tr><td><b>Linux</b></td><td>Copy <b>Modded_f-king_cycles.vst3</b> to ~/.vst3/.</td></tr>
+</tbody></table>
+<div class="box warn"><p><b>macOS: the plug-in is not signed by Apple</b>, so macOS blocks it the first time. In Terminal, run once:</p>
+<p><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Modded_f-king_cycles.vst3 ~/Library/Audio/Plug-Ins/Components/Modded_f-king_cycles.component</code></p>
+<p>then restart the DAW (in Logic, rescan in the Plug-in Manager). For the standalone app, right-click it and choose Open the first time.</p></div>
+<p>To build it yourself: CMake 3.22 or later and a C++ compiler (Xcode or its Command Line Tools, Visual Studio 2022, or
+GCC on Linux); JUCE is downloaded automatically. In the repository's plugin folder:
+<code>cmake -B build -DCMAKE_BUILD_TYPE=Release</code>, then <code>cmake --build build --config Release</code>.</p>
+<p>Rescan plug-ins and load <b>Modded_f-king_cycles</b> as an instrument on its own track.</p>
+
+<h2 id="c10-device">Setting up the Model:Cycles</h2>
+<table><thead><tr><th>Setting</th><th>Value</th></tr></thead><tbody>
+<tr><td>SETTINGS › MIDI CONFIG › SYNC</td><td>Receive CC/NRPN and Send CC/NRPN on. For CLOCK SYNC also Clock Receive and Transport Receive.</td></tr>
+<tr><td>SETTINGS › MIDI CONFIG › PORT CONFIG</td><td>Input and output from USB (or MIDI with a DIN interface).</td></tr>
+<tr><td>SETTINGS › MIDI CONFIG › CHANNELS</td><td>Tracks 1–6 and the FX channel matching the plug-in's SETUP page (defaults: 1–6, FX on 7).</td></tr>
+<tr><td>SETTINGS › MIDI CONFIG › ENCODER DEST</td><td><b>I+E</b> (internal + external), and <b>MIDI OUT</b> on for each track. Without them, turning a knob on the device sends nothing and the plug-in cannot follow it.</td></tr>
+<tr><td>SETTINGS › Device › USB</td><td>Audio + MIDI, for audio streaming.</td></tr>
+<tr><td>SETTINGS › Mods › USB Out</td><td>2CH for the full stereo mix, 6CH for one output per track (or switch from the plug-in).</td></tr>
+</tbody></table>
+
+<h2 id="c10-ui">The window</h2>
+<p>Along the top: the link status and seven buttons.</p>
+<table><thead><tr><th>Button</th><th>What it does</th></tr></thead><tbody>
+<tr><td><b>AUDIO</b></td><td>Plays the device's USB audio on the plug-in's outputs (on by default).</td></tr>
+<tr><td><b>RECEIVE</b></td><td>Follows knob moves made on the device, and records them as automation.</td></tr>
+<tr><td><b>RECALL</b></td><td>Sends the saved sound to the device when the project opens or the device reconnects.</td></tr>
+<tr><td><b>CLOCK SYNC</b></td><td>Sends MIDI clock and transport from the DAW.</td></tr>
+<tr><td><b>FOLLOW</b></td><td>Shows the track you are using on the device: on a knob turn, and, with this firmware, as soon as you press a track button (the device sends CC 119 on the FX channel, value 0–5 = T1–T6).</td></tr>
+<tr><td><b>SEND ALL</b></td><td>Pushes every value to the device now (sidechain, Pol, master EQ and samples included).</td></tr>
+<tr><td><b>GET</b></td><td>Reads the sound loaded on the device into the plug-in: every track's knobs, extras, filter and FX, the sidechain, Pol and the master EQ (NRPN 1:57; the FX channel must be on). With no saved sound, the plug-in does a GET by itself when it connects. The status line says how many values came back.</td></tr>
+</tbody></table>
+<p>On the left, the <b>track rail</b>: T1–T6 with each track's machine name, MUTED in red when muted, MIDI in/out
+lights and a level meter, then <b>FX</b>, <b>MIXER</b> and <b>SETUP</b>, and under them the <b>PROJECT</b> picker. The status line at the bottom shows the last
+message from and to the device, the audio stream (channels, rate, delay) and the clock.</p>
+
+<h2 id="c10-pages">Track, FX, mixer and setup pages</h2>
+<h3>Track page</h3>
+<p>The track header carries the machine name, a <b>MUTE</b> button (CC 94) and the track's MIDI channel.</p>
+<table><thead><tr><th>Section</th><th>Controls</th><th>CC</th></tr></thead><tbody>
+<tr><td><b>MACHINE</b></td><td>Machine dropdown with the 25 machines, in the device's order (a new plug-in starts on EMPTY, like a new kit); Pitch, Decay and the four sound knobs, named as on the device's screen; Punch and Gate. A machine loaded on the device shows here at once.</td><td>70, 65, 80, 16–19, 66, 67</td></tr>
+<tr><td><b>EXTRAS</b></td><td>The four extras, named and listed like on the device (DX Patch shows BEL … VOX).</td><td>20–23</td></tr>
+<tr><td><b>TRIG</b></td><td>Note, Swing, Chance.</td><td>3, 15, 14</td></tr>
+<tr><td><b>MIX</b></td><td>Track Level, Vol + Dist, Pan (L/C/R), Delay Send, Reverb Send.</td><td>95, 7, 10, 12, 13</td></tr>
+<tr><td><b>FILTER</b></td><td>Filter Type (Off / LP / HP / BP / LP24 / HP24), Cutoff, Reso, Env, Env Decay.</td><td>26, 74, 71, 24, 25</td></tr>
+<tr><td><b>TRACK FX</b></td><td>FX On, FX Type (Drive, Bitcrush, Fold, Ring, Resonator, RAT), FX Amount. On and Type share CC 27: switching FX On off sends 0 and keeps the type for next time.</td><td>27, 27, 28</td></tr>
+<tr><td><b>LFO</b></td><td>Speed, Multiplier, Fade, <b>Destination</b> (a dropdown of the device's destinations: Pitch, Color … Filter Cutoff), <b>Waveform</b> (Triangle … Random), <b>Polarity</b> (Bi / Uni, NRPN 1:56), Start Phase, Mode, Depth.</td><td>102–109</td></tr>
+</tbody></table>
+<p class="small">The extras, filter and track FX exist only on this firmware; the stock OS ignores CC 20–28. They also
+answer NRPN 1:40–1:43 (extras), 1:20, 1:21, 1:44–1:46 (filter) and 1:48, 1:49 (track FX).</p>
+
+<h3>FX page</h3>
+<figure class="shot half"><img src="img/ui-fx.png" alt="FX page">
+<figcaption>The FX page: send effects, sidechain and the six Duck switches.</figcaption></figure>
+<ul>
+<li><b>FX</b>: Delay Time, Delay Feedback, Reverb Size, Reverb Tone (CC 85–88 on the FX channel).</li>
+<li><b>SIDECHAIN</b>: SC Source (Off, T1–T6), SC Depth (%), SC Attack, SC Hold and SC Release, the same values as
+SETTINGS › Mods on the device (Chapter 8). Sent as NRPN 1:50, 1:52–1:55 on the FX channel.</li>
+<li><b>DUCKED TRACKS</b>: Duck T1–T6, sent together as one mask on NRPN 1:51.</li>
+<li>The plug-in keeps its own copy of the sidechain, saves it with the project and sends it on RECALL. After a change in
+SETTINGS › Mods on the device, press <b>GET</b> to bring it into the plug-in.</li>
+<li><b>MASTER EQ</b>: LOW / MID / HIGH and a KILL button per band, on NRPN 1:63–1:65; it follows the knobs when you turn them on the device's EQ layer.</li>
+</ul>
+
+<h3>MIXER page</h3>
+<figure class="shot half"><img src="img/ui-mixer.png" alt="Mixer page">
+<figcaption>The MIXER: all six tracks and FX side by side.</figcaption></figure>
+<p>Each strip shows the machine, Mute, Track Level, Vol + Dist, Pan, Delay and Reverb Send, FX On and FX Type, with a
+level meter; the FX strip holds the delay and reverb. A whole kit can be set up from this one page.</p>
+
+<h3>SETUP page</h3>
+<figure class="shot half"><img src="img/ui-setup.png" alt="Setup page">
+<figcaption>SETUP: link, MIDI channels, audio stream and the device's USB mode.</figcaption></figure>
+<ul>
+<li><b>Connection</b>: the connection mode, the MIDI ports (Rescan) and the clock offset. The link status (CONNECTED, SEARCHING, PORT BUSY) is shown at the top of the window.</li>
+<li><b>MIDI channels</b> of the six tracks and the FX channel; they must match the device.</li>
+<li><b>Audio streaming</b>: channels, sample rate and delay, and <b>Audio trim</b> to line the device up with the grid.</li>
+<li>On the right, a reminder of the settings to make on the Model:Cycles.</li>
+<li><b>Device USB audio 2CH / 6CH</b>: switches the device's USB Out setting (NRPN 1:47); the lit button shows what the stream reports.</li>
+</ul>
+<p><b>Connection modes</b>: <i>Auto-detect Model:Cycles (USB)</i>, the default, which works in every DAW including
+Ableton Live; <i>Choose MIDI ports</i> for a DIN interface; <i>Host MIDI routing</i> for DAWs that route plug-in MIDI
+(Bitwig, Reaper, Logic, Cubase, FL Studio). If auto-detect finds nothing it falls back to the host's MIDI output.</p>
+
+<h2 id="c10-sample">The SAMPLE window</h2>
+<figure class="shot"><img src="img/ui-sample.png" alt="Sample window">
+<figcaption>The SAMPLE window on a SAMPLER track: the waveform with the Start and End bars and Loop Start (dotted), the +Drive samples, LOAD and REFRESH. Under the rail, the PROJECT picker.</figcaption></figure>
+<p>On a track playing SAMPLER, GRANULAR or WAVETABLE, the <b>SAMPLE</b> button in the track header swaps the MIX, FILTER,
+TRACK FX and LFO sections for the track's sample:</p>
+<ul>
+<li><b>The waveform</b>, with what the knobs do drawn on it, by the firmware's own formulas: the Start and End bars, the
+part that does not play dimmed and Loop Start (SAMPLER); the position, Spray's spread and the grains (GRANULAR); the frame
+that plays and the strip of frames (WAVETABLE).</li>
+<li><b>Drag the bars</b> on a SAMPLER track: Start and End (and Loop Start in LOP / PNG). The knob moves with them, the
+Cycles follows, and the DAW records it as automation.</li>
+<li><b>The +Drive samples</b> (sent with Elektron Transfer, Chapter 7): double-click one, or select it and press LOAD,
+to put it on the track. REFRESH reads the list again. A sample picked on the Cycles shows here too.</li>
+</ul>
+<p class="small">The plug-in only reads the +Drive (it never writes to it); send new samples with Elektron Transfer. Each
+waveform is read once and kept in the plug-in's Samples folder (on macOS ~/Library/Modded_f-king_cycles/Samples). The track's sample is saved with the DAW project
+and sent again by SEND ALL (NRPN 1:59–1:62).</p>
+
+<h2 id="c10-proj">Projects</h2>
+<p>The <b>PROJECT</b> picker under the track rail shows the Cycles' current project (its slot and name, or “(not saved)”)
+and, when you open it, the list of the projects on the device. Pick one to load it on the Cycles:</p>
+<ul>
+<li>If the current project has no unsaved changes, it loads at once (the picker shows LOADING… meanwhile).</li>
+<li>If it has changes, the plug-in asks: <b>Save</b> (the Cycles saves the current project in its slot, then loads the
+new one, with no question on the device), <b>Don't save</b> (loads, the changes are lost) or <b>Cancel</b> (nothing
+happens). A project that was never saved has no slot: then Save lets the Cycles ask where to save it, on its own screen.</li>
+<li>A project loaded or saved on the device itself also shows in the picker.</li>
+<li>While a project loads, the Cycles pauses its USB audio. The plug-in keeps the audio device open and waits, and
+holds off its +Drive reads, so switching projects while it streams does not hang USB audio.</li>
+</ul>
+
+<h2 id="c10-audio">Audio streaming and multi-out</h2>
+<p>With <b>AUDIO</b> on, the plug-in opens the Model:Cycles' USB audio itself and plays it on its outputs.
+It finds the device by name and reconnects after a replug or a 2CH/6CH switch.</p>
+<table><thead><tr><th>Output</th><th>2CH</th><th>6CH</th></tr></thead><tbody>
+<tr><td><b>Main</b></td><td>The device's stereo mix, with delay and reverb.</td><td>The panned sum of the six tracks (dry).</td></tr>
+<tr><td><b>Track 1–6</b></td><td>—</td><td>Each track on its own output, panned like on the device (a mono layout gets the raw stem).</td></tr>
+</tbody></table>
+<ul>
+<li><b>Ableton Live:</b> create audio tracks with <i>Audio From</i> set to the plug-in's track and the <i>Track N</i> output. <b>Logic:</b> load it as <i>Multi Output</i> and add the aux channels. <b>Bitwig, Reaper:</b> enable the extra outputs.</li>
+<li><b>Delay compensation:</b> the plug-in reports its delay to the DAW so the device lands on the grid; fine-tune with <b>Audio trim</b>. A small, inaudible resampling keeps the device's clock and the audio interface in step.</li>
+<li>Run the DAW at 48 kHz for the lowest CPU. Do not also monitor the Model:Cycles as an audio input in the DAW, or you will hear it twice.</li>
+</ul>
+
+<h2 id="c10-sync">Sync, recall and automation</h2>
+<ul>
+<li><b>Parameters:</b> every Model:Cycles CC parameter of the six tracks and the FX channel, plus this firmware's extras, filter, track FX and sidechain, is a DAW parameter, sent on every change and received back when RECEIVE is on, without echo.</li>
+<li><b>Automation:</b> turning a knob on the device opens a parameter gesture, so Write, Touch and Latch modes record hardware moves.</li>
+<li><b>RECALL:</b> when the project opens or the device reconnects, the plug-in sends its saved sound to the device. A fresh, untouched plug-in never overwrites the device.</li>
+<li><b>CLOCK SYNC:</b> 24 PPQN MIDI clock placed sample-accurately from the DAW playhead, Song Position Pointer and Start/Continue on play and on every locate or loop jump, Stop on stop (which also releases ATMOS drones).</li>
+<li><b>Play from the DAW:</b> notes, CCs, bends and program changes on the plug-in's track go to the device, so it works in Ableton Live, which cannot route MIDI out of plug-ins.</li>
+</ul>
+
+<h2 id="c10-live">Ableton Live and Push 2</h2>
+<p>The plug-in opens the Model:Cycles' USB MIDI port itself and sends the clock. Live must not drive the Cycles a second
+time, or you get a double clock (a stuttering, racing tempo) and every knob echoed. In Live's Preferences › Link, Tempo
+&amp; MIDI:</p>
+<table><thead><tr><th>MIDI port</th><th>Track</th><th>Sync</th><th>Remote</th></tr></thead><tbody>
+<tr><td>Output: Model:Cycles</td><td>Off</td><td><b>Off</b></td><td>Off</td></tr>
+<tr><td>Input: Model:Cycles</td><td><b>Off</b></td><td>Off</td><td>Off</td></tr>
+<tr><td>Input and output: Push 2 (Live Port)</td><td colspan="3">As Live sets them for Push 2 (leave them)</td></tr>
+</tbody></table>
+<ul>
+<li>Turn the plug-in's <b>CLOCK SYNC</b> on: the Cycles follows Live's tempo and transport. If Sync is also on for the
+Cycles' output in Live, the tempo stutters.</li>
+<li>Turn <b>Track</b> off on the Cycles' <b>input</b> row, not by setting the plug-in track's MIDI From to No Input. The
+plug-in's track can then stay on <b>All Ins</b>, so Push 2 (and any keyboard) still plays it while the Cycles' own knob
+messages reach only the plug-in.</li>
+<li><b>Push 2:</b> select or arm the plug-in's track (or set its Monitor to In) and play the pads: the notes go through the
+plug-in to the Cycles (see Play from the DAW, above). Use Push 2's encoders on the plug-in's
+parameters like any instrument's.</li>
+<li>For the audio, use the plug-in's outputs (AUDIO on) rather than an audio track with the Cycles as its input, or you
+will hear it twice.</li>
+</ul>
+
+<h2 id="c10-limits">Limits</h2>
+<ul>
+<li>No delay or reverb on the 6CH track outputs: the stems are taken before the send effects and before pan. Use 2CH for the full mix, or add effects in the DAW. P-locked or LFO pan is not heard on the stems.</li>
+<li>No audio into the device: the Model:Cycles has no audio input.</li>
+<li>Sync is MIDI clock (about a millisecond of jitter), not Overbridge's protocol. Bounce in real time: an offline export cannot record the device.</li>
+<li>The device does not send p-locks and LFO moves as CCs, so the plug-in's knobs follow knob turns only. Changes in SETTINGS › Mods (sidechain) come back with GET.</li>
+<li>The plug-in does not send samples to the +Drive: use Elektron Transfer (Chapter 7).</li>
+<li>Windows: the device is opened in shared (WASAPI) mode; if the DAW holds it exclusively through ASIO, streaming shows an error. A MIDI port can be open in only one program: if SETUP shows PORT BUSY, untick the Model:Cycles in the DAW's MIDI preferences.</li>
+</ul>
+
+<!-- 11 -->
+<h1 class="ch" id="ch11"><span class="chn">CHAPTER 11</span><span class="tt">How the firmware is made</span></h1>
+<p class="lede">What was changed in Elektron's OS to make room for 19 more machines and the mods, and how the
+processor's limited time is shared between them.</p>
+
+<h2 id="c11-patch">Patching your own OS</h2>
+<p>The Model:Cycles runs on an NXP ColdFire MCF54415 processor. Its OS file holds several sections; this firmware
+changes only the <b>main OS</b>. The bootloader, the updater and the startup menu are byte for byte Elektron's, which is
+why the official OS can always be flashed back.</p>
+<ul>
+<li>Every change is a small table of byte writes, and each write carries the original bytes it replaces. The patcher
+refuses any file whose bytes do not match, so it only ever works on the official OS 1.13, never on a modified file.</li>
+<li>After the writes, the patcher repacks and re-signs the OS the way the Cycles expects (with drumkilla's MIT-licensed
+mtlib toolkit, itself based on Marcel Bierling's elektron-firmware-tool) and checks the SHA-256 of the result against the
+value published with the release.</li>
+<li>No Elektron firmware is distributed: you build the firmware from your own official file, on your own computer.</li>
+</ul>
+
+<h2 id="c11-machines">Adding machines</h2>
+<p>The added machines are written in C (and a few in assembly) for the ColdFire, compiled, and packed together into a
+compressed payload stored inside the OS. At power-on a short routine unpacks it into memory, and the OS's own machine
+tables are extended so that machines 7 to 25 appear on the MACHINES list, in the sound browser and over MIDI like
+Elektron's six.</p>
+<ul>
+<li>Each machine follows the stock voice contract: once per block of 32 samples (0.67 ms) the OS hands it its knob values
+and asks for 32 new samples. PITCH, DECAY, PUNCH, GATE, the keys, p-locks and LFOs therefore work on the added machines
+exactly as on the stock ones.</li>
+<li>Everything is fixed-point integer code: no floating point, which the voice loop cannot afford.</li>
+<li>The four extras of each machine are new parameters added to the OS's parameter tables, saved with the sound like any
+other, with screen names and MIDI numbers of their own.</li>
+<li>Third-party designs are credited in each machine's table (Chapter 6) and in the licences (Chapter 12).</li>
+</ul>
+
+<h2 id="c11-cpuman">CPU management</h2>
+<p>Every block, the processor must compute six voices, the per-track filters and effects, the mixer, the send delay and
+reverb, the outputs and USB audio within 0.67 ms. When a block takes longer, the audio clicks. The stock OS only has
+six light machines to run; this firmware adds heavier ones, so it manages the processor's time in several ways:</p>
+<table><thead><tr><th>Technique</th><th>What it does</th><th>Gain</th></tr></thead><tbody>
+<tr><td><b>CPU budget</b></td><td>Each machine has a <i>charge</i>: its heaviest measured block, rounded up (appendix). The MACHINES list adds the six tracks' charges, their filters and insert effects, the rest of the OS (about 31 %), USB audio (8 % while a computer reads it) and the master EQ, and greys out any machine that would take the total over CPU Lim. It only limits choices; it never stops a sound.</td><td>Prevents overloads before they happen</td></tr>
+<tr><td><b>Delay and reverb rest</b></td><td>The stock OS computes the send delay and reverb on every block, even with nothing sent to them. This firmware stops them after about 11 s without input, once their tails have died, and restarts them on the very block a track sends them sound (after Model-TG's effect bypass).</td><td>About 10 % of the CPU</td></tr>
+<tr><td><b>Early delay read</b></td><td>The delay line's memory read is started before the voices are computed, so it runs in the background instead of being waited for (also after Model-TG).</td><td>About 4.5 % of a block</td></tr>
+<tr><td><b>Silent tracks skipped</b></td><td>Two neighbouring tracks (1–2, 3–4, 5–6) that are both silent or on EMPTY skip the OS's Volume + Dist stage. A voice that has been silent for 64 blocks without a trig is not computed at all.</td><td>About 1.7 % per silent pair</td></tr>
+<tr><td><b>Code cache in internal memory</b></td><td>The processor has only 8 KB of instruction cache, and the main memory is slow: six different machines would each reload their code on every block. The code of the machines that are playing is copied into the processor's 64 KB of fast internal SRAM (CHORD's wavetables move to main memory to make room).</td><td>6–8 points with six different added machines</td></tr>
+<tr><td><b>Load governor</b></td><td>Watches the time each block takes. An isolated heavy block (several tracks starting on the same step) is ignored, since it is already past; only a sustained overload fades out the least audible voice in the mix until its next trig.</td><td>No needless cut notes</td></tr>
+<tr><td><b>Pay only for what you use</b></td><td>A filter or insert effect on OFF, a flat master EQ, an extra at 0, a sidechain on OFF: each costs nothing or almost nothing. EMPTY costs almost nothing, and new projects start with EMPTY on all six tracks.</td><td>Headroom stays free</td></tr>
+</tbody></table>
+<p>The CPU monitor (SETTINGS › Device › CPU) measures the real load on the device, with each track's share, so you can see
+all of this at work. The appendix lists every machine's cost.</p>
+
+<h2 id="c11-drums">Tuning the drum machines</h2>
+<p>The 909BD, 808BD, 909, 606 and 808 are circuit models: each part of the original schematic (oscillators, bridged-T
+resonators, envelopes, noise and metal sources, filters) is computed as such, not played back from samples. Their
+defaults were then tuned against recordings of real TR-909, TR-808 and TR-606 units: pitch, the time to fall 20 dB and
+40 dB, the balance between tone and noise, and the spectrum of each voice. The 909 snare, for example, measures about
+178 Hz at its default, falls 20 dB in 0.17 s and 40 dB in 0.29 s, close to the median of the reference recordings.</p>
+<p>Their extras follow the real machines rather than effects: <b>Accent</b> as the 909's TOTAL ACCENT, the 808's accent
+level, <b>Drift</b> for the small hit-to-hit variations of analog parts, and the best-known hardware modifications
+(tuning ranges, long decays, the 808 hat's filter mod, the 606 kick and tom mods). Every extra at 0 is the plain machine,
+sample for sample.</p>
+
+<h2 id="c11-proof">Testing</h2>
+<p>Every part of the firmware is tested in emulation before release: the Model:Cycles' own OS code runs on an emulated
+ColdFire, stock against modified, with the patched firmware playing real patterns.</p>
+<ul>
+<li>Each added machine running inside the OS is compared, sample for sample, with the same C code compiled for a
+computer, at its defaults and with random knob settings, trigs and voice changes.</li>
+<li>Each mod is checked on the OS's own code paths: the MACHINES list, the parameter and MIDI tables, the screens, the
+settings and their saving, the sidechain, the filter and effects, the USB audio stream.</li>
+<li>Mods never overwrite each other's changes, and the free memory each one uses is tracked in a registry.</li>
+<li>Only then is the firmware played on a real Model:Cycles.</li>
+</ul>
+
+<!-- 12 -->
+<h1 class="ch" id="ch12"><span class="chn">CHAPTER 12</span><span class="tt">Appendix</span></h1>
+
+<h2 id="c12-cpu">CPU budget</h2>
+<p>The figures below are the share of one 32-sample block that one track playing each machine takes, measured on the
+emulated OS running this firmware's own code, the OS voice chain included. <b>Defaults</b> is the machine at its
+defaults; <b>Charge</b> is its heaviest block rounded up, the figure the MACHINES list uses to grey machines out. 909 is
+charged for two parts ringing at once, 808 for a hat and a cymbal together, MACRO for its heaviest models. Two machines
+run clearly heavier on the device than in emulation, so their charge is what the device's CPU page showed: VACF 14 %,
+DX 10.5 %, ATMOS 16.5 %.</p>
+<table class="mlist cpu"><thead><tr><th>#</th><th>Machine</th><th>Defaults</th><th>Charge</th><th class="gap"></th><th>#</th><th>Machine</th><th>Defaults</th><th>Charge</th></tr></thead><tbody><tr><td class="n">1</td><td><b>KICK</b></td><td>7.2 %</td><td>7.5 %</td><td class="gap"></td><td class="n">14</td><td><b>BIAS</b></td><td>2.5 %</td><td>6.0 %</td></tr><tr><td class="n">2</td><td><b>SNARE</b></td><td>6.9 %</td><td>7.5 %</td><td class="gap"></td><td class="n">15</td><td><b>ACID</b></td><td>5.5 %</td><td>9.0 %</td></tr><tr><td class="n">3</td><td><b>METAL</b></td><td>6.3 %</td><td>7.0 %</td><td class="gap"></td><td class="n">16</td><td><b>GROWL</b></td><td>4.8 %</td><td>7.0 %</td></tr><tr><td class="n">4</td><td><b>PERC</b></td><td>5.9 %</td><td>6.5 %</td><td class="gap"></td><td class="n">17</td><td><b>MACRO</b></td><td>4.0 %</td><td>15 %</td></tr><tr><td class="n">5</td><td><b>TONE</b></td><td>5.2 %</td><td>6.0 %</td><td class="gap"></td><td class="n">18</td><td><b>VACF</b></td><td>6.8 %</td><td>14.0 %</td></tr><tr><td class="n">6</td><td><b>CHORD</b></td><td>8.0 %</td><td>8.5 %</td><td class="gap"></td><td class="n">19</td><td><b>XMOD</b></td><td>5.1 %</td><td>7.0 %</td></tr><tr><td class="n">7</td><td><b>909BD</b></td><td>4.3 %</td><td>9.0 %</td><td class="gap"></td><td class="n">20</td><td><b>DX</b></td><td>6.5 %</td><td>10.5 %</td></tr><tr><td class="n">8</td><td><b>808BD</b></td><td>1.8 %</td><td>4.5 %</td><td class="gap"></td><td class="n">21</td><td><b>ATMOS</b></td><td>10.2 %</td><td>16.5 %</td></tr><tr><td class="n">9</td><td><b>RUMBL</b></td><td>5.8 %</td><td>9.0 %</td><td class="gap"></td><td class="n">22</td><td><b>SAMPLER</b></td><td>2.6 %</td><td>4.5 %</td></tr><tr><td class="n">10</td><td><b>909</b></td><td>8.3 %</td><td>20.5 %</td><td class="gap"></td><td class="n">23</td><td><b>GRANULAR</b></td><td>4.5 %</td><td>8.0 %</td></tr><tr><td class="n">11</td><td><b>606</b></td><td>6.2 %</td><td>9.5 %</td><td class="gap"></td><td class="n">24</td><td><b>WAVETABLE</b></td><td>3.3 %</td><td>6.0 %</td></tr><tr><td class="n">12</td><td><b>808</b></td><td>5.0 %</td><td>16 %</td><td class="gap"></td><td class="n">25</td><td><b>EMPTY</b></td><td>0.4 %</td><td>0 %</td></tr><tr><td class="n">13</td><td><b>METL2</b></td><td>6.5 %</td><td>9.0 %</td><td class="gap"></td><td></td><td></td><td></td><td></td></tr></tbody></table><table><thead><tr><th>Added on top</th><th>Cost per track</th></tr></thead><tbody>
+<tr><td>Filter</td><td>LP / HP / BP 1.2 %, LP24 / HP24 1.7 % per filtered track; OFF costs nothing</td></tr>
+<tr><td>Insert FX</td><td>CRS 0.2 %, FLD 0.5 %, RNG 0.6 %, DRV 1.0 %, RES 1.8 %, RAT 2.1 %; OFF costs nothing</td></tr>
+<tr><td>Sidechain</td><td>0.13 % with Src OFF, up to 2.3 % with five tracks ducked</td></tr>
+<tr><td>Master EQ</td><td>0 when all three bands are at 64; up to 3.9 % when in use</td></tr>
+<tr><td>LFO polarity, CPU monitor</td><td>0.09 %, 0.03 %</td></tr>
+<tr><td>The rest of the OS (sequencer, mixer, send delay and reverb, outputs)</td><td>about 31 % on the device; about 8–10 points less while the delay and reverb rest</td></tr>
+<tr><td>USB audio to the computer (2CH or 6CH alike)</td><td>about 8 % while the computer reads it</td></tr>
+</tbody></table>
+<ul>
+<li><b>Budget:</b> the sound cracks near 100 %. The peak runs about 15 points above the average, most of all when three or four tracks hit on the same step, so keep the total (the CPU page) near <b>70 %</b>: that is CPU Lim's default.</li>
+<li><b>What brings it down:</b> sends at 0 on tracks that do not need them (the delay and reverb rest after about 11 s), EMPTY on unused tracks, filters and FX OFF where you do not need them, the master EQ flat.</li>
+<li><b>Heaviest:</b> 909 with several parts ringing (20.5 %), ATMOS (16.5 %), 808 hat + cymbal (16 %), MACRO on its heaviest models (15 %), VACF (14 %), DX (10.5 %). An ATMOS drone costs its full price even between notes.</li>
+<li><b>Lightest:</b> 808BD, SAMPLER, BIAS, WAVETABLE, GRANULAR, and MACRO on simple models.</li>
+<li><b>Example</b> (the total as the MACHINES title shows it): 909BD, 808BD, 909, 808, ACID and SAMPLER = 31 + 63.5 = 94.5 % with every part at its heaviest, so the last machine you pick is greyed out at the default limit; with a lighter 808 track (or EMPTY) it fits.</li>
+</ul>
+
+<h2 id="c12-trouble">Troubleshooting</h2>
+<table><thead><tr><th>Symptom</th><th>Check</th></tr></thead><tbody>
+<tr><td>The patcher says the file is not the official one</td><td>Use model-cycles_OS1.13.syx exactly as downloaded from elektron.se (unzipped), never a file that was already modified.</td></tr>
+<tr><td>The knobs give extras, filter or FX instead of their normal parameter</td><td>The knob layer is on (the PUNCH LED blinks): double-tap PUNCH. With Knb Lyr on MACH, close the MACHINES list.</td></tr>
+<tr><td>PUNCH does nothing</td><td>With Knb Lyr on PUNCH, a short press does nothing: hold PUNCH half a second. Or set Knb Lyr to MACH for the stock PUNCH.</td></tr>
+<tr><td>Turning LEVEL/DATA on the MACHINES list does not change the sound</td><td>Mch Clk is ON: press LEVEL/DATA to load. Set Mch Clk OFF for the stock behaviour.</td></tr>
+<tr><td>Every hit of a drum sounds slightly different</td><td>Drift is up on that machine (an extra); set it to 0 for identical hits.</td></tr>
+<tr><td>An LFO only moves one way</td><td>FUNC + LFO › Pol is on UNI for that track; set BI.</td></tr>
+<tr><td>The sidechain changed when I loaded a project</td><td>Normal: it is saved with each project.</td></tr>
+<tr><td>The computer shows 2 inputs instead of 6</td><td>SETTINGS › Mods › USB Out is on 2CH; switch it (or use the plug-in's 6CH button). USB mode must be Audio + MIDI.</td></tr>
+<tr><td>Elektron Transfer does not see a Model:Samples</td><td>Set SETTINGS › Device › Transfer to SMP; it resets to CYC at each power-on.</td></tr>
+<tr><td>“Sample not found” when a project opens</td><td>The sample was deleted from the device or replaced; send it again and reload it on the track.</td></tr>
+<tr><td>Clicks, dropped notes, the tempo stutters</td><td>CPU peaks over 100 %: check SETTINGS › Device › CPU (PEAK). Put the sends at 0 on tracks that do not need delay or reverb, use EMPTY on unused tracks, lighten ATMOS Space or GRANULAR density, and keep CPU Lim at 70–80 %.</td></tr>
+<tr><td>The CPU page drops by about 10 points after a while</td><td>Normal: no sends for about 11 s, so the delay and reverb rest. They start again with the next note you send them.</td></tr>
+<tr><td>Old delay repeats come back when I raise a DELAY send</td><td>Normal: the delay resumes where it stopped while it rested.</td></tr>
+<tr><td>GATE does nothing on a short press</td><td>GATE is a long press (about half a second); a double tap opens the master EQ.</td></tr>
+<tr><td>The mix has no bass, or no highs</td><td>A master EQ band is killed. Double-tap GATE and bring PITCH / DECAY / COLOR back to the centre.</td></tr>
+<tr><td>A machine is greyed out on the MACHINES list</td><td>It would take the total over CPU Lim. Change a heavy machine on another track (or its filter / FX), or set SETTINGS › Mods › CPU Lim higher (or OFF).</td></tr>
+<tr><td>A new project makes no sound</td><td>Normal: new projects load EMPTY on all six tracks. Pick a machine on each track.</td></tr>
+<tr><td>An ATMOS drone keeps sounding</td><td>GATE is on: press STOP to release it, or turn GATE off.</td></tr>
+<tr><td>Pressing a track button plays the track</td><td>Normal with Trk Trg ON. Set SETTINGS › Mods › Trk Trg to OFF to select without playing (TRK + track still plays).</td></tr>
+<tr><td>macOS says the plug-in is damaged or cannot be opened</td><td>It is not signed by Apple: run the xattr command of Chapter 10 once, then restart the DAW.</td></tr>
+<tr><td>The plug-in shows PORT BUSY</td><td>Another program (or the DAW's own MIDI settings) holds the Model:Cycles port. Untick it there.</td></tr>
+<tr><td>The tempo in Live stutters or races</td><td>Double clock: turn Sync off for the Model:Cycles output in Live's MIDI preferences; the plug-in's CLOCK SYNC sends the clock (Chapter 10).</td></tr>
+<tr><td>GET says “No answer from the Cycles”</td><td>The FX channel is off on the device (SETTINGS › MIDI CONFIG › CHANNELS), or the plug-in's FX channel does not match it.</td></tr>
+<tr><td>Extras, filter or FX do nothing from the DAW</td><td>Receive CC/NRPN must be on; CC 20–28 work only on this firmware.</td></tr>
+<tr><td>The plug-in does not follow knob turns</td><td>SETTINGS › MIDI CONFIG › ENCODER DEST must be I+E and MIDI OUT on for each track; RECEIVE on in the plug-in.</td></tr>
+<tr><td>The firmware does not start</td><td>Reflash through the startup menu (Chapter 1), or flash the official OS 1.13.</td></tr>
+</tbody></table>
+
+<h2 id="c12-credits">Credits and licences</h2>
+<p class="small">Modded_f-king_cycles by <a href="https://soundcloud.com/m_reilly">m_reilly</a>, built on Modded-Cycles by
+18nelli18 and contributors (MIT). Braids by Émilie Gillet (MIT), compiled unchanged for MACRO; RUMBL, VACF, METL2 and XMOD
+written from scratch after ideas from her Plaits, Rings and Warps, and DX's 32 algorithms in Plaits' encoding (MIT).
+Open303 by Robin Schmidt (MIT), rewritten for ACID; the Devil Fish is Robin Whittle's TB-303 modification (ideas only).
+model909 by DMDaudio (MIT) for 909BD and the 909's toms, rim, clap and snare. BIAS ported from bias 2.0 by 100demons
+(MIT), a clean-room voice after the published description of the Noise Engineering Basimilus Iteritas Alia. The 808
+voices, the 909 hats and cymbals, the 606 (after Matthew Fecher's analysis), GROWL, ATMOS (plate after Jon Dattorro's
+published figure), EMPTY, RAT (a model of the published ProCo RAT circuit) and the sampler machines are this project's
+own code. Sample transfer, the CPU measurement and the delay and reverb rest after Model-TG by TinyGregAudio (MIT);
+6-channel USB after ms-multi-output by Scott Metoyer (MIT); scrolling names and the mtlib toolkit by drumkilla (MIT),
+after Marcel Bierling's elektron-firmware-tool (MIT); level and pan numbers after a mod by djd_oz. The plug-in is built
+with JUCE and licensed under the AGPL-3.0; everything else is MIT. Full licence texts are in the repository.</p>
+<p class="small">Elektron, Model:Cycles, Model:Samples, Overbridge and Elektron Transfer are trademarks of Elektron Music
+Machines MAV AB. TR-606, TR-808, TR-909 and TB-303 are trademarks of Roland Corporation. This firmware is not made,
+endorsed or supported by Elektron or Roland.</p>
+</body></html>

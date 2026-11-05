@@ -14,3 +14,4 @@ First public release.
   and pan as numbers.
 - Samples sent with Elektron Transfer for SAMPLER, GRANULAR and WAVETABLE.
 - The Modded_f-king_cycles plug-in (VST3 / AU / standalone) for macOS, Windows and Linux.
+- An owner's manual in PDF: `docs/Modded_f-king_cycles-Manual.pdf`.
