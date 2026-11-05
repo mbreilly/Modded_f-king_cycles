@@ -27,7 +27,7 @@ SampleLibrary::~SampleLibrary()
 juce::File SampleLibrary::defaultCacheDir()
 {
     return juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory)
-               .getChildFile ("Modded_f-king_cycles").getChildFile ("Samples");
+               .getChildFile ("Modded Cycles Techno Edition").getChildFile ("Samples");
 }
 
 void SampleLibrary::refresh()

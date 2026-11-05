@@ -128,7 +128,7 @@ void ElektronFs::setLogFile (const juce::File& f)
     logFile = f;
     logLines = 0;
     f.getParentDirectory().createDirectory();
-    f.replaceWithText ("Modded_f-king_cycles: file-transfer requests and answers (hex)\n");
+    f.replaceWithText ("Modded Cycles Techno Edition: file-transfer requests and answers (hex)\n");
 }
 
 void ElektronFs::log (const juce::String& line)

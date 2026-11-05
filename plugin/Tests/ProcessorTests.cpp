@@ -1,4 +1,4 @@
-// Headless checks of the sync logic. Build with -DBUILD_TESTS=ON, run Modded_f-king_cycles tests (ModelCyclesCC_Tests) [snapshotDir]
+// Headless checks of the sync logic. Build with -DBUILD_TESTS=ON, run Modded Cycles Techno Edition tests (ModelCyclesCC_Tests) [snapshotDir]
 #include "../Source/PluginProcessor.h"
 #include "../Source/PluginEditor.h"
 #include <map>

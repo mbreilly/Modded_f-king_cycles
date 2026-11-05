@@ -3,7 +3,7 @@
  "order": 24,
  "name": "Version publique : 909BD, 808BD, RUMBL, 909, 606, 808, METL2, BIAS, ACID, GROWL, MACRO, VACF, XMOD, DX, ATMOS, SAMPLER, GRANULAR, WAVETABLE, EMPTY",
  "description": [
-  "Version publique Modded_f-king_cycles (demande de m_reilly, 05/11/2026, notes/112) : 909BD (machine 7), 808BD (machine 8), RUMBL (machine 9), 909 (machine 10), 606 (machine 11), 808 (machine 12), METL2 (machine 13), BIAS (machine 14), ACID (machine 15), GROWL (machine 16), MACRO (machine 17), VACF (machine 18), XMOD (machine 19), DX (machine 20), ATMOS (machine 21), SAMPLER (machine 22), GRANULAR (machine 23), WAVETABLE (machine 24), EMPTY (machine 25).",
+  "Version publique Modded Cycles Techno Edition (demande de m_reilly, 05/11/2026, notes/112) : 909BD (machine 7), 808BD (machine 8), RUMBL (machine 9), 909 (machine 10), 606 (machine 11), 808 (machine 12), METL2 (machine 13), BIAS (machine 14), ACID (machine 15), GROWL (machine 16), MACRO (machine 17), VACF (machine 18), XMOD (machine 19), DX (machine 20), ATMOS (machine 21), SAMPLER (machine 22), GRANULAR (machine 23), WAVETABLE (machine 24), EMPTY (machine 25).",
   "MACRO compilé comme 25-macro.json ; ACID d'après Open303 (Robin Schmidt, licence MIT : LICENSE-Open303), lié à +0x76000, compilé avec GOV_SKIP. Batteries 909BD, 808BD, 909 (avec un SD), 606, 808 compilées avec -DMC_RELEASE : Accent et Drift à la place des réglages hardcore (xrel.h).",
   "Sans TEAR ni BLAST, ni SYNC, RING, SAW, HKICK ; les nouvelles machines",
   "dans tools/machines/ (MIT). Régulateur de charge de bridge_engines.c seul (-DNO_ENGINES), puis en",
@@ -54,6 +54,7 @@
   "md-tg",
   "model-tg",
   "model-tg-st",
+  "own-macro-acid-sync-ring-saw-t9-t8-ubsaw-noise-606-909-audry-erica-smp-gran-wave-rumbl-vacf-metl2-xmod-hkick-dx-clstr-growl-atmos-empty-bias",
   "sdvintage-7th",
   "sdvintage-exact",
   "sdvintage-snare",

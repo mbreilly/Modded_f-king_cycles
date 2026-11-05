@@ -1,4 +1,4 @@
-# Modded_f-king_cycles
+# Modded Cycles Techno Edition
 
 A free, modded firmware for the **Elektron Model:Cycles** (OS 1.13), with a companion plug-in (VST3 / AU /
 standalone) for Mac, Windows and Linux.
@@ -19,7 +19,7 @@ the official OS file you download from Elektron. The patcher checks that file an
 > Elektron Transfer before flashing. The official OS can always be put back (see [Going back](#going-back-to-the-official-os)).
 
 **Manual:** the full owner's manual (49 pages, every machine, every button, the plug-in, and how the firmware
-manages the CPU) is **[docs/Modded_f-king_cycles-Manual.pdf](docs/Modded_f-king_cycles-Manual.pdf)**.
+manages the CPU) is **[docs/Modded-Cycles-Techno-Edition-Manual.pdf](docs/Modded-Cycles-Techno-Edition-Manual.pdf)**.
 
 ## Contents
 
@@ -39,7 +39,7 @@ You need **Python 3.8 or later** (nothing else) and the official Model:Cycles OS
 
 1. Download `model-cycles_OS1.13.syx` from [elektron.se](https://www.elektron.se/support-downloads/modelcycles)
    (Model:Cycles › Support › Downloads; unzip it if it comes as a `.zip`).
-2. Download `Modded_f-king_cycles-firmware-patcher.zip` from the latest [release](../../releases) and unzip it
+2. Download `Modded-Cycles-Techno-Edition-firmware-patcher.zip` from the latest [release](../../releases) and unzip it
    (or download this repository and use its `firmware/` folder).
 3. In a terminal, in that folder:
 
@@ -51,7 +51,7 @@ You need **Python 3.8 or later** (nothing else) and the official Model:Cycles OS
    its path.
 
 The patcher checks that your file is the official one, applies the mods, checks the result against the expected
-SHA-256 and writes **`modded-f-king-cycles.syx`** next to your file. If anything does not match, it stops and
+SHA-256 and writes **`modded-cycles-techno-edition.syx`** next to your file. If anything does not match, it stops and
 writes nothing.
 
 ## Flash it
@@ -59,14 +59,14 @@ writes nothing.
 Back up your projects and samples with Elektron Transfer first.
 
 **Over USB (simplest):** open [Elektron Transfer](https://www.elektron.se/support-downloads/transfer), connect the
-Cycles, and drop `modded-f-king-cycles.syx` on it, as for an official OS update.
+Cycles, and drop `modded-cycles-techno-edition.syx` on it, as for an official OS update.
 
 **Over MIDI (startup menu):** connect a MIDI interface's MIDI OUT to the Cycles' MIDI IN. Power off, hold `FUNC`,
 power on, release, press `TRIG 4` (OS UPGRADE): the screen shows READY TO RECEIVE. Send the `.syx` to the
 interface's port with any SysEx tool. Do not switch off during the update (about 5–7 minutes); the Cycles restarts
 by itself.
 
-At power-on the new firmware shows a short logo animation and *modded f\*\*king cycles 1.0*.
+At power-on the new firmware shows a short logo animation and *modded cycles / techno edition*.
 
 ## Going back to the official OS
 
@@ -188,21 +188,21 @@ complete list is [plugin/midi-map.json](plugin/midi-map.json); the stock Model:C
 
 **Download** the build for your system from the latest [release](../../releases):
 
-- **Mac** (`Modded_f-king_cycles-plugin-macOS.zip`, Apple Silicon and Intel): copy `VST3/Modded_f-king_cycles.vst3` to
-  `~/Library/Audio/Plug-Ins/VST3/` and `AU/Modded_f-king_cycles.component` to `~/Library/Audio/Plug-Ins/Components/`.
+- **Mac** (`Modded-Cycles-Techno-Edition-plugin-macOS.zip`, Apple Silicon and Intel): copy
+  `VST3/Modded Cycles Techno Edition.vst3` to `~/Library/Audio/Plug-Ins/VST3/` and `AU/Modded Cycles Techno Edition.component` to `~/Library/Audio/Plug-Ins/Components/`.
   The build is **not signed by Apple**, so macOS blocks it at first. In Terminal, run once:
 
   ```sh
-  xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Modded_f-king_cycles.vst3 \
-      ~/Library/Audio/Plug-Ins/Components/Modded_f-king_cycles.component
+  xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/"Modded Cycles Techno Edition.vst3" \
+      ~/Library/Audio/Plug-Ins/Components/"Modded Cycles Techno Edition.component"
   ```
 
   then restart your DAW (in Logic, rescan in the Plug-in Manager). For the standalone app, right-click it › Open the
   first time.
-- **Windows** (`Modded_f-king_cycles-plugin-Windows.zip`): copy `VST3\Modded_f-king_cycles.vst3` to
+- **Windows** (`Modded-Cycles-Techno-Edition-plugin-Windows.zip`): copy `VST3\Modded Cycles Techno Edition.vst3` to
   `C:\Program Files\Common Files\VST3\`.
-- **Linux** (`Modded_f-king_cycles-plugin-Linux.zip`): copy `VST3/Modded_f-king_cycles.vst3` to `~/.vst3/`. Each zip also
-  has the standalone app in `Standalone/`.
+- **Linux** (`Modded-Cycles-Techno-Edition-plugin-Linux.zip`): copy `VST3/Modded Cycles Techno Edition.vst3` to `~/.vst3/`.
+  Each zip also has the standalone app in `Standalone/`.
 
 **Set up the Cycles:** USB MODE (SETTINGS › Device › USB) = Audio + MIDI; SETTINGS › MIDI CONFIG › SYNC: receive
 CC/NRPN on, send CC/NRPN on; note the track channels and the FX channel and set the same ones on the plug-in's SETUP

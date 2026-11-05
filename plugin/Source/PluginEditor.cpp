@@ -524,7 +524,7 @@ SetupView::SetupView (CyclesProcessor& p) : proc (p)
     trim.onValueChange = [this] { proc.setAudioTrimMs ((int) trim.getValue()); };
     trim.setTooltip ("Added to the audio delay the DAW compensates. Raise it if the streamed audio is late on the grid, lower it if it's early.");
 
-    // The device's USB audio mode, switched from here (Modded_f-king_cycles firmware); lit from what the stream reports
+    // The device's USB audio mode, switched from here (Modded Cycles Techno Edition firmware); lit from what the stream reports
     for (auto* b : { &usb2, &usb6 })
     {
         b->setClickingTogglesState (false);
@@ -634,7 +634,7 @@ void SetupView::paint (juce::Graphics& g)
                       "  RECALL pushes the sound saved in your project to the\n"
                       "  device when the project opens or the device reconnects.\n"
                       "  GET reads the sound loaded on the device into the plugin\n"
-                      "  (Modded_f-king_cycles firmware; the FX channel must be on). With\n"
+                      "  (Modded Cycles Techno Edition firmware; the FX channel must be on). With\n"
                       "  no saved sound, the plugin does a GET when it connects.\n"
                       "  Moving knobs on the device while your DAW is recording\n"
                       "  automation writes them into the automation lanes.\n\n"
@@ -764,7 +764,7 @@ void TrackRail::mouseDown (const juce::MouseEvent& e)
 ProjectBox::ProjectBox (CyclesProcessor& p) : proc (p)
 {
     setTooltip ("The Model:Cycles' projects. Pick one to load it on the device; if the current project has unsaved "
-                "changes, the plugin asks whether to save it first. Needs the Modded_f-king_cycles firmware with the project list.");
+                "changes, the plugin asks whether to save it first. Needs the Modded Cycles Techno Edition firmware with the project list.");
     setTextWhenNothingSelected ("-");
     setTextWhenNoChoicesAvailable ("No project list");
     onChange = [this]
@@ -860,7 +860,7 @@ CyclesEditor::CyclesEditor (CyclesProcessor& p) : AudioProcessorEditor (p), proc
     };
     addAndMakeVisible (sendAllButton);
 
-    getButton.setTooltip ("Read the sound loaded on the Model:Cycles into the plugin (Modded_f-king_cycles firmware with GET).");
+    getButton.setTooltip ("Read the sound loaded on the Model:Cycles into the plugin (Modded Cycles Techno Edition firmware with GET).");
     getButton.onClick = [this]
     {
         proc.requestGet();
@@ -948,8 +948,8 @@ void CyclesEditor::paint (juce::Graphics& g)
     g.setFont (juce::FontOptions (20.0f, juce::Font::bold));
     g.drawText ("MODEL:CYCLES", 16, 10, 170, 24, juce::Justification::centredLeft);
     g.setColour (LF::accent);
-    g.setFont (juce::FontOptions (11.0f, juce::Font::bold));
-    g.drawText ("MODDED_F-KING_CYCLES", 16, 32, 200, 14, juce::Justification::centredLeft);
+    g.setFont (juce::FontOptions (8.5f, juce::Font::bold));
+    g.drawText ("MODDED CYCLES TECHNO EDITION", 16, 33, 170, 12, juce::Justification::centredLeft);
 
     // Connection pill
     juce::Colour led;

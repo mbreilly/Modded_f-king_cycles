@@ -1,10 +1,10 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Modded_f-king_cycles Manual</title><style>@page {
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Modded Cycles Techno Edition Manual</title><style>@page {
   size: A4;
   margin: 20mm 17mm 18mm 17mm;
-  @top-left { content: "MODDED_F-KING_CYCLES · OWNER'S MANUAL"; font: 600 7pt Inter; letter-spacing: .12em; color: #8a8f96; }
+  @top-left { content: "MODDED CYCLES TECHNO EDITION · OWNER'S MANUAL"; font: 600 7pt Inter; letter-spacing: .12em; color: #8a8f96; }
   @top-right { content: string(chapter); font: 600 7pt Inter; letter-spacing: .12em; color: #8a8f96; text-transform: uppercase; }
   @bottom-right { content: counter(page); font: 600 8pt Inter; color: #2e363f; }
-  @bottom-left { content: "Modded_f-king_cycles 1.0 · Model:Cycles OS 1.13 · First edition, November 2026"; font: 400 7pt Inter; color: #a0a5ab; }
+  @bottom-left { content: "Modded Cycles Techno Edition 1.0 · Model:Cycles OS 1.13 · First edition, November 2026"; font: 400 7pt Inter; color: #a0a5ab; }
 }
 @page cover { margin: 0; @top-left { content: none } @top-right { content: none } @bottom-right { content: none } @bottom-left { content: none } }
 @page toc { @top-right { content: "Contents"; } }
@@ -129,12 +129,12 @@ table.mlist { page-break-inside: avoid; }
   <div class="grid"><div class="sq a"></div><div class="sq"></div><div class="sq"></div><div class="sq a"></div></div>
   <div class="t">
     <div class="kicker">OWNER'S MANUAL · FIRST EDITION · FIRMWARE 1.0</div>
-    <h1>Modded_f-king_cycles</h1>
-    <div class="sub">The guide to the 25-machine firmware for the Elektron Model:Cycles, and the Modded_f-king_cycles plug-in.</div>
+    <h1>Modded Cycles Techno Edition</h1>
+    <div class="sub">The guide to the 25-machine firmware for the Elektron Model:Cycles, and the Modded Cycles Techno Edition plug-in.</div>
   </div>
   <div class="meta">
     <div><b>Firmware</b><br>Model:Cycles OS 1.13, modded<br>25 machines · filter and FX on every track · sampler</div>
-    <div><b>Plug-in</b><br>Modded_f-king_cycles<br>VST3 / AU / standalone · macOS, Windows, Linux</div>
+    <div><b>Plug-in</b><br>Modded Cycles Techno Edition<br>VST3 / AU / standalone · macOS, Windows, Linux</div>
     <div><b>Edition</b><br>November 2026<br>By <a href="https://soundcloud.com/m_reilly">m_reilly</a></div>
   </div>
 </div>
@@ -185,7 +185,7 @@ table.mlist { page-break-inside: avoid; }
     <li class="s"><a href="#c8-fxidle">Delay and reverb rest</a></li>
     <li class="s"><a href="#c8-cpu">CPU monitor</a></li>
     <li class="c"><a href="#ch9"><span class="cn">9</span>MIDI implementation</a></li>
-    <li class="c"><a href="#ch10"><span class="cn">10</span>The Modded_f-king_cycles plug-in</a></li>
+    <li class="c"><a href="#ch10"><span class="cn">10</span>The Modded Cycles Techno Edition plug-in</a></li>
     <li class="s"><a href="#c10-install">Installing</a></li>
     <li class="s"><a href="#c10-device">Setting up the Model:Cycles</a></li>
     <li class="s"><a href="#c10-ui">The window</a></li>
@@ -211,7 +211,7 @@ table.mlist { page-break-inside: avoid; }
 
 <!-- 1 -->
 <h1 class="ch" id="ch1"><span class="chn">CHAPTER 1</span><span class="tt">Introduction</span></h1>
-<p class="lede">Modded_f-king_cycles 1.0 turns the Model:Cycles into a 25-machine instrument: 19 new voices next to
+<p class="lede">Modded Cycles Techno Edition 1.0 turns the Model:Cycles into a 25-machine instrument: 19 new voices next to
 Elektron's six, from circuit-modelled 909, 808 and 606 drums to acid and FM basses, pads and a sampler, with a filter and
 an insert effect on every track, four extra parameters per machine, a sidechain, a master EQ, switchable 6-channel USB
 audio, and a plug-in that brings it all into your DAW.</p>
@@ -249,23 +249,23 @@ audio, and a plug-in that brings it all into your DAW.</p>
 
 <h2 id="c1-build">Building the firmware</h2>
 <p>The firmware is never distributed as a file: you build it on your computer from Elektron's official OS file, with the
-patcher in the <b>Modded_f-king_cycles</b> repository. You need Python 3.8 or later and nothing else.</p>
+patcher in the <b>Modded Cycles Techno Edition</b> repository. You need Python 3.8 or later and nothing else.</p>
 <div class="box">
 <h4>Build</h4>
 <ol class="steps">
 <li>Download <b>model-cycles_OS1.13.syx</b> from elektron.se (Model:Cycles › Support › Downloads; unzip it if needed).</li>
-<li>Download <b>Modded_f-king_cycles-firmware-patcher.zip</b> from the repository's latest release and unzip it.</li>
+<li>Download <b>Modded-Cycles-Techno-Edition-firmware-patcher.zip</b> from the repository's latest release and unzip it.</li>
 <li>In a terminal, in that folder: <code>python3 patch.py path/to/model-cycles_OS1.13.syx</code> (on Windows, <code>py</code> instead of <code>python3</code>).</li>
 </ol>
 <p>The patcher checks that your file is the official one, applies the mods, checks the result against its expected
-fingerprint and writes <b>modded-f-king-cycles.syx</b> next to your file. If anything does not match, it stops and
+fingerprint and writes <b>modded-cycles-techno-edition.syx</b> next to your file. If anything does not match, it stops and
 writes nothing.</p>
 </div>
 
 <h2 id="c1-safe">Installing, and getting back to the official OS</h2>
 <p>Only the main OS is changed: the bootloader and the startup menu stay exactly as Elektron made them, so the official
 OS can always be put back. Back up your projects and samples with Elektron Transfer first.</p>
-<p><b>Over USB:</b> open Elektron Transfer, connect the Cycles and drop <b>modded-f-king-cycles.syx</b> on it, as for an
+<p><b>Over USB:</b> open Elektron Transfer, connect the Cycles and drop <b>modded-cycles-techno-edition.syx</b> on it, as for an
 official OS update.</p>
 <div class="box">
 <h4>Or through the startup menu</h4>
@@ -403,8 +403,8 @@ number disappears 3–4 seconds after you stop. LEVEL/DATA moves in steps of 1, 
 MIDI or by loading a project show nothing.</p>
 
 <h2 id="c3-boot">Boot animation</h2>
-<p>At power-on the screen shows the logo (four rounded squares popping in), then “modded f**king” and “cycles 1.0”
-typing themselves on two lines, instead of the tile animation. 1.0 is this firmware's version. The finished screen holds
+<p>At power-on the screen shows the logo (four rounded squares popping in), then “modded cycles” and “techno edition”
+typing themselves on two lines, instead of the tile animation. The finished screen holds
 about a second longer than the stock animation. Holding FUNC at power-on still opens the startup menu.</p>
 
 <h2 id="c3-lfo">LFO polarity</h2>
@@ -538,7 +538,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">BD Tone</td><td class="d">64</td><td>Tone.</td></tr><tr><td class="k">SHAPE</td><td class="p">BD Drop</td><td class="d">64</td><td>Pitch drop depth.</td></tr><tr><td class="k">SWEEP</td><td class="p">Drop Time</td><td class="d">64</td><td>Pitch drop time.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Accent</td><td class="d">0</td><td>Accent level: accented hits (PUNCH on) up to +6 dB, as on the 808. 0 = no accent.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit gets a slightly different pitch (up to ±25 cents) and level (about ±1 dB), like the parts of a real drum machine drifting from hit to hit. 0 = every hit identical.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Tail <span class="scr">TAIL</span></td><td class="d">0</td><td>Decay stretched up to near-infinite.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Click <span class="scr">CLIK</span></td><td class="d">0</td><td>A second click on the attack.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own TR-808 circuit model (MIT) · CPU 1.8 / 4.5 % of a block (defaults / charge)</p>
+<p class="origin">Source: an original TR-808 circuit model (MIT) · CPU 1.8 / 4.5 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-9">
 <h3><span class="num">09</span> RUMBL <span class="cat">Kick</span></h3>
@@ -546,7 +546,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Tail</td><td class="d">64</td><td>Rumble length (t60), 0.15 to 6 s.</td></tr><tr><td class="k">SHAPE</td><td class="p">Damp</td><td class="d">40</td><td>Rumble low-pass, 41 Hz to 1.2 kHz.</td></tr><tr><td class="k">SWEEP</td><td class="p">Drive</td><td class="d">40</td><td>Kick + rumble into the soft clipper, ×0.5 to ×4 (the only knob meant to distort).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Hold</td><td class="d">0</td><td>The kick body stays at full level for 0–500 ms before DECAY starts; the rumble is fed longer and the tail gets bigger.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sweep <span class="scr">SWP</span></td><td class="d">0</td><td>Pitch drop: 0 = 2.5 octaves, up to 5.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Sweep Time <span class="scr">STIM</span></td><td class="d">0</td><td>How fast the pitch drops: 0 = the quick original drop (20 ms), up to a long 135 ms zap.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Rumble Level <span class="scr">RLVL</span></td><td class="d">0</td><td>0 = standard, up to ×3.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Tail Pitch <span class="scr">TPIT</span></td><td class="d">0</td><td>0 = long rolling loops; up = shorter loops, higher metallic ring.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT) · CPU 5.8 / 9.0 % of a block (defaults / charge)</p>
+<p class="origin">Source: original code (MIT) · CPU 5.8 / 9.0 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-10">
 <h3><span class="num">10</span> 909 <span class="cat">Drums</span></h3>
@@ -554,7 +554,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Tone/ Noise</td><td class="d">64</td><td>Toms: noise in the tom · rim/clap: tone · hats: band-pass centre · ride: bell ↔ wash · crash: low ↔ high band.</td></tr><tr><td class="k">SHAPE</td><td class="p">Voice</td><td class="d">0</td><td>LT MT HT RIM CLP CH OH RD CR SD (shown by name).</td></tr><tr><td class="k">SWEEP</td><td class="p">Sweep/ Spread</td><td class="d">64</td><td>Toms: pitch sweep depth · clap: spread · hats: high-pass · ride: bell pitch · crash: swell length.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Time/ Burst</td><td class="d">64</td><td>Toms: pitch sweep time · clap: burst · hats and cymbals: noise in the metal.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Accent <span class="scr">ACC</span></td><td class="d">0</td><td>Accented hits (PUNCH on) up to 6 dB louder, like turning up the 909&#x27;s TOTAL ACCENT; plain hits are unchanged. Loud accents round off softly under full scale instead of clipping.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Range/ Tail <span class="scr">TAIL</span></td><td class="d">0</td><td>Toms: wider pitch drop (tuning mod) · clap: longer tail, rim: longer ring · hats/cymbals: Long Decay (up to ×15).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit gets a slightly different pitch (up to ±25 cents) and level (about ±1 dB), like the parts of a real drum machine drifting from hit to hit. 0 = every hit identical.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Tone <span class="scr">TONE</span></td><td class="d">0</td><td>Toms, rim, clap and snare: tilt EQ, darker to brighter. No effect on the hats.</td></tr></tbody></table>
 <p class="note">SD (Voice 9) is the 909 snare: two tuned shells with a pitch bend and a snappy noise path, tuned against recordings of real 909 snares (about 178 Hz at C4). On the SD, COLOR is SNAPPY, SWEEP the shell bend, CONTOUR the shell decay and DECAY the snappy length (the 909&#x27;s TONE knob).</p>
-<p class="origin">Source: DMDaudio model909 (MIT) for the toms, rim and clap; Modded_f-king_cycles&#x27; own code for the hats and cymbals · CPU 8.3 / 20.5 % of a block (defaults / charge)</p>
+<p class="origin">Source: DMDaudio model909 (MIT) for the toms, rim and clap; original code for the hats and cymbals · CPU 8.3 / 20.5 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-11">
 <h3><span class="num">11</span> 606 <span class="cat">Drums</span></h3>
@@ -562,7 +562,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Tone</td><td class="d">64</td><td>BD click tone · SD wire tone · toms noise tone · hats/cymbal band-pass centre. Reads −64 to +63 on the screen, 0 = the 606.</td></tr><tr><td class="k">SHAPE</td><td class="p">Voice</td><td class="d">0</td><td>BD SD LT HT CH OH CY (shown by name).</td></tr><tr><td class="k">SWEEP</td><td class="p">Sweep</td><td class="d">64</td><td>BD pitch drop · SD shell bend · tom glide · hats/cymbal high-pass.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Noise</td><td class="d">64</td><td>BD click level · SD snappy · tom stick noise · noise in the metal.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit gets a slightly different pitch (up to ±25 cents) and level (about ±1 dB), like the parts of a real drum machine drifting from hit to hit. 0 = every hit identical.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Long Decay <span class="scr">LONG</span></td><td class="d">0</td><td>Decay stretched up to ×15 (the R163 kick mod: an 808-length boom).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Sweep <span class="scr">SWP</span></td><td class="d">0</td><td>Extra pitch envelope: kick (Samore mod), toms (Analog Solutions mod), snare bend.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Accent Level <span class="scr">ACC</span></td><td class="d">0</td><td>0–64: unaccented hits rise to accent level. 64–127: every hit up to +6 dB.</td></tr></tbody></table>
 <p class="note">The extras act on the voice SHAPE currently selects.</p>
-<p class="origin">Source: Modded_f-king_cycles&#x27; own code, after Matthew Fecher&#x27;s TR-606 analysis (MIT) · CPU 6.2 / 9.5 % of a block (defaults / charge)</p>
+<p class="origin">Source: original code, after Matthew Fecher&#x27;s TR-606 analysis (MIT) · CPU 6.2 / 9.5 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-12">
 <h3><span class="num">12</span> 808 <span class="cat">Hats & cymbal</span></h3>
@@ -570,7 +570,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Color/ Tone</td><td class="d">64</td><td>Hat: colour of the metal (band-pass) · cymbal: low ↔ high band. Reads −64 to +63 on the screen, 0 = the 808.</td></tr><tr><td class="k">SHAPE</td><td class="p">Voice HPF</td><td class="d">32</td><td>0–63 hat, 64–127 cymbal; within each half, the high-pass cutoff (32 and 96 = the old default).</td></tr><tr><td class="k">SWEEP</td><td class="p">Res/Hi Decay</td><td class="d">64</td><td>Hat: filter resonance · cymbal: decay of the high band.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Noise/ Spread</td><td class="d">0</td><td>Hat: noise added · cymbal: spread of its two bands (64 = the old default).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Metal Tune <span class="scr">TUNE</span></td><td class="d">0</td><td>Retunes the cowbell oscillator pair (more metallic).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Drift <span class="scr">DRFT</span></td><td class="d">0</td><td>Each hit a slightly different level (about ±1 dB), like a real 808.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Filter/ Curve <span class="scr">FCRV</span></td><td class="d">0</td><td>Hat: band-pass and high-pass down by up to 1.5 octaves (R153/R147 mod) · cymbal: from exponential toward a linear decay, louder longer tail.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Accent Level <span class="scr">ACC</span></td><td class="d">0</td><td>Accented hits (PUNCH on) up to +6 dB, as on the 808.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own TR-808 circuit model (MIT) · CPU 5.0 / 16 % of a block (defaults / charge)</p>
+<p class="origin">Source: an original TR-808 circuit model (MIT) · CPU 5.0 / 16 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-13">
 <h3><span class="num">13</span> METL2 <span class="cat">Metal</span></h3>
@@ -602,7 +602,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Detune</td><td class="d">40</td><td>Spread of the two side saws, 2.5 to 60 cents: slow beating low down, a wide chorus at the top.</td></tr><tr><td class="k">SHAPE</td><td class="p">Growl Rate</td><td class="d">72</td><td>4 to 32 Hz (about 13 Hz at 72); restarts at each note.</td></tr><tr><td class="k">SWEEP</td><td class="p">Growl Depth</td><td class="d">64</td><td>0 = none. Opens and closes the filter (up to ±2 octaves) and the level (to −12 dB); the top quarter wobbles the pitch too (±1.5 semitones).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Tone</td><td class="d">60</td><td>Low-pass cutoff, about 30 Hz to 6 kHz, half key tracking.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sub Level <span class="scr">SUB</span></td><td class="d">0</td><td>Sine one octave below the note; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Attack <span class="scr">ATK</span></td><td class="d">0</td><td>0 = none; up = a fade-in after each trig, 1.3 ms to 3 s.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Noise <span class="scr">NOIS</span></td><td class="d">0</td><td>White noise into the drive and the filter; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>0 = warm; up to ×16 into a soft knee (hard clipping), before the filter.</td></tr></tbody></table>
 <p class="note">Best between C1 and C2. Try SHAPE 110 and SWEEP 90 for a fast 23 Hz snarl, or Drive 100 with Tone low for a dark, saturated sub.</p>
-<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT) · CPU 4.8 / 7.0 % of a block (defaults / charge)</p>
+<p class="origin">Source: original code (MIT) · CPU 4.8 / 7.0 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-17">
 <h3><span class="num">17</span> MACRO <span class="cat">Synth</span></h3>
@@ -634,7 +634,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Patch</td><td class="d">0</td><td>One of 32 sounds, shown by name. Metal: BEL TUB GNG ANV CLG PIP SHD CHN · basses: BAS SUB RBS GRW · leads: SAW SQR · brass: BRS STB HRN · keys and pads: ORG PAD DRN · drums: HIT KIK SNR HAT CYM TOM · noise and FX: ZAP SIR NOI SCR BLD VOX.</td></tr><tr><td class="k">SHAPE</td><td class="p">Bright</td><td class="d">64</td><td>Level of the modulators, −18 to +18 dB around the patch. Reads −64 to +63 on the screen, 0 = as the patch.</td></tr><tr><td class="k">SWEEP</td><td class="p">Env Time</td><td class="d">64</td><td>Every envelope ×4 faster (−64) to ×4 slower (+63); reads −64 to +63 on the screen, 0 = as the patch.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Algo</td><td class="d">0</td><td>PAT = the patch&#x27;s own algorithm, A1–A32 = DX7 algorithms 1–32.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Feedback <span class="scr">FB</span></td><td class="d">0</td><td>0 = the patch&#x27;s; up adds up to 7 steps of operator feedback.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Op6 Ratio <span class="scr">OP6R</span></td><td class="d">0</td><td>0 = the patch&#x27;s; up sweeps operator 6 from ½ to 32× the note, continuously.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Vel Sens <span class="scr">VELS</span></td><td class="d">0</td><td>0 = the patch&#x27;s; up makes soft notes darker (the modulators follow velocity).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Detune <span class="scr">DET</span></td><td class="d">0</td><td>0 = none; up spreads the six operators by up to ±24 cents.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own 6-operator FM (MIT); the 32 DX7 algorithms in Plaits&#x27; encoding (Émilie Gillet, MIT) · CPU 6.5 / 10.5 % of a block (defaults / charge)</p>
+<p class="origin">Source: original 6-operator FM (MIT); the 32 DX7 algorithms in Plaits&#x27; encoding (Émilie Gillet, MIT) · CPU 6.5 / 10.5 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-21">
 <h3><span class="num">21</span> ATMOS <span class="cat">Pad</span></h3>
@@ -642,7 +642,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">PITCH</td><td class="p">Pitch</td><td class="d"></td><td>Root of the chord: PITCH 64 + C4 = C3.</td></tr><tr><td class="k">COLOR</td><td class="p">Color</td><td class="d">72</td><td>Low-pass 110 Hz to 6.6 kHz: very dark at 72, 18 dB/oct when dark, opening to 12 dB/oct.</td></tr><tr><td class="k">SHAPE</td><td class="p">Chord</td><td class="d">3</td><td>OCT 5TH MIN MI7 MI9 M11 SU2 SU4 MAJ MA7 DRK CLU, shown by name (default MI7). CLU: a low root under a b7/octave/b9 cluster.</td></tr><tr><td class="k">SWEEP</td><td class="p">Drift</td><td class="d">64</td><td>Slow random swings (10 to 16 s each) of the cutoff (up to ±1.5 octaves) and the level (to −3 dB); 0 = still.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Space</td><td class="d">70</td><td>Plate tail: 0 = dry, up = longer (about 1 to 12 s) and wetter (to 60 %).</td></tr><tr><td class="k">DECAY</td><td class="p">Release</td><td class="d">90</td><td>Release after the note, 10 ms to 30 s (about 3 s at 90); 127 = holds forever.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Swell <span class="scr">SWEL</span></td><td class="d">0</td><td>Fade-in: 0 = 20 ms, about 1.5 s at 50, 10 s at 127.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Air <span class="scr">AIR</span></td><td class="d">0</td><td>Breathy noise under the same filter; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Wobble <span class="scr">WOBL</span></td><td class="d">0</td><td>Tape-like pitch wobble, 0.2 to 4 Hz, up to ±30 cents; 0 = none.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Width <span class="scr">WIDE</span></td><td class="d">0</td><td>Detune of each saw pair, 6 to 40 cents. The track is mono, so width becomes beating.</td></tr></tbody></table>
 <p class="note">Recipes: dark pad: defaults, play a minor chord root around A2–D3. LF drone: GATE on, CLU, COLOR 55, Width 70, Swell 50. Slow filter swell: SWEEP 110–127 and wait 20 s.</p><p class="note">With COLOR, Air and SWEEP all at 127 it is bright and hissy by design (white noise through an open filter).</p>
-<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT); plate after Jon Dattorro&#x27;s published figure · CPU 10.2 / 16.5 % of a block (defaults / charge)</p>
+<p class="origin">Source: original code (MIT); plate after Jon Dattorro&#x27;s published figure · CPU 10.2 / 16.5 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-22">
 <h3><span class="num">22</span> SAMPLER <span class="cat">Sample</span></h3>
@@ -650,7 +650,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Start</td><td class="d">0</td><td>Start point.</td></tr><tr><td class="k">SHAPE</td><td class="p">End</td><td class="d">127</td><td>Where the sample stops playing (127 = its end), always at least a little after Start.</td></tr><tr><td class="k">SWEEP</td><td class="p">Mode</td><td class="d">0</td><td>FWD (forward), REV (reverse), LOP (loop), PNG (ping-pong).</td></tr><tr><td class="k">CONTOUR</td><td class="p">Lofi</td><td class="d">0</td><td>Sample rate divided by up to 16, down to 2 bits.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Fine <span class="scr">FINE</span></td><td class="d">0</td><td>Fine tune, 0 to +1 semitone.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Attack <span class="scr">ATK</span></td><td class="d">0</td><td>Fade-in at the start of each note.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Loop Start <span class="scr">LPST</span></td><td class="d">0</td><td>Loop start for LOP and PNG (0 = at Start).</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>Gain up to ×8 into a soft clip.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own sampler; sample transfer after Model-TG (MIT) · CPU 2.6 / 4.5 % of a block (defaults / charge)</p>
+<p class="origin">Source: original sampler; sample transfer after Model-TG (MIT) · CPU 2.6 / 4.5 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-23">
 <h3><span class="num">23</span> GRANULAR <span class="cat">Sample</span></h3>
@@ -658,7 +658,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Position</td><td class="d">0</td><td>Where in the sample the grains are read.</td></tr><tr><td class="k">SHAPE</td><td class="p">Size</td><td class="d">64</td><td>Grain size, 5 to 500 ms.</td></tr><tr><td class="k">SWEEP</td><td class="p">Density</td><td class="d">64</td><td>From one grain every four lengths up to four overlapping.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Spray</td><td class="d">0</td><td>Random position offset, up to ±¼ of the sample.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Spread <span class="scr">SPRD</span></td><td class="d">0</td><td>Random pitch per grain, up to ±12 semitones.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Window <span class="scr">WIN</span></td><td class="d">0</td><td>From a smooth Hann window to hard edges.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Scan <span class="scr">SCAN</span></td><td class="d">0</td><td>The position moves forward on its own, up to 2× real time, and wraps.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Reverse <span class="scr">REV</span></td><td class="d">0</td><td>Share of grains played backwards.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own granular engine · CPU 4.5 / 8.0 % of a block (defaults / charge)</p>
+<p class="origin">Source: original granular engine · CPU 4.5 / 8.0 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-24">
 <h3><span class="num">24</span> WAVETABLE <span class="cat">Sample</span></h3>
@@ -666,7 +666,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR</td><td class="p">Position</td><td class="d">0</td><td>Frame, crossfading into the next one.</td></tr><tr><td class="k">SHAPE</td><td class="p">Warp</td><td class="d">0</td><td>Hard sync: the frame is read 1 to 4 times per period.</td></tr><tr><td class="k">SWEEP</td><td class="p">Env</td><td class="d">0</td><td>A decaying envelope moves the position on each trig, up to the whole table.</td></tr><tr><td class="k">CONTOUR</td><td class="p">Env Speed</td><td class="d">64</td><td>Speed of that envelope.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + PITCH</td><td class="p">Sub <span class="scr">SUB</span></td><td class="d">0</td><td>Triangle one octave down.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + DECAY</td><td class="p">Detune <span class="scr">DET</span></td><td class="d">0</td><td>A second oscillator up to +50 cents.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + COLOR</td><td class="p">Crush <span class="scr">CRSH</span></td><td class="d">0</td><td>16 down to 4 bits.</td></tr><tr class="x"><td class="k"><span class="hold">LAYER</span> + SHAPE</td><td class="p">Drive <span class="scr">DRV</span></td><td class="d">0</td><td>×1 to ×8 into a soft knee.</td></tr></tbody></table>
 
-<p class="origin">Source: Modded_f-king_cycles&#x27; own wavetable engine · CPU 3.3 / 6.0 % of a block (defaults / charge)</p>
+<p class="origin">Source: original wavetable engine · CPU 3.3 / 6.0 % of a block (defaults / charge)</p>
 </section>
 <section class="machine" id="m-25">
 <h3><span class="num">25</span> EMPTY <span class="cat">Utility</span></h3>
@@ -674,7 +674,7 @@ exactly as described in the Model:Cycles manual. They have no extras; the per-tr
 <table class="knobs"><thead><tr><th>Control</th><th>Parameter</th><th>Default</th><th>What it does</th></tr></thead>
 <tbody><tr><td class="k">COLOR–CONTOUR</td><td class="p">Unused</td><td class="d"></td><td>No knob does anything.</td></tr></tbody></table>
 <p class="note">Always the last machine in the list. Its charge is 0, so it is never greyed out.</p>
-<p class="origin">Source: Modded_f-king_cycles&#x27; own (MIT) · CPU 0.4 / 0 % of a block (defaults / charge)</p>
+<p class="origin">Source: original code (MIT) · CPU 0.4 / 0 % of a block (defaults / charge)</p>
 </section>
 
 <!-- 7 -->
@@ -859,8 +859,8 @@ channel carries the send effects and the USB switch. Enable Receive CC/NRPN in S
 Model:Cycles ignores CC 20–28. The Model:Cycles does not send p-locks and LFO moves as CCs.</p>
 
 <!-- 10 -->
-<h1 class="ch" id="ch10"><span class="chn">CHAPTER 10</span><span class="tt">The Modded_f-king_cycles plug-in</span></h1>
-<p class="lede">The Modded_f-king_cycles plug-in is a VST3 / AU instrument (plus a standalone app) that does for the Model:Cycles what
+<h1 class="ch" id="ch10"><span class="chn">CHAPTER 10</span><span class="tt">The Modded Cycles Techno Edition plug-in</span></h1>
+<p class="lede">The Modded Cycles Techno Edition plug-in is a VST3 / AU instrument (plus a standalone app) that does for the Model:Cycles what
 Overbridge does for other Elektron machines: it finds the device, mirrors every parameter in your DAW, records hardware
 knob moves as automation, recalls the sound with the project, syncs the sequencer, and plays the device's USB audio on
 its own outputs, one per track in 6CH. It knows the 25 machines of this firmware with their screen names, their extras, the
@@ -873,20 +873,20 @@ half, MIX, FILTER, TRACK FX and LFO on the right. Knob and extra names follow th
 BD Sweep, Sweep Time; Accent, Tune Decay, Click, Tone).</figcaption></figure>
 
 <h2 id="c10-install">Installing</h2>
-<p>Download the zip for your system from the latest release of the Modded_f-king_cycles repository. Each zip holds
+<p>Download the zip for your system from the latest release of the Modded Cycles Techno Edition repository. Each zip holds
 the VST3, the standalone app and, on macOS, the AU.</p>
 <table><thead><tr><th>System</th><th>Install</th></tr></thead><tbody>
-<tr><td><b>macOS</b> (universal: Apple Silicon and Intel)</td><td>Copy <b>Modded_f-king_cycles.vst3</b> to ~/Library/Audio/Plug-Ins/VST3/ and <b>Modded_f-king_cycles.component</b> to ~/Library/Audio/Plug-Ins/Components/.</td></tr>
-<tr><td><b>Windows</b></td><td>Copy <b>Modded_f-king_cycles.vst3</b> to C:\Program Files\Common Files\VST3\.</td></tr>
-<tr><td><b>Linux</b></td><td>Copy <b>Modded_f-king_cycles.vst3</b> to ~/.vst3/.</td></tr>
+<tr><td><b>macOS</b> (universal: Apple Silicon and Intel)</td><td>Copy <b>Modded Cycles Techno Edition.vst3</b> to ~/Library/Audio/Plug-Ins/VST3/ and <b>Modded Cycles Techno Edition.component</b> to ~/Library/Audio/Plug-Ins/Components/.</td></tr>
+<tr><td><b>Windows</b></td><td>Copy <b>Modded Cycles Techno Edition.vst3</b> to C:\Program Files\Common Files\VST3\.</td></tr>
+<tr><td><b>Linux</b></td><td>Copy <b>Modded Cycles Techno Edition.vst3</b> to ~/.vst3/.</td></tr>
 </tbody></table>
 <div class="box warn"><p><b>macOS: the plug-in is not signed by Apple</b>, so macOS blocks it the first time. In Terminal, run once:</p>
-<p><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Modded_f-king_cycles.vst3 ~/Library/Audio/Plug-Ins/Components/Modded_f-king_cycles.component</code></p>
+<p><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/"Modded Cycles Techno Edition.vst3" ~/Library/Audio/Plug-Ins/Components/"Modded Cycles Techno Edition.component"</code></p>
 <p>then restart the DAW (in Logic, rescan in the Plug-in Manager). For the standalone app, right-click it and choose Open the first time.</p></div>
 <p>To build it yourself: CMake 3.22 or later and a C++ compiler (Xcode or its Command Line Tools, Visual Studio 2022, or
 GCC on Linux); JUCE is downloaded automatically. In the repository's plugin folder:
 <code>cmake -B build -DCMAKE_BUILD_TYPE=Release</code>, then <code>cmake --build build --config Release</code>.</p>
-<p>Rescan plug-ins and load <b>Modded_f-king_cycles</b> as an instrument on its own track.</p>
+<p>Rescan plug-ins and load <b>Modded Cycles Techno Edition</b> as an instrument on its own track.</p>
 
 <h2 id="c10-device">Setting up the Model:Cycles</h2>
 <table><thead><tr><th>Setting</th><th>Value</th></tr></thead><tbody>
@@ -976,7 +976,7 @@ Cycles follows, and the DAW records it as automation.</li>
 to put it on the track. REFRESH reads the list again. A sample picked on the Cycles shows here too.</li>
 </ul>
 <p class="small">The plug-in only reads the +Drive (it never writes to it); send new samples with Elektron Transfer. Each
-waveform is read once and kept in the plug-in's Samples folder (on macOS ~/Library/Modded_f-king_cycles/Samples). The track's sample is saved with the DAW project
+waveform is read once and kept in the plug-in's Samples folder (on macOS ~/Library/Modded Cycles Techno Edition/Samples). The track's sample is saved with the DAW project
 and sent again by SEND ALL (NRPN 1:59–1:62).</p>
 
 <h2 id="c10-proj">Projects</h2>
@@ -1176,7 +1176,7 @@ DX 10.5 %, ATMOS 16.5 %.</p>
 </tbody></table>
 
 <h2 id="c12-credits">Credits and licences</h2>
-<p class="small">Modded_f-king_cycles by <a href="https://soundcloud.com/m_reilly">m_reilly</a>, built on Modded-Cycles by
+<p class="small">Modded Cycles Techno Edition by <a href="https://soundcloud.com/m_reilly">m_reilly</a>, built on Modded-Cycles by
 18nelli18 and contributors (MIT). Braids by Émilie Gillet (MIT), compiled unchanged for MACRO; RUMBL, VACF, METL2 and XMOD
 written from scratch after ideas from her Plaits, Rings and Warps, and DX's 32 algorithms in Plaits' encoding (MIT).
 Open303 by Robin Schmidt (MIT), rewritten for ACID; the Devil Fish is Robin Whittle's TB-303 modification (ideas only).

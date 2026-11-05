@@ -7,7 +7,7 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "")
 endif()
 
-project(ModdedFkingCycles VERSION 1.0.0)
+project(ModdedCyclesTechnoEdition VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -32,7 +32,7 @@ juce_add_plugin(ModelCyclesCC
     COMPANY_NAME "m_reilly"
     PLUGIN_MANUFACTURER_CODE Mrly
     PLUGIN_CODE Mfkc
-    PRODUCT_NAME "Modded_f-king_cycles"
+    PRODUCT_NAME "Modded Cycles Techno Edition"
     BUNDLE_ID "com.mreilly.moddedfkingcycles"
     FORMATS ${FORMATS}
     IS_SYNTH TRUE
@@ -86,7 +86,7 @@ if(BUILD_TESTS)
         Tests/ProcessorTests.cpp Source/PluginProcessor.cpp Source/PluginEditor.cpp Source/DeviceLink.cpp Source/AudioLink.cpp
         Source/ElektronFs.cpp Source/SampleLibrary.cpp Source/SampleView.cpp)
     target_compile_definitions(ModelCyclesCC_Tests PRIVATE
-        JucePlugin_Name="Modded_f-king_cycles" JUCE_MODAL_LOOPS_PERMITTED=1 JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
+        JucePlugin_Name="Modded Cycles Techno Edition" JUCE_MODAL_LOOPS_PERMITTED=1 JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
     target_link_libraries(ModelCyclesCC_Tests PRIVATE
         juce::juce_audio_utils juce::juce_audio_devices juce::juce_recommended_config_flags)
 endif()

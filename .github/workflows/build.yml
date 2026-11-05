@@ -73,9 +73,9 @@ jobs:
           files="VST3 Standalone"
           [ -d AU ] && files="$files AU"
           if [ "$RUNNER_OS" = "Windows" ]; then
-            7z a "$GITHUB_WORKSPACE/dist/Modded_f-king_cycles-plugin-${{ matrix.name }}.zip" $files
+            7z a "$GITHUB_WORKSPACE/dist/Modded-Cycles-Techno-Edition-plugin-${{ matrix.name }}.zip" $files
           else
-            zip -qry "$GITHUB_WORKSPACE/dist/Modded_f-king_cycles-plugin-${{ matrix.name }}.zip" $files
+            zip -qry "$GITHUB_WORKSPACE/dist/Modded-Cycles-Techno-Edition-plugin-${{ matrix.name }}.zip" $files
           fi
 
       - uses: actions/upload-artifact@v4
@@ -93,7 +93,7 @@ jobs:
         run: |
           mkdir -p dist
           cp README.md LICENSE THIRD-PARTY-NOTICES.md firmware/
-          (cd firmware && zip -qr ../dist/Modded_f-king_cycles-firmware-patcher.zip .)
+          (cd firmware && zip -qr ../dist/Modded-Cycles-Techno-Edition-firmware-patcher.zip .)
       - uses: actions/upload-artifact@v4
         with:
           name: firmware-patcher
@@ -122,6 +122,6 @@ jobs:
             pre="--prerelease"
             notes=$(printf '%s\n\n%s' "**Beta.** Tested in emulation; hardware testing is still under way. Back up your projects before flashing." "$notes")
           fi
-          cp docs/Modded_f-king_cycles-Manual.pdf dist/
-          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/Modded_f-king_cycles-Manual.pdf $pre --target "$GITHUB_SHA" \
-            --title "Modded_f-king_cycles $GITHUB_REF_NAME" --notes "$notes"
+          cp docs/Modded-Cycles-Techno-Edition-Manual.pdf dist/
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/Modded-Cycles-Techno-Edition-Manual.pdf $pre --target "$GITHUB_SHA" \
+            --title "Modded Cycles Techno Edition $GITHUB_REF_NAME" --notes "$notes"
