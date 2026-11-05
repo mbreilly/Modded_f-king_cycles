@@ -1,0 +1,2684 @@
+{
+ "machine_cc": 70,
+ "track_select": {
+  "cc": 119,
+  "channel": "fx",
+  "direction": "out",
+  "values": "0..5 = T1..T6"
+ },
+ "machines": [
+  {
+   "index": 0,
+   "name": "Kick",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Contour",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "index": 1,
+   "name": "Snare",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Contour",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "index": 2,
+   "name": "Metal",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Contour",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "index": 3,
+   "name": "Perc",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Contour",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "index": 4,
+   "name": "Tone",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Contour",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "index": 5,
+   "name": "Chord",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Contour",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "index": 6,
+   "name": "909BD",
+   "knobs": [
+    {
+     "name": "BD Attack",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "BD Shape",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "BD Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Sweep Time",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Accent",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Tune Decay",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Click",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Tone",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "name": "808BD",
+   "knobs": [
+    {
+     "name": "BD Tone",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "BD Drop",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Drop Time",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Accent",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Drift",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Tail",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Click",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    null
+   ]
+  },
+  {
+   "index": 8,
+   "name": "RUMBL",
+   "knobs": [
+    {
+     "name": "Tail",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Damp",
+     "cc": 17,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 18,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Hold",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Sweep",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Sweep Time",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Rumble Level",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Tail Pitch",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "name": "909",
+   "knobs": [
+    {
+     "name": "Tone/ Noise",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Voice",
+     "cc": 17,
+     "default": 0,
+     "max": 9,
+     "values": [
+      "LT",
+      "MT",
+      "HT",
+      "RIM",
+      "CLP",
+      "CH",
+      "OH",
+      "RD",
+      "CR",
+      "SD"
+     ]
+    },
+    {
+     "name": "Sweep/ Spread",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Time/ Burst",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Accent",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Range/ Tail",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Drift",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Tone",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "name": "606",
+   "knobs": [
+    {
+     "name": "Tone",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Voice",
+     "cc": 17,
+     "default": 0,
+     "max": 6,
+     "values": [
+      "BD",
+      "SD",
+      "LT",
+      "HT",
+      "CH",
+      "OH",
+      "CY"
+     ]
+    },
+    {
+     "name": "Sweep",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Noise",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Drift",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Long Decay",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Sweep",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Accent Level",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "name": "808",
+   "knobs": [
+    {
+     "name": "Color/ Tone",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Voice HPF",
+     "cc": 17,
+     "default": 32,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Res/Hi Decay",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Noise/ Spread",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Metal Tune",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Drift",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Filter/ Curve",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Accent Level",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "name": "METL2",
+   "knobs": [
+    {
+     "name": "Struct",
+     "cc": 16,
+     "default": 70,
+     "max": 127,
+     "values": [
+      "STR",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "PIP",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "SHT",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "PLT",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "BEL",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "BAR"
+     ]
+    },
+    {
+     "name": "Bright",
+     "cc": 17,
+     "default": 80,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Position",
+     "cc": 18,
+     "default": 20,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Exciter",
+     "cc": 19,
+     "default": 10,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Dent",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Scrape",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Hi Damp",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "name": "BIAS",
+   "knobs": [
+    {
+     "name": "Harm",
+     "cc": 16,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Morph",
+     "cc": 17,
+     "default": 43,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Spread",
+     "cc": 18,
+     "default": 16,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Fold",
+     "cc": 19,
+     "default": 24,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Liquid",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Liq Time",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Strike",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "name": "ACID",
+   "knobs": [
+    {
+     "name": "Cutoff",
+     "cc": 16,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Reso",
+     "cc": 17,
+     "default": 90,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Env Mod",
+     "cc": 18,
+     "default": 80,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Slide Time",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Filter FM",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Muffler",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Accent",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "name": "GROWL",
+   "knobs": [
+    {
+     "name": "Detune",
+     "cc": 16,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Growl Rate",
+     "cc": 17,
+     "default": 72,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Growl Depth",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Tone",
+     "cc": 19,
+     "default": 60,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Sub Level",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Attack",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Noise",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "name": "MACRO",
+   "knobs": [
+    {
+     "name": "Timbre",
+     "cc": 16,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Model",
+     "cc": 17,
+     "default": 0,
+     "max": 46,
+     "values": null
+    },
+    {
+     "name": "Color",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Env Timbre",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Attack",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Env Color",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Lofi Bits",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Lofi Rate",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "name": "VACF",
+   "knobs": [
+    {
+     "name": "Cutoff",
+     "cc": 16,
+     "default": 50,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Reso",
+     "cc": 17,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Env Mod",
+     "cc": 18,
+     "default": 60,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Wave",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": [
+      "SAW",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "SQR",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "PLS"
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "name": "Sync",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Detune",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Sub",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "name": "XMOD",
+   "knobs": [
+    {
+     "name": "Timbre",
+     "cc": 16,
+     "default": 40,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Mod Ratio",
+     "cc": 17,
+     "default": 40,
+     "max": 127,
+     "values": [
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.25",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "0.5",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "1.5",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "2.5",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7",
+      "7"
+     ]
+    },
+    {
+     "name": "Mod Wave",
+     "cc": 18,
+     "default": 0,
+     "max": 127,
+     "values": [
+      "SIN",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "TRI",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "SAW",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "SQR"
+     ]
+    },
+    {
+     "name": "Algo",
+     "cc": 19,
+     "default": 50,
+     "max": 127,
+     "values": [
+      "XFD",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "FLD",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "DIO",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "RNG",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "XOR",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "CMP"
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "name": "Car Wave",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": [
+      "SIN",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "TRI",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "SAW",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "SQR"
+     ]
+    },
+    {
+     "name": "Mod Env",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Detune",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Crush",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "name": "DX",
+   "knobs": [
+    {
+     "name": "Patch",
+     "cc": 16,
+     "default": 0,
+     "max": 31,
+     "values": [
+      "BEL",
+      "TUB",
+      "GNG",
+      "ANV",
+      "CLG",
+      "PIP",
+      "SHD",
+      "CHN",
+      "BAS",
+      "SUB",
+      "RBS",
+      "GRW",
+      "SAW",
+      "SQR",
+      "BRS",
+      "STB",
+      "HRN",
+      "ORG",
+      "PAD",
+      "DRN",
+      "HIT",
+      "KIK",
+      "SNR",
+      "HAT",
+      "CYM",
+      "TOM",
+      "ZAP",
+      "SIR",
+      "NOI",
+      "SCR",
+      "BLD",
+      "VOX"
+     ]
+    },
+    {
+     "name": "Bright",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Env Time",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Algo",
+     "cc": 19,
+     "default": 0,
+     "max": 32,
+     "values": [
+      "PAT",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10",
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17",
+      "A18",
+      "A19",
+      "A20",
+      "A21",
+      "A22",
+      "A23",
+      "A24",
+      "A25",
+      "A26",
+      "A27",
+      "A28",
+      "A29",
+      "A30",
+      "A31",
+      "A32"
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "name": "Feedback",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Op6 Ratio",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Vel Sens",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Detune",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "name": "ATMOS",
+   "knobs": [
+    {
+     "name": "Color",
+     "cc": 16,
+     "default": 72,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Chord",
+     "cc": 17,
+     "default": 3,
+     "max": 11,
+     "values": [
+      "OCT",
+      "5TH",
+      "MIN",
+      "MI7",
+      "MI9",
+      "M11",
+      "SU2",
+      "SU4",
+      "MAJ",
+      "MA7",
+      "DRK",
+      "CLU"
+     ]
+    },
+    {
+     "name": "Drift",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Space",
+     "cc": 19,
+     "default": 70,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Swell",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Air",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Wobble",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Width",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "name": "SAMPLER",
+   "knobs": [
+    {
+     "name": "Start",
+     "cc": 16,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "End",
+     "cc": 17,
+     "default": 127,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Mode",
+     "cc": 18,
+     "default": 0,
+     "max": 3,
+     "values": [
+      "FWD",
+      "REV",
+      "LOP",
+      "PNG"
+     ]
+    },
+    {
+     "name": "Lofi",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Fine",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Attack",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Loop Start",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "name": "GRANULAR",
+   "knobs": [
+    {
+     "name": "Position",
+     "cc": 16,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Size",
+     "cc": 17,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Density",
+     "cc": 18,
+     "default": 64,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Spray",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Spread",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Window",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Scan",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Reverse",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "name": "WAVETABLE",
+   "knobs": [
+    {
+     "name": "Position",
+     "cc": 16,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Warp",
+     "cc": 17,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Env",
+     "cc": 18,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Env Speed",
+     "cc": 19,
+     "default": 64,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    {
+     "name": "Sub",
+     "cc": 20,
+     "nrpn": [
+      1,
+      40
+     ],
+     "values": null
+    },
+    {
+     "name": "Detune",
+     "cc": 21,
+     "nrpn": [
+      1,
+      41
+     ],
+     "values": null
+    },
+    {
+     "name": "Crush",
+     "cc": 22,
+     "nrpn": [
+      1,
+      42
+     ],
+     "values": null
+    },
+    {
+     "name": "Drive",
+     "cc": 23,
+     "nrpn": [
+      1,
+      43
+     ],
+     "values": null
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "name": "EMPTY",
+   "knobs": [
+    {
+     "name": "Unused",
+     "cc": 16,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Unused",
+     "cc": 17,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Unused",
+     "cc": 18,
+     "default": 0,
+     "max": 127,
+     "values": null
+    },
+    {
+     "name": "Unused",
+     "cc": 19,
+     "default": 0,
+     "max": 127,
+     "values": null
+    }
+   ],
+   "extras": [
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ ],
+ "filter": [
+  {
+   "name": "Filter Type",
+   "cc": 26,
+   "nrpn": [
+    1,
+    46
+   ],
+   "gesture": "MACHINES + LFO SPEED",
+   "default": 0,
+   "values": [
+    "OFF",
+    "LP",
+    "HP",
+    "BP",
+    "LP24",
+    "HP24"
+   ]
+  },
+  {
+   "name": "Filter Cutoff",
+   "cc": 74,
+   "nrpn": [
+    1,
+    20
+   ],
+   "gesture": "MACHINES + SWEEP",
+   "default": 127,
+   "values": null
+  },
+  {
+   "name": "Filter Reso",
+   "cc": 71,
+   "nrpn": [
+    1,
+    21
+   ],
+   "gesture": "MACHINES + CONTOUR",
+   "default": 0,
+   "values": null
+  },
+  {
+   "name": "Filter Env",
+   "cc": 24,
+   "nrpn": [
+    1,
+    44
+   ],
+   "gesture": "MACHINES + DELAY",
+   "default": 64,
+   "values": null
+  },
+  {
+   "name": "Env Decay",
+   "cc": 25,
+   "nrpn": [
+    1,
+    45
+   ],
+   "gesture": "MACHINES + REVERB",
+   "default": 64,
+   "values": null
+  }
+ ],
+ "inserts": [
+  {
+   "key": "fxtype",
+   "name": "FX Type",
+   "cc": 27,
+   "nrpn": [
+    1,
+    48
+   ],
+   "gesture": "MACHINES + SWING",
+   "default": 0,
+   "values": [
+    "OFF",
+    "DRV",
+    "CRS",
+    "FLD",
+    "RNG",
+    "RES",
+    "RAT"
+   ]
+  },
+  {
+   "key": "fxamt",
+   "name": "FX Amount",
+   "cc": 28,
+   "nrpn": [
+    1,
+    49
+   ],
+   "gesture": "MACHINES + CHANCE",
+   "default": 64,
+   "values": null
+  }
+ ],
+ "sidechain": [
+  {
+   "key": "scSrc",
+   "name": "SC Src",
+   "channel": "fx",
+   "nrpn": [
+    1,
+    50
+   ],
+   "min": 0,
+   "max": 6,
+   "default": 0,
+   "values": [
+    "OFF",
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6"
+   ]
+  },
+  {
+   "key": "scDuck",
+   "name": "Duck mask",
+   "channel": "fx",
+   "nrpn": [
+    1,
+    51
+   ],
+   "min": 0,
+   "max": 63,
+   "default": 63,
+   "values": null
+  },
+  {
+   "key": "scDepth",
+   "name": "SC Depth %",
+   "channel": "fx",
+   "nrpn": [
+    1,
+    52
+   ],
+   "min": 0,
+   "max": 100,
+   "default": 80,
+   "values": null
+  },
+  {
+   "key": "scAtk",
+   "name": "SC Atk ms",
+   "channel": "fx",
+   "nrpn": [
+    1,
+    53
+   ],
+   "min": 0,
+   "max": 6,
+   "default": 1,
+   "values": [
+    "0",
+    "1",
+    "2",
+    "5",
+    "10",
+    "20",
+    "50"
+   ]
+  },
+  {
+   "key": "scHold",
+   "name": "SC Hold ms",
+   "channel": "fx",
+   "nrpn": [
+    1,
+    54
+   ],
+   "min": 0,
+   "max": 5,
+   "default": 2,
+   "values": [
+    "0",
+    "10",
+    "20",
+    "40",
+    "80",
+    "160"
+   ]
+  },
+  {
+   "key": "scRel",
+   "name": "SC Rel ms",
+   "channel": "fx",
+   "nrpn": [
+    1,
+    55
+   ],
+   "min": 0,
+   "max": 13,
+   "default": 6,
+   "values": [
+    "10",
+    "20",
+    "30",
+    "50",
+    "75",
+    "100",
+    "150",
+    "200",
+    "250",
+    "300",
+    "400",
+    "500",
+    "600",
+    "800"
+   ]
+  }
+ ],
+ "lfo_polarity": {
+  "channel": "fx",
+  "nrpn": [
+   1,
+   56
+  ],
+  "min": 0,
+  "max": 63,
+  "default": 0,
+  "values": "mask: bit 0 = T1 unipolar (Uni), 0 = bipolar (Bi)"
+ }
+}

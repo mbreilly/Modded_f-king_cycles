@@ -1,0 +1,44 @@
+{
+ "id": "usb-recover",
+ "order": 96,
+ "name": "Audio USB : la file se rattrape après un bloc trop long",
+ "description": [
+  "L'envoi à l'USB à heure fixe (notes/35) qui rattrape la file quand un bloc a débordé (calcul au-delà de 100 %) : sans cela, en 6 canaux, quelques débordements suffisent à faire déborder le ring de 9 cases, et le son USB reste haché jusqu'au prochain démarrage du flux.",
+  "Si la file dépasse sa cible de plus de 9 trames, l'envoi saute ce qu'il faut pour y revenir (un petit saut sur les pistes USB). feed.S assemblé avec RECOVER, dans le masque 34x34 0x4018ff64.",
+  "S'applique par-dessus mod-settings, qui porte l'envoi à heure fixe (usb_steady.py). Généré par tools/gen_usb_recover.py."
+ ],
+ "device": "Model:Cycles",
+ "os": "1.13",
+ "section": 3,
+ "status": "experimental",
+ "requires": [
+  "mod-settings"
+ ],
+ "writes": [
+  {
+   "off": 362656,
+   "old": "4eb94015c23c",
+   "new": "4eb94018ff64"
+  },
+  {
+   "off": 364434,
+   "old": "4eb94015c2d6",
+   "new": "4eb940190014"
+  },
+  {
+   "off": 364494,
+   "old": "4eb94015c2d6",
+   "new": "4eb940190014"
+  },
+  {
+   "off": 705532,
+   "old": "4018ff64",
+   "new": "4016bfc8"
+  },
+  {
+   "off": 1637220,
+   "old": "ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000ffffffffc0000000",
+   "new": "a93c000000202f0a45f94019003c4aaa0004674c610000564ab9404a062c670c4ab9404a0644670c613a60087209b0816f0261302f2a00042f1242aa00044eb940002912508f4aaa000c67142f2a000c2f2a000842aa000c4eb940002912508f245f4e754a806a387000603441f980008007721f70000810000767025c8041e8004053816af073b9400029b95281c2fc000304810000001090814e756a027000721fb0816f02200123c0404a06204e7541f94019003c4aa80004670850884aa80004660c20af0004216f000800044e754ef940002912000000000000000000000000000000000000"
+  }
+ ]
+}

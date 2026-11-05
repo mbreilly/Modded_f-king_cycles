@@ -1,0 +1,128 @@
+{
+ "id": "lfo-polarity",
+ "order": 67,
+ "name": "Polarité du LFO : ligne Pol (BI / UNI) par piste dans le menu LFO Setup (FUNC + LFO)",
+ "description": [
+  "FUNC + LFO ouvre le menu LFO Setup de l'OS : après Rst, Fde et Sph vient Pol, BI (défaut, la forme de l'OS) ou UNI pour la piste choisie ; LEVEL/DATA bascule, sauvé tout de suite.",
+  "UNI : la forme rendue unipolaire, (forme + 1) / 2 sous le fondu. Avec DEP positif le paramètre ne fait que monter depuis sa valeur, avec DEP négatif que descendre. EXP et RMP, déjà unipolaires, ne changent pas. WAVE garde ses sept formes.",
+  "Réglage : octet 9 de l'enregistrement de Mod Settings (0x404e9b80 ; masque des pistes + 1), sauvé avec ceux de la machine (pas dans le son). MIDI : NRPN 1:56 sur le canal FX, valeur = le masque (bit 0 = T1), sauvé 0,5 s après par sc_tick du sidechain.",
+  "Coût : environ 10 instructions par piste et par bloc dans les LFO (notes/81 §1).",
+  "Code : 1007 o dans 8 masques de sprites libérés. Généré par tools/gen_lfo_polarity.py, notes/81."
+ ],
+ "device": "Model:Cycles",
+ "os": "1.13",
+ "section": 3,
+ "requires": [
+  "mod-settings",
+  "sidechain"
+ ],
+ "symbols": {
+  "pol_apply": "0x40167900",
+  "pol_setup_tail": "0x40190a1c",
+  "pol_nrpn": "0x40190a32",
+  "pol_load": "0x4015c9a4",
+  "pol_press": "0x40168440",
+  "pol_draw": "0x40194ad4",
+  "pol_midi": "0x401907f0",
+  "pol_menu_add": "0x40170c48",
+  "pol_mask": "0x4019081c",
+  "pol_ready": "0x401684a8"
+ },
+ "writes": [
+  {
+   "off": 45122,
+   "old": "4ef940185860",
+   "new": "4ef940190a32"
+  },
+  {
+   "off": 158368,
+   "old": "4cef7c7c0018",
+   "new": "4ef940190a1c"
+  },
+  {
+   "off": 596186,
+   "old": "75147a207342",
+   "new": "4eb940167900"
+  },
+  {
+   "off": 703146,
+   "old": "40194ad4",
+   "new": "4016e980"
+  },
+  {
+   "off": 705324,
+   "old": "40190a1c",
+   "new": "4016e980"
+  },
+  {
+   "off": 705384,
+   "old": "401907a4",
+   "new": "4016e980"
+  },
+  {
+   "off": 721160,
+   "old": "40172a68",
+   "new": "4014b364"
+  },
+  {
+   "off": 722138,
+   "old": "40170c48",
+   "new": "4014b364"
+  },
+  {
+   "off": 727420,
+   "old": "40168440",
+   "new": "4014a550"
+  },
+  {
+   "off": 728492,
+   "old": "40167900",
+   "new": "4014a550"
+  },
+  {
+   "off": 745010,
+   "old": "4015c9a4",
+   "new": "4014a550"
+  },
+  {
+   "off": 1426852,
+   "old": "ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffff",
+   "new": "103940167960723f528013c040167960c0814a00661e4eb940172af44a8067144eb940170cf413c04019081c700113c0401684a84e75"
+  },
+  {
+   "off": 1471744,
+   "old": "ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ff",
+   "new": "4a39401684a8660a2f004eb94015c9a4201f222f003014394019081c030267147404b484670e7405b4846708e280d08e6a02700075147a2073424e754eb9400cf8662f004eb94000eb902f004eb940012412508f4e750000554e49004249000000"
+  },
+  {
+   "off": 1474624,
+   "old": "ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ff",
+   "new": "2f0a2f02246f000c4eb94016793c24007005b082651c4eb9401684887201e5a9b1812f014eb940172a684eb9400449b8588f2052205041e800382f48000c241f245f4ef9400760824a39401684a866104eb940172af44a8067064ef940170cf471b94019081c4e7500"
+  },
+  {
+   "off": 1509448,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00",
+   "new": "4e56ffa848d71c1c282e0008240e0682ffffffc049f940194b404283244248780004267c400802e04e93528345ea0010588f204020842540fff0203c4002cf002540fff8700442aafff4255cfffcb08366cc487800544e93487800084878ffff486efff0486effe0486effd02f0224402f004eb9400734b04fef001c2e8a2f044eb940072ce6508f95ca2f024eb9400cf044528a068200000010588f7004b08a66e84cee1c1cffa84e5e4e751039404e9b8e723f71805380b280640242804e75"
+  },
+  {
+   "off": 1517160,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00ffff",
+   "new": "2f02242f00084eb940172af44a806652203c4d4f445323c0404e9b80700113c0404e9b84420013c0404e9b8513c0404e9b8613c0404e9b8713c0404e9b8813c0404e9b8913c0404e9b8a13c0404e9b8b13c0404e9b8c13c0404e9b8d13c0404e9b8e2002528013c0404e9b8e4eb940190a8013c0404e9b8f700113c24019081c241f13c0401684a84e7500002039404e9b802f020c804d4f4453661a1439404e9b8f4eb940190a80b5804a0057c071004480241f4e75428060f800004e75"
+  },
+  {
+   "off": 1639332,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00ff",
+   "new": "0c80000000bb653c0c80000000c96234323940032ae60c414ef96628207940032ae82228fff00c81534d504e66162228fff4671020412f2f000c2f004e90508f70004e754ef9401858600000202f0004ee88723fb280651e2f004eb940172a6830394018986c588f33c04018986e700113c04018986b4e7500"
+  },
+  {
+   "off": 1639964,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00",
+   "new": "2f0a4eb940170c48588f4cef7c7c00184fef00804e75202f00080c80000000b866102f2f000c4eb9401907f0588f70004e754ef9401907a44e56fffc2f02486effff487a001a24082f084eb9400f980c4fef000c2002242efff84e5e4e75506f6c000000725a207c404e9b841018d0811200b1fc404e9b8f66f24e75"
+  },
+  {
+   "off": 1656532,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00",
+   "new": "4e56fff8203c401117e02f02207c40140ab02d40fff82d48fffc4eb94016793c24007005b08265104eb940168488223c4016795805006606223c4016795c206e00142f01487800042f2e001841e800182f08486efff82f2e00104eb940071a044fef0018242efff44e5e4e7540190a544016844040194ad440172b24"
+  }
+ ]
+}

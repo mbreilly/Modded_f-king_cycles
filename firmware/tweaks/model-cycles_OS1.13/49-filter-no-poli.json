@@ -1,0 +1,22 @@
+{
+ "id": "filter-no-poli",
+ "order": 49,
+ "name": "Filter Type sans POLI : OFF, LP, HP, BP, LP24, HP24",
+ "description": [
+  "Version publique (demande de m_reilly, 05/11/2026, notes/112) : par-dessus track-filter-soft, le maximum du descripteur de Filter Type (0x4010de04) passe de 6 à 5. Le code de POLI reste, mais le potard, CC 26 et NRPN 1:46 s'arrêtent à HP24. Généré par tools/gen_filter_no_poli.py."
+ ],
+ "device": "Model:Cycles",
+ "os": "1.13",
+ "section": 3,
+ "requires": [
+  "track-filter-soft"
+ ],
+ "status": "experimental",
+ "writes": [
+  {
+   "off": 1104388,
+   "old": "00000600",
+   "new": "00000500"
+  }
+ ]
+}

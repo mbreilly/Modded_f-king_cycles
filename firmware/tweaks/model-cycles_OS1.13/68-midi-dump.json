@@ -1,0 +1,146 @@
+{
+ "id": "midi-dump",
+ "order": 68,
+ "name": "GET du greffon : NRPN 1:57 sur le canal FX, la machine renvoie tous les paramètres du projet chargé",
+ "description": [
+  "NRPN 1:57 reçu sur le canal FX (n'importe quelle valeur) : la machine renvoie, piste par piste, la valeur de chaque paramètre par le CC de son potard, sur le canal de la piste (machine, paramètres et paramètres de plus, filtre, effet de piste, mix, Note, Chance, Swing, LFO, Level CC 95, Mute CC 94), puis sur le canal FX Delay et Reverb (CC 85..88), le sidechain (NRPN 1:50..1:55) et Pol (1:56), enfin NRPN 1:58 = 0 (fin). Un groupe tous les 75 blocs audio (50 ms) ; environ 0,4 s en tout.",
+  "Envoyé même si ENCODER DEST est sur INT (la demande vient du greffon) ; rien sur un canal OFF ni tant qu'aucun projet n'est chargé. Rien n'est changé sur la machine.",
+  "Une machine chargée depuis l'écran MACHINES (0x4001488a) : 100 ms après la dernière, la piste est envoyée seule de la même façon (machine CC 70 d'abord, puis ses paramètres), pour que le greffon la suive.",
+  "L'OS jette les NRPN reçus (0x400829b6 : jmp 0x4000ecb6, qui ne fait rien) : ceux du canal FX vont désormais à la méthode NRPN des effets (0x4000b442), ce qui fait aussi marcher par MIDI USB 2CH/6CH (1:47), le sidechain (1:50..1:55), Pol (1:56) et les NRPN des échantillons.",
+  "Accroché derrière lfo-polarity (0x4000b442 : pol_nrpn -> md_nrpn, qui rend la main à pol_nrpn) et machine-click (pointeur d'horloge avant mc_cfg_tail : sc_tick -> md_tick, qui appelle sc_tick d'abord).",
+  "Code : 878 o dans 9 masques de sprites libérés. Généré par tools/gen_midi_dump.py, notes/94."
+ ],
+ "device": "Model:Cycles",
+ "os": "1.13",
+ "section": 3,
+ "requires": [
+  "mod-settings",
+  "sidechain",
+  "track-select",
+  "machine-click",
+  "lfo-polarity",
+  "cpu-monitor"
+ ],
+ "symbols": {
+  "md_nrpn": "0x40160de8",
+  "md_tick": "0x401639ec",
+  "md_run": "0x40166690",
+  "md_step": "0x401666f3",
+  "md_go": "0x401666f2",
+  "md_rx": "0x4018a560",
+  "md_load": "0x40157404",
+  "md_one": "0x401630e4"
+ },
+ "writes": [
+  {
+   "off": 45122,
+   "old": "4ef940190a32",
+   "new": "4ef940160de8"
+  },
+  {
+   "off": 83082,
+   "old": "4feffff048d7003c",
+   "new": "4ef9401574044e71"
+  },
+  {
+   "off": 533942,
+   "old": "4ef94000ecb6",
+   "new": "4ef94018a560"
+  },
+  {
+   "off": 708070,
+   "old": "4018a510",
+   "new": "4016e980"
+  },
+  {
+   "off": 729932,
+   "old": "40166690",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 733710,
+   "old": "40163b38",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 733770,
+   "old": "40163990",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 733802,
+   "old": "401638c0",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 735022,
+   "old": "401630e4",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 735606,
+   "old": "40162ab4",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 738384,
+   "old": "40160d9c",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 753626,
+   "old": "401573cc",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 1404876,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffff",
+   "new": "486d0074206d0074206800344e90588f20404a80671030302a1048c0e080725f4eb9401639c2202c0014e4a87201c081725e4ef9401639c2202f000c41fa002801d022394016dad006810000009623c14015742e4feffff048d7003c4ef9400148920000000000"
+  },
+  {
+   "off": 1444252,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0",
+   "new": "45ed026c2002e788d5c0202a000467202f0020402050206800284e90588f4a80670e28022a3c000203ff4eb94018a5102f022f0d4eb94000f26c508f244028022a3c000400004ef94018a510202f00080480000000b9660a720113c1401666f24e754ef940190a32"
+  },
+  {
+   "off": 1451700,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffff",
+   "new": "45ed02e078062a3c00000c004eb94018a51045f94016390674004eb9401638c07202b28266062200e589d081ef882f0020020680000000b22f002f034eb9400828484fef000c568a52827007b48065ca4e75"
+  },
+  {
+   "off": 1453284,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffff",
+   "new": "4a39401666f3664c7200123940157432674220394016dad090b94015742e6b3404c1701f908141f9401574320190528013c0401666f34eb940163b384239401666f320394016dad0724bd08123c04015742e4e754ef940166690"
+  },
+  {
+   "off": 1455296,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffff",
+   "new": "41f9404e9b80725a70047bb00800d28552807a0fb08565f2738171a8000fb081661e20100c804d4f44536614719271b00805670c73aa0001b280650453804e7571aa00024e7501070002403f031510040701050602060e06094000"
+  },
+  {
+   "off": 1455504,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0",
+   "new": "2f072f0a20522068001c4e90588f26404eb94005a7f84a806a0c200bef8826404eb94005a81a588fb0866616200be08022062f002f012f034eb9400828004fef000c4e7542a7487800ba2f034eb9400828484fef000c4e75000000004eb9401898744ef9401630e4"
+  },
+  {
+   "off": 1455928,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0",
+   "new": "4fefffd848d73cfc4eb9400cf8662a40202d00402840673874001439401666f353827006b480641226342c604eb940160d9c4eb9401573cc601c262c0078b48066084eb940162ab4600c4eb9401639d44239401666f34cd73cfc4fef00284e75"
+  },
+  {
+   "off": 1467024,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0",
+   "new": "70001039401666f267184239401666f213c0401666f322394016dad023c1401639e81039401666f3673622394016dad092b9401639e86b284eb940163b3870001039401666f36718528013c0401666f320394016dad0724bd08123c0401639e84e750000"
+  },
+  {
+   "off": 1614096,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00",
+   "new": "7c4620522f0a206800584e902e862f002f044eb94005a8ce4fef000c2e006f2072384c01000020794000b66220300800721fb280650a010567064eb9401639905286707fcc807046bc8066b64e7500007006b0af00106610203c000002e0d1af00044ef94000b44270004e75"
+  },
+  {
+   "off": 1635728,
+   "old": "40189874",
+   "new": "401639ec"
+  }
+ ]
+}

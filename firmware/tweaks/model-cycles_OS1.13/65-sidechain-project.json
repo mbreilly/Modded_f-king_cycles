@@ -1,0 +1,86 @@
+{
+ "id": "sidechain-project",
+ "order": 65,
+ "name": "Sidechain gardé avec le projet : ses réglages s'enregistrent et se rechargent avec chaque projet",
+ "description": [
+  "Quand l'OS écrit le projet, les six réglages du sidechain (SC Src, Duck T1..T6, SC Depth, SC Atk, SC Hold, SC Rel) vont dans le bloc de réglages du projet (+40..+49 : « SC », version, les six octets, somme), que l'OS écrit tel quel et dont il ne relit pas ces octets.",
+  "Quand l'OS relit un projet, ils reviennent dans SETTINGS › CONFIG › Mods et le sidechain les applique ; un projet enregistré sans eux (avant le mod) se charge sidechain sur OFF, réglages par défaut.",
+  "Trk Trig et USB Audio restent des réglages de la machine.",
+  "Code : 546 o dans 5 masques de sprites libérés. Généré par tools/gen_sc_project.py, notes/86."
+ ],
+ "device": "Model:Cycles",
+ "os": "1.13",
+ "section": 3,
+ "requires": [
+  "mod-settings",
+  "sidechain"
+ ],
+ "symbols": {
+  "sp_save": "0x401679d8",
+  "sp_load": "0x401679fc",
+  "sp_put": "0x401698d0",
+  "sp_get": "0x40190184"
+ },
+ "writes": [
+  {
+   "off": 373958,
+   "old": "4ebafaec508f",
+   "new": "4eb9401679fc"
+  },
+  {
+   "off": 374322,
+   "old": "4eb94008f1f0",
+   "new": "4eb9401679d8"
+  },
+  {
+   "off": 705504,
+   "old": "40190184",
+   "new": "4014b364"
+  },
+  {
+   "off": 725282,
+   "old": "401698d0",
+   "new": "4014a550"
+  },
+  {
+   "off": 727134,
+   "old": "401688b4",
+   "new": "4014a550"
+  },
+  {
+   "off": 728428,
+   "old": "40167aa8",
+   "new": "4014a550"
+  },
+  {
+   "off": 728458,
+   "old": "401679d8",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 1471960,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffff",
+   "new": "2f2f000c2f2f000c2f2f000c4eb94008f1f04fef000c2f2f00044eb9401698d0588f4e752f2f00082f2f00084eb94005b3b4508f4a0067102f002f2f000c4eb940190184588f201f205f508f4ed0"
+  },
+  {
+   "off": 1472168,
+   "old": "ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0",
+   "new": "207c404e9b8020102f020c804d4f445366281439404e9b8f4878000f487800042f084eb940167ae84fef000cb5804a0057c071004480241f4e75428060f800002f02745a222f000c206f0008d1c152811010d0821400b2af001066ec241f4e75"
+  },
+  {
+   "off": 1475764,
+   "old": "ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffff",
+   "new": "4eb940167aa84a806652203c4d4f445323c0404e9b80700113c0404e9b84420013c0404e9b8513c0404e9b8613c0404e9b8713c0404e9b8813c0404e9b8913c0404e9b8a13c0404e9b8b13c0404e9b8c13c0404e9b8d13c0404e9b8e4e75"
+  },
+  {
+   "off": 1479888,
+   "old": "ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0ffffffe0",
+   "new": "2f0a2f02246f000c240a4eb940167aa8068200000028323c53433541002872011541002a4a806730203c404e9b862f00486a002b4eb94019021848780009487800022f024eb940167ae84fef001415400031241f245f4e75428060d2"
+  },
+  {
+   "off": 1637764,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00ffff",
+   "new": "4feffff0725348d71c04246f001447f940167ae849f9401688b471aa0028b280666c71aa00297243b280666271aa002a53804a806658142a00314878000948780002486a00284e934fef000c71807582b082663a4e9445ea002b2f0a2f3c404e9b864eb9401902184878000f487800042f3c404e9b804e9313c0404e9b8f4cef1c0400144fef00244ef9401856484e9495ca60c6206f000842804a88671843f008001211226f0004d3c0128152807206b28066e64e75420160ea"
+  }
+ ]
+}

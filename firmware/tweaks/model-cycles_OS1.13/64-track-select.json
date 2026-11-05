@@ -1,0 +1,109 @@
+{
+ "id": "track-select",
+ "order": 64,
+ "name": "Trk Trig : les touches de piste choisissent la piste sans jouer son son (réglable)",
+ "description": [
+  "SETTINGS › CONFIG › Mods, une ligne après celles du sidechain : Trk Trig ON / OFF (LEVEL/DATA bascule, sauvé tout de suite). ON (défaut) : comme l'OS, une touche de piste choisit la piste et joue son son.",
+  "OFF : une touche de piste choisit seulement la piste (rien ne joue, rien n'est enregistré en direct) ; TRK tenu + touche de piste choisit et joue (l'inverse de l'OS, où TRK + piste choisit sans jouer).",
+  "Le navigateur de sons et le mode mute gardent le comportement de l'OS (ils ne passent pas par cette branche).",
+  "Réglage : octet 7 de l'enregistrement de Mod Settings (0x404e9b80), sauvé avec ceux de la machine.",
+  "Code : 722 o dans 7 masques de sprites libérés. Généré par tools/gen_track_select.py, notes/85."
+ ],
+ "device": "Model:Cycles",
+ "os": "1.13",
+ "section": 3,
+ "requires": [
+  "mod-settings",
+  "sidechain"
+ ],
+ "symbols": {
+  "ts_cfg_tail": "0x40168fbc",
+  "ts_pad": "0x40168fdc",
+  "ts_quiet": "0x401903c8",
+  "ts_press": "0x40167b80",
+  "ts_draw": "0x40179c98",
+  "ts_menu_add": "0x40190334"
+ },
+ "writes": [
+  {
+   "off": 118640,
+   "old": "588f4a0767d8",
+   "new": "4ef940168fdc"
+  },
+  {
+   "off": 247194,
+   "old": "4ef940185800",
+   "new": "4ef940168fbc"
+  },
+  {
+   "off": 702582,
+   "old": "40195a7c",
+   "new": "4016e980"
+  },
+  {
+   "off": 705444,
+   "old": "40190334",
+   "new": "4014b364"
+  },
+  {
+   "off": 710052,
+   "old": "40186168",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 717298,
+   "old": "40179c98",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 726642,
+   "old": "40168fb4",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 726912,
+   "old": "40168c4c",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 728388,
+   "old": "40167b80",
+   "new": "4014b4e4"
+  },
+  {
+   "off": 1472384,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffff",
+   "new": "4eb9401903c84a8057c0710044802f004eb940195a7c4eb9400449b8588f2039401877242f4000044ef940076082"
+  },
+  {
+   "off": 1476684,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffff",
+   "new": "2039404e9b802f020c804d4f4453661a1439404e9b8f4eb940179ce0b5804a0057c071004480241f4e75428060f800004e56fffc2f02486effff487a001a24082f084eb9400f980c4fef000c2002242efff84e5e4e7554726b2054726700"
+  },
+  {
+   "off": 1477556,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0",
+   "new": "4d4f4453401898742f0a4eb940171f304eb94017a4d44eb940190334588f4cee3cfcff984e5e4e75588f4eb9401903c84a8067044a0757c74a0767064ef94001d3764ef94001d34e"
+  },
+  {
+   "off": 1546392,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0",
+   "new": "4eb9401903c8223c401903f04a806706223c401903ec2f012f3c401301e642a748780001206f002441e8fff42f082f2f00242f3c401429ec2f2f00284eb940071c104fef00204e75725a207c404e9b841018d0811200b1fc404e9b8f66f24e75"
+  },
+  {
+   "off": 1596776,
+   "old": "ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ffffffc0ff",
+   "new": "4feffff448d70c04246f0010240a47f9401861bc068200000040487800044eb9400802e045ea0010588f204042902540fff0203c4002cf0042aafff42540fff8255bfffcb48a66d24cd70c044fef000c4e75000040168c7c40167b8040179c9840195af400"
+  },
+  {
+   "off": 1638196,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc",
+   "new": "4e56ffb448d7040c2479401877244a39401861cc66724a8a676e240e0682ffffffc02f024eb940186168487800544eb9400802e0487800084878ffff486efff0486effe0486effd02f0226002f004eb9400734b04fef00202e83486affc84eb940072ce6508f42832f024eb9400cf0445283068200000010588f7004b08366e8700113c0401861cc4cee040cffb44e5e4e7500004eb940168c4c4a8067141039404e9b8c7202b3804a0057c0710044804e75428060fa00004f4646004f4e00"
+  },
+  {
+   "off": 1660540,
+   "old": "fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00fffffc00ffff",
+   "new": "4eb940168c4c4a806652203c4d4f445323c0404e9b80700113c0404e9b84420013c0404e9b8513c0404e9b8613c0404e9b8713c0404e9b8813c0404e9b8913c0404e9b8a13c0404e9b8b13c0404e9b8c13c0404e9b8d13c0404e9b8e202f0004528013c0404e9b8c4eb940179ce013c0404e9b8f4e7500004e75"
+  }
+ ]
+}
