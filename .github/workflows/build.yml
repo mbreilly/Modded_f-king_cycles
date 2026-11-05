@@ -108,5 +108,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          notes=$(awk "/^## ${GITHUB_REF_NAME}/{f=1;next} /^## /{f=0} f" CHANGELOG.md)
-          gh release create "$GITHUB_REF_NAME" dist/*.zip --title "Modded_f-king_cycles $GITHUB_REF_NAME" --notes "$notes"
+          base="${GITHUB_REF_NAME%%-*}"     # v1.0-beta -> the notes of v1.0
+          notes=$(awk "/^## ${base}\$/{f=1;next} /^## /{f=0} f" CHANGELOG.md)
+          pre=""
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            pre="--prerelease"
+            notes=$(printf '%s\n\n%s' "**Beta.** Tested in emulation; hardware testing is still under way. Back up your projects before flashing." "$notes")
+          fi
+          cp docs/Modded_f-king_cycles-Manual.pdf dist/
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/Modded_f-king_cycles-Manual.pdf $pre \
+            --title "Modded_f-king_cycles $GITHUB_REF_NAME" --notes "$notes"
