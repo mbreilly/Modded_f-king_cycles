@@ -26,7 +26,7 @@ static std::vector<Cc> runBlock (CyclesProcessor& p, juce::MidiBuffer in = {}, i
     return ccsIn (in);
 }
 
-static void pump (int ms = 60) { juce::MessageManager::getInstance()->runDispatchLoopUntil (ms); }
+static void pump (int ms = 250) {   // slow CI runners (macOS) need the longer default juce::MessageManager::getInstance()->runDispatchLoopUntil (ms); }
 
 static void setParam (CyclesProcessor& p, const juce::String& id, float value)
 {
